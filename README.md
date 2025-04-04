@@ -10,7 +10,7 @@
 
 - 📋 Criação e edição completas de fichas de personagem
 - 🦇 Suporte a múltiplas linhas: Vampiro, Lobisomem, Mago, Changeling, Caçador, etc.
-- 🧠 Gerenciamento de atributos, habilidades, **vantagens**, condições, experiências e mais
+- 🧠 Gerenciamento de atributos, habilidades, vantagens, condições, experiências e mais
 - 🌑 Interface responsiva com visual temático sombrio
 - 💾 Salvamento automático e armazenamento local ou na nuvem
 - 📤 Exportação em PDF e/ou formatos compatíveis com VTTs
@@ -22,9 +22,8 @@
 ## 🛠️ Tecnologias
 
 - **Frontend:** React + TypeScript
-- **Estado:** [Zotai](https://github.com/kikuring/zotai) (estado reativo com átomos)
+- **Estado:** Jotai (estado reativo com átomos)
 - **Estilo:** Tailwind CSS com tema customizado
-- **Backend (opcional):** Firebase / Supabase / Node.js API
 - **Exportação PDF:** jsPDF, html2canvas
 - **Outros:** Vite, Vercel (deploy)
 
@@ -44,3 +43,4 @@ npm install
 
 # Inicie o servidor de desenvolvimento
 npm run dev
+```
