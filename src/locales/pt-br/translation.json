@@ -1,0 +1,39 @@
+{
+  "name": "Nome",
+  "age": "Idade",
+  "concept": "Conceito",
+  "player": "Jogador",
+  "chronicle": "Crônica",
+  "group": "Grupo",
+  "templateSelect": "Tipo Sobrenatural",
+  
+  "newCharacter": "Novo Personagem",
+  "new": "Novo",
+  "import": "Importar",
+  "export": "Exportar",
+  
+  "mortal": "Mortal",
+  "virtue": "Virtude",
+  "vice": "Vício",
+  "faction": "Facção",
+
+  "vampire": "Vampiro",
+  "clan": "Clã",
+  "bloodline": "Linhagem",
+  "mask": "Máscara",
+  "dirge": "Lamento",
+  "covenant": "Coalizão",
+
+  "werewolf": "Lobisomem",
+  "mage": "Mago",
+  "hunter": "Caçador",
+  "changeling": "Changeling",
+  "promethean": "Prometeano",
+  "demon": "Demônio",
+  "mummy": "Múmia",
+  "beast": "Besta",
+  "geist": "Fantasma",
+  "wraith": "Espectro",
+  "deviant": "Desviante",
+  "sin-eater": "Devorador de Pecados"
+}

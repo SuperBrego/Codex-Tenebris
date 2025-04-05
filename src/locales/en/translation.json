@@ -1,0 +1,40 @@
+{
+  "name": "Name",
+  "age": "Age",
+  "concept": "Concept",
+  "player": "Player",
+  "chronicle": "Chronicle",
+  "group": "Group",
+  "templateSelect": "Supernatural Type",
+  "newCharacter": "New Character",
+  
+  "new": "New",
+  "import": "Import",
+  "export": "Export",
+
+  "mortal": "Mortal",
+  "virtue": "Virtue",
+  "vice": "Vice",
+  "faction": "Faction",
+
+  "vampire": "Vampire",
+  "clan": "Clan",
+  "bloodline": "Bloodline",
+  "mask": "Mask",
+  "dirge": "Dirge",
+  "covenant": "Covenant",
+  
+
+  "werewolf": "Werewolf",
+  "mage": "Mage",
+  "hunter": "Hunter",
+  "changeling": "Changeling",
+  "promethean": "Promethean",
+  "demon": "Demon",
+  "mummy": "Mummy",
+  "beast": "Beast",
+  "geist": "Geist",
+  "wraith": "Wraith",
+  "deviant": "Deviant",
+  "sin-eater": "Sin-Eater"
+}

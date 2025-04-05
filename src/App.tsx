@@ -1,13 +1,12 @@
 import './App.css'
-import { CharacterSheet } from './pages/CharacterSheet'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import CharacterEditor from './pages/CharacterEditor';
 
 function App() {
 
   return (
     <>
-    <div className="min-h-screen bg-black text-white font-sans">
-      <CharacterSheet />
-    </div>
+    <CharacterEditor />
     </>
   )
 }

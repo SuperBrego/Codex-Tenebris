@@ -1,7 +1,8 @@
-import { MortalTraits } from "./MortalTraits";
 import { StateTrack } from "../StateTrack";
+import { Trait } from "../Trait";
+import { SupernaturalTemplate } from "../TemplateTraits";
 
-export interface VampireTraits extends MortalTraits {
+export interface VampireTraits extends SupernaturalTemplate {
   bloodPotency: number;
   clan: string;
   mask: string;
@@ -9,10 +10,10 @@ export interface VampireTraits extends MortalTraits {
   bloodline: string;
   covenant: string;
   vitae: StateTrack[];
-  disciplines: any[];
+  disciplines: Trait[];
   banes: string[];
-  devotions: any[];
-  ritesMiracles: any[];
+  devotions: Trait[];
+  ritesMiracles: Trait[];
   vinculum: any[];
   havens: any[];
 }

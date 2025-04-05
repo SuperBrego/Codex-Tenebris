@@ -1,4 +1,4 @@
-export enum SupernaturalTemplates {
+export enum SupernaturalTemplatesIDs {
   Mortal,
   Vampire,
   Werewolf,

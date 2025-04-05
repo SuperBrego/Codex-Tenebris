@@ -4,4 +4,4 @@ import { VampireTraits } from "../interfaces/templates/VampireTraits";
 import { WerewolfTraits } from "../interfaces/templates/WerewolfTraits";
 
 // types.ts
-export type TemplateTraits = MortalTraits | VampireTraits | WerewolfTraits | DeviantTraits;
+export type SupernaturalTemplatesType = MortalTraits | VampireTraits | WerewolfTraits | DeviantTraits;

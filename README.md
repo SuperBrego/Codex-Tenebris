@@ -29,6 +29,10 @@
 
 ---
 
+## Afazeres
+
+---
+
 ## 🚀 Começando
 
 ```bash

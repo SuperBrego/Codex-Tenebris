@@ -1,11 +1,8 @@
-import { SupernaturalTemplates } from "../../enum/SupernaturalTemplates";
+import { SupernaturalTemplate } from "../TemplateTraits";
 
-export interface MortalTraits {
-  index: SupernaturalTemplates;
-  book: string;
+export interface MortalTraits extends SupernaturalTemplate {
   virtue: string;
   vice: string;
-  age: number;
   faction: string;
   moralityType: string;
   moralityTrait: string[];

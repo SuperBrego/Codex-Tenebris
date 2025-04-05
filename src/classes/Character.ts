@@ -1,118 +1,105 @@
-import { SupernaturalTemplates } from "../enum/SupernaturalTemplates";
+import { SupernaturalTemplatesIDs } from "../enum/SupernaturalTemplates";
+import { HealthBox } from "../interfaces/HealthBox";
 import { StateTrack } from "../interfaces/StateTrack";
 import { Trait } from "../interfaces/Trait";
-import { TemplateTraits } from "../types/TemplateTraits";
+import { SupernaturalTemplatesType } from "../types/SupernaturalTemplatesType";
+import { getTemplateTraits } from "../Utils/SupernaturalTemplates";
+import { createHealthTrack, createStateTrackList } from "../Utils/Utils";
 
 export class Character {
+  id: string = crypto.randomUUID();
   name: string;
   player: string;
   concept: string;
   chronicle: string;
   group: string;
+  age: number = 30;
   
-  template: SupernaturalTemplates;
-  // templateTraits: TemplateTraits;
+  template: SupernaturalTemplatesIDs;
+  templateTraits: SupernaturalTemplatesType;
   
-  // willpower: StateTrack[];
+  health: HealthBox[];
+  willpower: StateTrack[];
   size: number;
   extraVitality: number;
   
-  merits: any[];
-  conditions: any[];
-  aspirations: any[];
-  story: string;
-  appearance: string;
+  merits: Trait[] = [];
+  conditions: any[] = [];
+  aspirations: string[] = [];
+  story: string = '';
+  appearance: string = '';
   
-  npcs: { name: string; description: string }[];
+  npcs: { name: string; description: string }[] = [];
   
-  mentalAttributes: Trait[];
-  physicalAttributes: Trait[];
-  socialAttributes: Trait[];
+  mentalAttributes: Trait[] = [
+    { index: 0, name: "Inteligência", rank: 1, type: "intelligence" },
+    { index: 1, name: "Raciocínio", rank: 1, type: "wits" },
+    { index: 2, name: "Perseverança", rank: 1, type: "resolve" },
+  ];
   
-  mentalSkills: Trait[];
-  physicalSkills: Trait[];
-  socialSkills: Trait[];
+  physicalAttributes: Trait[] = [
+    { index: 0, name: "Força", rank: 1, type: "strength" },
+    { index: 1, name: "Destreza", rank: 1, type: "dexterity" },
+    { index: 2, name: "Vigor", rank: 1, type: "stamina" },
+  ];
   
-  equipments: any[];
-  weapons: any[];
-  armors: any[];
+  socialAttributes: Trait[] = [
+    { index: 0, name: "Presença", rank: 1, type: "presence" },
+    { index: 1, name: "Manipulação", rank: 1, type: "manipulation" },
+    { index: 2, name: "Autocontrole", rank: 1, type: "composure" },
+  ];
   
-  constructor(name: string = "Personagem") {
+  mentalSkills: Trait[] = [
+    { index: 0, name: "Ciências", rank: 0, type: "science" },
+    { index: 1, name: "Erudição", rank: 0, type: "academics" },
+    { index: 2, name: "Informática", rank: 0, type: "computer" },
+    { index: 3, name: "Investigação", rank: 0, type: "investigation" },
+    { index: 4, name: "Medicina", rank: 0, type: "medicine" },
+    { index: 5, name: "Ocultismo", rank: 0, type: "occult" },
+    { index: 6, name: "Ofícios", rank: 0, type: "crafts" },
+    { index: 7, name: "Política", rank: 0, type: "politics" },
+  ];
+  
+  physicalSkills: Trait[] = [
+    { index: 0, name: "Armamento", rank: 0, type: "weaponry" },
+    { index: 1, name: "Armas de Fogo", rank: 0, type: "firearms" },
+    { index: 2, name: "Briga", rank: 0, type: "brawl" },
+    { index: 3, name: "Condução", rank: 0, type: "drive" },
+    { index: 4, name: "Dissimulação", rank: 0, type: "stealth" },
+    { index: 5, name: "Esportes", rank: 0, type: "athletics" },
+    { index: 6, name: "Furto", rank: 0, type: "larceny" },
+    { index: 7, name: "Sobrevivência", rank: 0, type: "survival" },
+  ];
+  
+  socialSkills: Trait[] = [
+    { index: 0, name: "Astúcia", rank: 0, type: "subterfuge" },
+    { index: 1, name: "Empatia", rank: 0, type: "empathy" },
+    { index: 2, name: "Expressão", rank: 0, type: "expression" },
+    { index: 3, name: "Intimidação", rank: 0, type: "intimidation" },
+    { index: 4, name: "Manha", rank: 0, type: "streetwise" },
+    { index: 5, name: "Persuasão", rank: 0, type: "persuasion" },
+    { index: 6, name: "Socialização", rank: 0, type: "socialize" },
+    { index: 7, name: "Tratar Animais", rank: 0, type: "animalKen" },
+  ];
+  
+  equipments: any[] = [];
+  weapons: any[] = [];
+  armors: any[] = [];
+  
+  constructor(name: string = "Personagem", characterTemplate: SupernaturalTemplatesIDs = SupernaturalTemplatesIDs.Mortal) {
     this.name = name;
     this.player = '';
     this.concept = '';
     this.chronicle = '';
     this.group = '';
     
-    this.template = SupernaturalTemplates.Vampire;
-    // this.templateTraits = getTemplateTraits(this.template);
-       
-    // this.willpower = createStateTrack(15);
+    this.health = createHealthTrack(this.healthPoints)
+    this.template = characterTemplate;
+    this.templateTraits = getTemplateTraits(this.template);
+    this.willpower = createStateTrackList(15, this.willpowerPoints);
     
     this.size = 5;
-    this.extraVitality = 0;
-    
-    this.merits = [];
-    this.conditions = [];
-    this.aspirations = [];
-    this.story = '';
-    this.appearance = '';
-    this.npcs = [];
-    
-    this.mentalAttributes = [
-      { index: 0, name: "Inteligência", rank: 1, class: "intelligence" },
-      { index: 1, name: "Raciocínio", rank: 1, class: "wits" },
-      { index: 2, name: "Perseverança", rank: 1, class: "resolve" },
-    ];
-    
-    this.physicalAttributes = [
-      { index: 0, name: "Força", rank: 1, class: "strength" },
-      { index: 1, name: "Destreza", rank: 1, class: "dexterity" },
-      { index: 2, name: "Vigor", rank: 1, class: "stamina" },
-    ];
-    
-    this.socialAttributes = [
-      { index: 0, name: "Presença", rank: 1, class: "presence" },
-      { index: 1, name: "Manipulação", rank: 1, class: "manipulation" },
-      { index: 2, name: "Autocontrole", rank: 1, class: "composure" },
-    ];
-    
-    this.mentalSkills = [
-      { index: 0, name: "Ciências", rank: 0, class: "science" },
-      { index: 1, name: "Erudição", rank: 0, class: "academics" },
-      { index: 2, name: "Informática", rank: 0, class: "computer" },
-      { index: 3, name: "Investigação", rank: 0, class: "investigation" },
-      { index: 4, name: "Medicina", rank: 0, class: "medicine" },
-      { index: 5, name: "Ocultismo", rank: 0, class: "occult" },
-      { index: 6, name: "Ofícios", rank: 0, class: "crafts" },
-      { index: 7, name: "Política", rank: 0, class: "politics" },
-    ];
-    
-    this.physicalSkills = [
-      { index: 0, name: "Armamento", rank: 0, class: "weaponry" },
-      { index: 1, name: "Armas de Fogo", rank: 0, class: "firearms" },
-      { index: 2, name: "Briga", rank: 0, class: "brawl" },
-      { index: 3, name: "Condução", rank: 0, class: "drive" },
-      { index: 4, name: "Dissimulação", rank: 0, class: "stealth" },
-      { index: 5, name: "Esportes", rank: 0, class: "athletics" },
-      { index: 6, name: "Furto", rank: 0, class: "larceny" },
-      { index: 7, name: "Sobrevivência", rank: 0, class: "survival" },
-    ];
-    
-    this.socialSkills = [
-      { index: 0, name: "Astúcia", rank: 0, class: "subterfuge" },
-      { index: 1, name: "Empatia", rank: 0, class: "empathy" },
-      { index: 2, name: "Expressão", rank: 0, class: "expression" },
-      { index: 3, name: "Intimidação", rank: 0, class: "intimidation" },
-      { index: 4, name: "Manha", rank: 0, class: "streetwise" },
-      { index: 5, name: "Persuasão", rank: 0, class: "persuasion" },
-      { index: 6, name: "Socialização", rank: 0, class: "socialize" },
-      { index: 7, name: "Tratar Animais", rank: 0, class: "animalKen" },
-    ];
-    
-    this.equipments = [];
-    this.weapons = [];
-    this.armors = [];
+    this.extraVitality = 0;    
   }
   
   // Continua dentro da classe Character
@@ -123,8 +110,7 @@ export class Character {
     this.concept = character.concept;
     this.chronicle = character.chronicle;
     this.group = character.group;
-    // this.health = character.healthPoints;
-    // this.willpower = character.willpower;
+    this.willpower = character.willpower;
     this.size = character.size;
     this.merits = character.merits;
     this.mentalAttributes = character.mentalAttributes;
@@ -139,12 +125,12 @@ export class Character {
     this.story = character.story;
     this.appearance = character.appearance;
     this.template = character.template;
-    // this.templateTraits = character.templateTraits;
+    this.templateTraits = character.templateTraits;
     this.npcs = character.npcs;
   }
   
   get healthPoints(): number {
-    return this.size + this.physicalAttributes[2].rank;
+    return this.size + this.stamina;
   }
   
   get willpowerPoints(): number {
@@ -164,13 +150,13 @@ export class Character {
   }
   
   // Sobrenatural
-  get supernaturalTemplate(): SupernaturalTemplates {
+  get supernaturalTemplate(): SupernaturalTemplatesIDs {
     return this.template;
   }
   
-  set supernaturalTemplate(template: SupernaturalTemplates) {
+  set supernaturalTemplate(template: SupernaturalTemplatesIDs) {
     this.template = template;
-    // this.templateTraits = getTemplateTraits(template);
+    this.templateTraits = getTemplateTraits(template);
   }
   
   // Atributos — acesso por índice
@@ -189,19 +175,19 @@ export class Character {
   getMentalAttrClass(index: number): string {
     const attr = this.getMentalAttr(index);
     if (!attr) throw new Error(`Não foi possível encontrar Index. Index encontrado: ${index}`);
-    return attr.class;
+    return attr.type;
   }
   
   getPhysicalAttrClass(index: number): string {
     const attr = this.getPhysicalAttr(index);
     if (!attr) throw new Error(`Não foi possível encontrar Index. Index encontrado: ${index}`);
-    return attr.class;
+    return attr.type;
   }
   
   getSocialAttrClass(index: number): string {
     const attr = this.getSocialAttr(index);
     if (!attr) throw new Error(`Não foi possível encontrar Index. Index encontrado: ${index}`);
-    return attr.class;
+    return attr.type;
   }
   
   // Atributos — setters
