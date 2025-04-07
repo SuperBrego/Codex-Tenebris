@@ -1,5 +1,6 @@
 import { SupernaturalTemplatesIDs } from "../enum/SupernaturalTemplates";
 import { HealthBox } from "../interfaces/HealthBox";
+import { Skill } from "../interfaces/Skill";
 import { StateTrack } from "../interfaces/StateTrack";
 import { Trait } from "../interfaces/Trait";
 import { SupernaturalTemplatesType } from "../types/SupernaturalTemplatesType";
@@ -31,56 +32,56 @@ export class Character {
   
   npcs: { name: string; description: string }[] = [];
   
-  mentalAttributes: Trait[] = [
-    { index: 0, name: "Inteligência", rank: 1, type: "intelligence" },
-    { index: 1, name: "Raciocínio", rank: 1, type: "wits" },
-    { index: 2, name: "Perseverança", rank: 1, type: "resolve" },
-  ];
+  attributes: Record<'mental' | 'physical' | 'social', Trait[]> = {
+    mental: [
+      { name: 'intelligence', labelKey: 'intelligence', value: 1 },
+      { name: 'wits', labelKey: 'wits', value: 1 },
+      { name: 'resolve', labelKey: 'resolve', value: 1 },
+    ],
+    physical: [
+      { name: 'strength', labelKey: 'strength', value: 1 },
+      { name: 'dexterity', labelKey: 'dexterity', value: 1 },
+      { name: 'stamina', labelKey: 'stamina', value: 1 },
+    ],
+    social: [
+      { name: 'presence', labelKey: 'presence', value: 1 },
+      { name: 'manipulation', labelKey: 'manipulation', value: 1 },
+      { name: 'composure', labelKey: 'composure', value: 1 },
+    ],
+  };
   
-  physicalAttributes: Trait[] = [
-    { index: 0, name: "Força", rank: 1, type: "strength" },
-    { index: 1, name: "Destreza", rank: 1, type: "dexterity" },
-    { index: 2, name: "Vigor", rank: 1, type: "stamina" },
-  ];
-  
-  socialAttributes: Trait[] = [
-    { index: 0, name: "Presença", rank: 1, type: "presence" },
-    { index: 1, name: "Manipulação", rank: 1, type: "manipulation" },
-    { index: 2, name: "Autocontrole", rank: 1, type: "composure" },
-  ];
-  
-  mentalSkills: Trait[] = [
-    { index: 0, name: "Ciências", rank: 0, type: "science" },
-    { index: 1, name: "Erudição", rank: 0, type: "academics" },
-    { index: 2, name: "Informática", rank: 0, type: "computer" },
-    { index: 3, name: "Investigação", rank: 0, type: "investigation" },
-    { index: 4, name: "Medicina", rank: 0, type: "medicine" },
-    { index: 5, name: "Ocultismo", rank: 0, type: "occult" },
-    { index: 6, name: "Ofícios", rank: 0, type: "crafts" },
-    { index: 7, name: "Política", rank: 0, type: "politics" },
-  ];
-  
-  physicalSkills: Trait[] = [
-    { index: 0, name: "Armamento", rank: 0, type: "weaponry" },
-    { index: 1, name: "Armas de Fogo", rank: 0, type: "firearms" },
-    { index: 2, name: "Briga", rank: 0, type: "brawl" },
-    { index: 3, name: "Condução", rank: 0, type: "drive" },
-    { index: 4, name: "Dissimulação", rank: 0, type: "stealth" },
-    { index: 5, name: "Esportes", rank: 0, type: "athletics" },
-    { index: 6, name: "Furto", rank: 0, type: "larceny" },
-    { index: 7, name: "Sobrevivência", rank: 0, type: "survival" },
-  ];
-  
-  socialSkills: Trait[] = [
-    { index: 0, name: "Astúcia", rank: 0, type: "subterfuge" },
-    { index: 1, name: "Empatia", rank: 0, type: "empathy" },
-    { index: 2, name: "Expressão", rank: 0, type: "expression" },
-    { index: 3, name: "Intimidação", rank: 0, type: "intimidation" },
-    { index: 4, name: "Manha", rank: 0, type: "streetwise" },
-    { index: 5, name: "Persuasão", rank: 0, type: "persuasion" },
-    { index: 6, name: "Socialização", rank: 0, type: "socialize" },
-    { index: 7, name: "Tratar Animais", rank: 0, type: "animalKen" },
-  ];
+  skills: Record<'mental' | 'physical' | 'social', Skill[]> = {
+    mental: [
+      { name: 'science', labelKey: 'science', value: 0, specialties: '' },
+      { name: 'academics', labelKey: 'academics', value: 0, specialties: '' },
+      { name: 'computer', labelKey: 'computer', value: 0, specialties: '' },
+      { name: 'investigation', labelKey: 'investigation', value: 0, specialties: '' },
+      { name: 'medicine', labelKey: 'medicine', value: 0, specialties: '' },
+      { name: 'occult', labelKey: 'occult', value: 0, specialties: '' },
+      { name: 'crafts', labelKey: 'crafts', value: 0, specialties: '' },
+      { name: 'politics', labelKey: 'politics', value: 0, specialties: '' },
+    ],
+    physical: [
+      { name: 'weaponry', labelKey: 'weaponry', value: 0, specialties: '' },
+      { name: 'firearms', labelKey: 'firearms', value: 0, specialties: '' },
+      { name: 'brawl', labelKey: 'brawl', value: 0, specialties: '' },
+      { name: 'drive', labelKey: 'drive', value: 0, specialties: '' },
+      { name: 'stealth', labelKey: 'stealth', value: 0, specialties: '' },
+      { name: 'athletics', labelKey: 'athletics', value: 0, specialties: '' },
+      { name: 'larceny', labelKey: 'larceny', value: 0, specialties: '' },
+      { name: 'survival', labelKey: 'survival', value: 0, specialties: '' },
+    ],
+    social: [
+      { name: 'subterfuge', labelKey: 'subterfuge', value: 0, specialties: '' },
+      { name: 'empathy', labelKey: 'empathy', value: 0, specialties: '' },
+      { name: 'expression', labelKey: 'expression', value: 0, specialties: '' },
+      { name: 'intimidation', labelKey: 'intimidation', value: 0, specialties: '' },
+      { name: 'streetwise', labelKey: 'streetwise', value: 0, specialties: '' },
+      { name: 'persuasion', labelKey: 'persuasion', value: 0, specialties: '' },
+      { name: 'socialize', labelKey: 'socialize', value: 0, specialties: '' },
+      { name: 'animalKen', labelKey: 'animalKen', value: 0, specialties: '' },
+    ],
+  };
   
   equipments: any[] = [];
   weapons: any[] = [];
@@ -102,53 +103,6 @@ export class Character {
     this.extraVitality = 0;    
   }
   
-  // Continua dentro da classe Character
-  
-  setCharacterFromCharacter(character: Character): void {
-    this.name = character.name;
-    this.player = character.player;
-    this.concept = character.concept;
-    this.chronicle = character.chronicle;
-    this.group = character.group;
-    this.willpower = character.willpower;
-    this.size = character.size;
-    this.merits = character.merits;
-    this.mentalAttributes = character.mentalAttributes;
-    this.physicalAttributes = character.physicalAttributes;
-    this.socialAttributes = character.socialAttributes;
-    this.mentalSkills = character.mentalSkills;
-    this.physicalSkills = character.physicalSkills;
-    this.socialSkills = character.socialSkills;
-    this.extraVitality = character.extraVitality;
-    this.conditions = character.conditions;
-    this.aspirations = character.aspirations;
-    this.story = character.story;
-    this.appearance = character.appearance;
-    this.template = character.template;
-    this.templateTraits = character.templateTraits;
-    this.npcs = character.npcs;
-  }
-  
-  get healthPoints(): number {
-    return this.size + this.stamina;
-  }
-  
-  get willpowerPoints(): number {
-    return this.mentalAttributes[2].rank + this.socialAttributes[2].rank;
-  }
-  
-  get defense(): number {
-    return Math.min(this.mentalAttributes[1].rank, this.physicalAttributes[1].rank) + this.physicalSkills[5].rank;
-  }
-  
-  get initiative(): number {
-    return this.physicalAttributes[1].rank + this.socialAttributes[2].rank;
-  }
-  
-  get speed(): number {
-    return this.physicalAttributes[0].rank + this.physicalAttributes[1].rank + 5;
-  }
-  
   // Sobrenatural
   get supernaturalTemplate(): SupernaturalTemplatesIDs {
     return this.template;
@@ -159,120 +113,146 @@ export class Character {
     this.templateTraits = getTemplateTraits(template);
   }
   
-  // Atributos — acesso por índice
-  getMentalAttr(index: number): Trait | undefined {
-    return this.mentalAttributes.find(attr => attr.index === index);
+  get healthPoints(): number {
+    return this.size + this.stamina;
   }
   
-  getPhysicalAttr(index: number): Trait | undefined {
-    return this.physicalAttributes.find(attr => attr.index === index);
+  get willpowerPoints(): number {
+    return this.getAttribute('resolve') + this.getAttribute('composure');
   }
   
-  getSocialAttr(index: number): Trait | undefined {
-    return this.socialAttributes.find(attr => attr.index === index);
+  get defense(): number {
+    return Math.min(this.getAttribute('wits'), this.getAttribute('dexterity')) + this.getSkill('athletics');
   }
   
-  getMentalAttrClass(index: number): string {
-    const attr = this.getMentalAttr(index);
-    if (!attr) throw new Error(`Não foi possível encontrar Index. Index encontrado: ${index}`);
-    return attr.type;
+  get initiative(): number {
+    return this.getAttribute('dexterity') + this.getAttribute('composure');
   }
   
-  getPhysicalAttrClass(index: number): string {
-    const attr = this.getPhysicalAttr(index);
-    if (!attr) throw new Error(`Não foi possível encontrar Index. Index encontrado: ${index}`);
-    return attr.type;
+  get speed(): number {
+    return this.getAttribute('strength') + this.getAttribute('dexterity') + 5;
+  }  
+
+  getAttribute(type: string): number {
+    for (const group of Object.values(this.attributes)) {
+      const attr = group.find((a) => a.name === type);
+      if (attr) return attr.value;
+    }
+    return 0;
   }
   
-  getSocialAttrClass(index: number): string {
-    const attr = this.getSocialAttr(index);
-    if (!attr) throw new Error(`Não foi possível encontrar Index. Index encontrado: ${index}`);
-    return attr.type;
+  setAttribute(type: string, value: number) {
+    for (const group of Object.values(this.attributes)) {
+      const attr = group.find((a) => a.name === type);
+      if (attr) {
+        attr.value = value;
+        return;
+      }
+    }
   }
   
-  // Atributos — setters
-  setMentalAttr(index: number, rank: number): void {
-    const attr = this.getMentalAttr(index);
-    if (!attr) throw new Error(`Não foi possível encontrar Index Mental. Index encontrado: ${index}.`);
-    attr.rank = rank;
+  getSkill(type: string): number {
+    for (const group of Object.values(this.skills)) {
+      const skill = group.find((s) => s.name === type);
+      if (skill) return skill.value;
+    }
+    return 0;
   }
   
-  setPhysicalAttr(index: number, rank: number): void {
-    const attr = this.getPhysicalAttr(index);
-    if (!attr) throw new Error(`Não foi possível encontrar Index Físico. Index encontrado: ${index}.`);
-    attr.rank = rank;
+  setSkill(type: string, value: number) {
+    for (const group of Object.values(this.skills)) {
+      const skill = group.find((s) => s.name === type);
+      if (skill) {
+        skill.value = value;
+        return;
+      }
+    }
   }
   
-  setSocialAttr(index: number, rank: number): void {
-    const attr = this.getSocialAttr(index);
-    if (!attr) throw new Error(`Não foi possível encontrar Index Social. Index encontrado: ${index}.`);
-    attr.rank = rank;
-  }
+  // ============================ ATRIBUTOS ============================ //
+  // ============== MENTAIS ============== //
+  get intelligence(): number { return this.getAttribute('intelligence'); }
+  get wits(): number         { return this.getAttribute('wits'); }
+  get resolve(): number      { return this.getAttribute('resolve'); }
   
-  get intelligence(): number { return this.mentalAttributes[0].rank; }
-  get wits(): number         { return this.mentalAttributes[1].rank; }
-  get resolve(): number      { return this.mentalAttributes[2].rank; }
+  set intelligence(value: number) { this.setAttribute('intelligence', value); }
+  set wits(value: number)         { this.setAttribute('wits', value); }
+  set resolve(value: number)      { this.setAttribute('resolve', value); }
   
-  get strength(): number   { return this.physicalAttributes[0].rank; }
-  get dexterity(): number  { return this.physicalAttributes[1].rank; }
-  get stamina(): number    { return this.physicalAttributes[2].rank; }
+  // ============== FÍSICOS ============== //
+  get strength(): number   { return this.getAttribute('strength'); }
+  get dexterity(): number  { return this.getAttribute('dexterity'); }
+  get stamina(): number    { return this.getAttribute('stamina'); }
   
-  get presence(): number     { return this.socialAttributes[0].rank; }
-  get manipulation(): number { return this.socialAttributes[1].rank; }
-  get composure(): number    { return this.socialAttributes[2].rank; }
+  set strength(value: number)   { this.setAttribute('strength', value); }
+  set dexterity(value: number)  { this.setAttribute('dexterity', value); }
+  set stamina(value: number)    { this.setAttribute('stamina', value); }
   
-  get science(): number       { return this.mentalSkills[0].rank; }
-  get academics(): number     { return this.mentalSkills[1].rank; }
-  get computer(): number      { return this.mentalSkills[2].rank; }
-  get investigation(): number { return this.mentalSkills[3].rank; }
-  get medicine(): number      { return this.mentalSkills[4].rank; }
-  get occult(): number        { return this.mentalSkills[5].rank; }
-  get crafts(): number        { return this.mentalSkills[6].rank; }
-  get politics(): number      { return this.mentalSkills[7].rank; }
+  // ============== SOCIAIS ============== //
+  get presence(): number     { return this.getAttribute('presence'); }
+  get manipulation(): number { return this.getAttribute('manipulation'); }
+  get composure(): number    { return this.getAttribute('composure'); }
   
-  set science(rank: number)       { this.mentalSkills[0].rank = rank; }
-  set academics(rank: number)     { this.mentalSkills[1].rank = rank; }
-  set computer(rank: number)      { this.mentalSkills[2].rank = rank; }
-  set investigation(rank: number) { this.mentalSkills[3].rank = rank; }
-  set medicine(rank: number)      { this.mentalSkills[4].rank = rank; }
-  set occult(rank: number)        { this.mentalSkills[5].rank = rank; }
-  set crafts(rank: number)        { this.mentalSkills[6].rank = rank; }
-  set politics(rank: number)      { this.mentalSkills[7].rank = rank; }
+  set presence(value: number)     { this.setAttribute('presence', value); }
+  set manipulation(value: number) { this.setAttribute('manipulation', value); }
+  set composure(value: number)    { this.setAttribute('composure', value); }
   
-  get weaponry(): number  { return this.physicalSkills[0].rank; }
-  get firearms(): number  { return this.physicalSkills[1].rank; }
-  get brawl(): number     { return this.physicalSkills[2].rank; }
-  get drive(): number     { return this.physicalSkills[3].rank; }
-  get stealth(): number   { return this.physicalSkills[4].rank; }
-  get athletics(): number { return this.physicalSkills[5].rank; }
-  get larceny(): number   { return this.physicalSkills[6].rank; }
-  get survival(): number  { return this.physicalSkills[7].rank; }
+  // ============================ HABILIDADES ============================ //
+  // ============== MENTAIS ============== //
+  get science(): number       { return this.getSkill('science'); }
+  get academics(): number     { return this.getSkill('academics'); }
+  get computer(): number      { return this.getSkill('computer'); }
+  get investigation(): number { return this.getSkill('investigation'); }
+  get medicine(): number      { return this.getSkill('medicine'); }
+  get occult(): number        { return this.getSkill('occult'); }
+  get crafts(): number        { return this.getSkill('crafts'); }
+  get politics(): number      { return this.getSkill('politics'); }
   
-  set weaponry(rank: number)  { this.physicalSkills[0].rank = rank; }
-  set firearms(rank: number)  { this.physicalSkills[1].rank = rank; }
-  set brawl(rank: number)     { this.physicalSkills[2].rank = rank; }
-  set drive(rank: number)     { this.physicalSkills[3].rank = rank; }
-  set stealth(rank: number)   { this.physicalSkills[4].rank = rank; }
-  set athletics(rank: number) { this.physicalSkills[5].rank = rank; }
-  set larceny(rank: number)   { this.physicalSkills[6].rank = rank; }
-  set survival(rank: number)  { this.physicalSkills[7].rank = rank; }
+  set science(value: number)       { this.setSkill('science', value); }
+  set academics(value: number)     { this.setSkill('academics', value); }
+  set computer(value: number)      { this.setSkill('computer', value); }
+  set investigation(value: number) { this.setSkill('investigation', value); }
+  set medicine(value: number)      { this.setSkill('medicine', value); }
+  set occult(value: number)        { this.setSkill('occult', value); }
+  set crafts(value: number)        { this.setSkill('crafts', value); }
+  set politics(value: number)      { this.setSkill('politics', value); }
   
-  get subterfuge(): number  { return this.socialSkills[0].rank; }
-  get empathy(): number     { return this.socialSkills[1].rank; }
-  get expression(): number  { return this.socialSkills[2].rank; }
-  get intimidation(): number { return this.socialSkills[3].rank; }
-  get streetwise(): number  { return this.socialSkills[4].rank; }
-  get persuasion(): number  { return this.socialSkills[5].rank; }
-  get socialize(): number   { return this.socialSkills[6].rank; }
-  get animalKen(): number   { return this.socialSkills[7].rank; }
+  // ============== FÍSICAS ============== //
+  get weaponry(): number  { return this.getSkill('weaponry'); }
+  get firearms(): number  { return this.getSkill('firearms'); }
+  get brawl(): number     { return this.getSkill('brawl'); }
+  get drive(): number     { return this.getSkill('drive'); }
+  get stealth(): number   { return this.getSkill('stealth'); }
+  get athletics(): number { return this.getSkill('athletics'); }
+  get larceny(): number   { return this.getSkill('larceny'); }
+  get survival(): number  { return this.getSkill('survival'); }
   
-  set subterfuge(rank: number)  { this.socialSkills[0].rank = rank; }
-  set empathy(rank: number)     { this.socialSkills[1].rank = rank; }
-  set expression(rank: number)  { this.socialSkills[2].rank = rank; }
-  set intimidation(rank: number) { this.socialSkills[3].rank = rank; }
-  set streetwise(rank: number)  { this.socialSkills[4].rank = rank; }
-  set persuasion(rank: number)  { this.socialSkills[5].rank = rank; }
-  set socialize(rank: number)   { this.socialSkills[6].rank = rank; }
-  set animalKen(rank: number)   { this.socialSkills[7].rank = rank; }
+  set weaponry(value: number)  { this.setSkill('weaponry', value); }
+  set firearms(value: number)  { this.setSkill('firearms', value); }
+  set brawl(value: number)     { this.setSkill('brawl', value); }
+  set drive(value: number)     { this.setSkill('drive', value); }
+  set stealth(value: number)   { this.setSkill('stealth', value); }
+  set athletics(value: number) { this.setSkill('athletics', value); }
+  set larceny(value: number)   { this.setSkill('larceny', value); }
+  set survival(value: number)  { this.setSkill('survival', value); }
+  
+  // ============== SOCIAIS ============== //
+  get subterfuge(): number  { return this.getSkill('subterfuge'); }
+  get empathy(): number     { return this.getSkill('empathy'); }
+  get expression(): number  { return this.getSkill('expression'); }
+  get intimidation(): number { return this.getSkill('intimidation'); }
+  get streetwise(): number  { return this.getSkill('streetwise'); }
+  get persuasion(): number  { return this.getSkill('persuasion'); }
+  get socialize(): number   { return this.getSkill('socialize'); }
+  get animalKen(): number   { return this.getSkill('animalKen'); }
+  
+  set subterfuge(value: number)  { this.setSkill('subterfuge', value); }
+  set empathy(value: number)     { this.setSkill('empathy', value); }
+  set expression(value: number)  { this.setSkill('expression', value); }
+  set intimidation(value: number) { this.setSkill('intimidation', value); }
+  set streetwise(value: number)  { this.setSkill('streetwise', value); }
+  set persuasion(value: number)  { this.setSkill('persuasion', value); }
+  set socialize(value: number)   { this.setSkill('socialize', value); }
+  set animalKen(value: number)   { this.setSkill('animalKen', value); }
   
 }
