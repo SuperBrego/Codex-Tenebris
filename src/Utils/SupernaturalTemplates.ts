@@ -19,6 +19,7 @@ export function getTemplateTraits(template: SupernaturalTemplatesIDs): Supernatu
 function createMortalTraits(): MortalTraits {
   return {
     index: SupernaturalTemplatesIDs.Mortal,
+    name: 'mortal',
     book: "WoD",
     virtue: '',
     vice: '',
@@ -31,6 +32,7 @@ function createMortalTraits(): MortalTraits {
 
 function createVampireTraits(): VampireTraits {
   return {
+    name: 'vampire',
     index: SupernaturalTemplatesIDs.Vampire,
     book: "VtR",
     bloodPotency: 0,
@@ -52,6 +54,7 @@ function createVampireTraits(): VampireTraits {
 function createWerewolfTraits(): WerewolfTraits {
   return {
     index: SupernaturalTemplatesIDs.Werewolf,
+    name: "werewolf",
     book: "WtF",
     primalUrge: 0,
     essense: createStateTrackList(10, false),
@@ -84,6 +87,7 @@ function createWerewolfTraits(): WerewolfTraits {
 function createDeviantTraits(): DeviantTraits {
   return {
     index: SupernaturalTemplatesIDs.Deviant,
+    name: "deviant",
     book: "DtR",
     convictions: [],
     loyalty: [],
