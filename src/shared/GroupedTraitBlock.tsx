@@ -4,7 +4,7 @@ import { Character } from '../classes/Character';
 import { Form } from 'react-bootstrap';
 
 interface Props {
-  traits: Character['skills']['mental' | 'physical' | 'social'];
+  traits: Character['attributes' | 'skills']['mental' | 'physical' | 'social'];
   onChange: (name: string, newValue: number) => void;
   onEditSpecialty?: (name: string, value: string) => void;
 }
@@ -20,9 +20,10 @@ export default function GroupedTraitBlock({ traits, onChange, onEditSpecialty }:
             label={t(trait.labelKey)}
             value={trait.value}
             onChange={(newValue) => onChange(trait.name, newValue)}
+            disabled={false}
           />
 
-          {onEditSpecialty && (
+          {onEditSpecialty && 'specialties' in trait && (
             <Form.Control
               size="sm"
               placeholder={t('specialtiesPlaceholder')}
@@ -31,6 +32,7 @@ export default function GroupedTraitBlock({ traits, onChange, onEditSpecialty }:
               className="mt-1"
             />
           )}
+          
         </div>
       ))}
     </div>
