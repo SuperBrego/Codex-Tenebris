@@ -7,8 +7,8 @@ export function createStateTrackList(quantity: number, initialState: boolean | n
   return Array.from({ length: quantity }, () => ({ state: initialState }));
 }
 
-export function createTrait(index: number, name: string, rank: number, type: string): Trait {
-  return { index: index, name: name, rank: rank, type: type, };
+export function createTrait(name: string, value: number, labelKey: string): Trait {
+  return { name: name, value: value, labelKey: labelKey };
 }
 
 export function createHealthTrack(quantity: number, initialState: DamageType = 'none'): HealthBox[] {
