@@ -5,6 +5,7 @@ import SupernaturalTemplateSelect from "../components/SupernaturalTemplateSelect
 import SkillsSection from "./components/sections/SkillsSection";
 import AttributeSection from "./components/sections/AttributesSection";
 import CharacterSummary from "./CharacterSummary";
+import MeritsSection from "./components/sections/MeritsSection";
 
 export default function CharacterEditor() {
   
@@ -21,7 +22,7 @@ export default function CharacterEditor() {
           {/* Coluna de Habilidades */}
           <Col> <SkillsSection /> </Col>
           <Col>
-            {/* Todo resto de conteúdo. */}
+            <MeritsSection />
           </Col>
         </Row>
       </Container>
