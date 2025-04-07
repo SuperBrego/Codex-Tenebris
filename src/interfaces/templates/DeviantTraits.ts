@@ -1,8 +1,6 @@
-import { SupernaturalTemplatesIDs } from "../../enum/SupernaturalTemplates";
+import { SupernaturalTemplate } from "../TemplateTraits";
 
-export interface DeviantTraits {
-  index: SupernaturalTemplatesIDs;
-  book: string;
+export interface DeviantTraits extends SupernaturalTemplate {
   convictions: any[];
   loyalty: any[];
   scars: any[];
