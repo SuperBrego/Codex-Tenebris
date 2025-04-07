@@ -5,8 +5,56 @@
   "player": "Jogador",
   "chronicle": "Crônica",
   "group": "Grupo",
-  "templateSelect": "Tipo Sobrenatural",
   
+  "templateSelect": "Tipo Sobrenatural",
+  "template": "Modelo",
+  "resetSkills": "Resetar Habilidades",
+  "specialtiesPlaceholder": "Especialidades (separadas por vírgula)",
+  "attributes": "Atributos",
+  "skills": "Habilidades",
+  "noSkills": "Sem Habilidades com círculos",
+
+  "mental": "Mental",
+  "physical": "Físico",
+  "social": "Social",
+  
+  "intelligence": "Inteligência",
+  "wits": "Raciocínio",
+  "resolve": "Perseverança",
+
+  "strength": "Força",
+  "dexterity": "Destreza",
+  "stamina": "Vigor",
+
+  "presence": "Presença",
+  "manipulation": "Manipulação",
+  "composure": "Autocontrole",
+
+  "science": "Ciências",
+  "academics": "Erudição",
+  "computer": "Informática",
+  "investigation": "Investigação",
+  "medicine": "Medicina",
+  "occult": "Ocultismo",
+  "crafts": "Ofícios",
+  "politics": "Política",
+  "weaponry": "Armamento",
+  "firearms": "Armas de Fogo",
+  "brawl": "Briga",
+  "drive": "Condução",
+  "stealth": "Dissimulação",
+  "athletics": "Esportes",
+  "larceny": "Furto",
+  "survival": "Sobrevivência",
+  "subterfuge": "Astúcia",
+  "empathy": "Empatia",
+  "expression": "Expressão",
+  "intimidation": "Intimidação",
+  "streetwise": "Manha",
+  "persuasion": "Persuasão",
+  "socialize": "Socialização",
+  "animalKen": "Tratar Animais",
+
   "newCharacter": "Novo Personagem",
   "new": "Novo",
   "import": "Importar",
@@ -16,14 +64,14 @@
   "virtue": "Virtude",
   "vice": "Vício",
   "faction": "Facção",
-
+  
   "vampire": "Vampiro",
   "clan": "Clã",
   "bloodline": "Linhagem",
   "mask": "Máscara",
   "dirge": "Lamento",
   "covenant": "Coalizão",
-
+  
   "werewolf": "Lobisomem",
   "mage": "Mago",
   "hunter": "Caçador",
@@ -35,5 +83,6 @@
   "geist": "Fantasma",
   "wraith": "Espectro",
   "deviant": "Desviante",
-  "sin-eater": "Devorador de Pecados"
+  "sin-eater": "Devorador de Pecados"  
+  
 }
