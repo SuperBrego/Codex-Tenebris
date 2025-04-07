@@ -5,8 +5,9 @@ export class Portfolio {
   activeId: string | null = null;
 
   constructor(initialCharacters: Character[] = []) {
-    this.characters = initialCharacters;
-    this.activeId = initialCharacters[0]?.id ?? null;
+    if(initialCharacters.length === 0) this.characters = [new Character()];
+    else this.characters = initialCharacters;
+    this.activeId = this.characters[0].id;
   }
 
   get active(): Character | null {
