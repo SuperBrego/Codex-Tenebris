@@ -62,11 +62,11 @@ export default function CharacterNavbar() {
               color: '#E6EEF9',
               width: 'auto',
             }}
-            className="me-3"
+            className="me-3 w-25"
           >
             {characters.map((char) => (
               <option key={char.id} value={char.id} style={{ color: theme.colors.primaryText }} >
-                {char.name || 'Sem nome'}
+                {char.name || 'Sem nome'} - {t(char.templateTraits.name)}
               </option>
             ))}
           </Form.Select>
