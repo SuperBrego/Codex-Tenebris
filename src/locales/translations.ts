@@ -11,6 +11,15 @@ const translations = {
     "resetSkills": "Resetar Habilidades",
     "specialtiesPlaceholder": "Especialidades (separadas por vírgula)",
     "noSkills": "Sem Habilidades com círculos",
+    
+    "duplicateMerit": "Duplicar Vantagem",
+    "merits": "Vantagens",
+    "selectMerit": "Selecionar Vantagem",
+    "addMerit": "Adicionar Vantagem",
+    "customMerit": "Vantagem Personalizada",
+    "totalMeritCost": "Custo total de Vantagens",
+    "meritName": "Nome da Vantagem",
+    "description": "Descrição",
 
     // ========== Personagem ========== //
     "name": "Nome",
@@ -138,6 +147,14 @@ const translations = {
     "resetSkills": "Reset Skills",
     "specialtiesPlaceholder": "Specialties (comma separated)",
     "noSkills": "No skills with dots",
+    "duplicateMerit": "Duplicate Merit",
+    "merits": "Merits",
+    "selectMerit": "Select Merit",
+    "addMerit": "Add Merit",
+    "customMerit": "Custom Merit",
+    "totalMeritCost": "Total Merits Cost",
+    "meritName": "Merit Name",
+    "description": "Description",
     // ========== Character ========== //
     "name": "Name",
     "age": "Age",

@@ -7,16 +7,30 @@ interface Props {
   label: string;
   value: number;
   disabled: boolean;
+  min?: number;
+  max?: number;
   onChange: (newValue: number) => void;
 }
 
-export default function DotRatingField({ label, value, disabled = false, onChange }: Props) {
+export default function DotRatingField({ 
+  label, 
+  value, 
+  disabled = false, 
+  min,
+  max,
+  onChange 
+}: Props) {
   const { colors } = useTheme();
 
   const handleChangeDot = (dot: number) => {
-    if(!disabled) { 
-      onChange(dot)
-    }
+    if(max && dot > max) return;
+    if(min && dot < min) return;
+    if(!disabled) onChange(dot);
+  }
+
+  function fill(dot: number): string {
+    if(max && dot > max) return '#D3D3D3';
+    return dot <= value ? `${colors.primary}` : 'none';
   }
 
   return (
@@ -27,7 +41,7 @@ export default function DotRatingField({ label, value, disabled = false, onChang
           <Circle
             key={dot}
             size={20}
-            fill={dot <= value ? `${colors.primary}` : 'none'}
+            fill={fill(dot)}
             stroke={"#000"}
             onClick={() => handleChangeDot(dot)}
             style={{ cursor: 'pointer' }}

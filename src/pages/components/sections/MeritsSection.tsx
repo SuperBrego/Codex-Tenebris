@@ -1,10 +1,11 @@
-import { Button, Card, Col, Form, Row, Stack } from "react-bootstrap";
-import DotRatingField from "../../../shared/DotRatingField";
+import { Button, Card, Form, Row, Stack } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useCharacter } from "../../../hooks/useCharacter";
 import { useState } from "react";
 import { Merit } from "../../../interfaces/Merit";
 import { _MortalMerits } from "../../../database/Merits/MortalMerits";
+import CustomTrait from "../../../shared/CustomTrait";
+import DefaultTrait from "../../../shared/DefaultTrait";
 
 export default function MeritsSection() {
   const { character, updateCharacter } = useCharacter();
@@ -27,7 +28,7 @@ export default function MeritsSection() {
     const merit = {
       id: crypto.randomUUID(),
       name: base.name,
-      labelKey: `merit.${base.name.toLowerCase()}`,
+      labelKey: base.labelKey,
       value: base.fixed ? base.value ?? 1 : base.min ?? 1,
       fixed: base.fixed,
       min: base.min,
@@ -53,7 +54,7 @@ export default function MeritsSection() {
     updateCharacter({ merits: [...character.merits, custom] });
   };
 
-  const updateMerit = (id: string, partial: Partial<typeof character.merits[0]>) => {
+  const updateMerit = (id: string, partial: Partial<Merit>) => {
     const updated = character.merits.map((m) => (m.id === id ? { ...m, ...partial } : m));
     updateCharacter({ merits: updated });
   };
@@ -73,18 +74,29 @@ export default function MeritsSection() {
     return groups;
   }, {} as Record<string, typeof predefinedMerits>);
 
+  const sortTraits = (list: Merit[]): Merit[] => {
+    return list.sort((a, b) => t(a.labelKey).localeCompare(t(b.labelKey)));
+  }
+
   return (
     <Card className="mb-4">
       <Card.Header className="fw-bold">{t('merits')}</Card.Header>
       <Card.Body>
+        {/* Exibindo méritos com valor total */}
+        <div className="mb-3">
+          <strong>{t('totalMeritCost')}:</strong> {calculateTotalCost()}
+        </div>
+
+        {/* Select */}
         <Stack gap={2} className="mb-3">
+          
           <Form.Select value={selected} onChange={(e) => setSelected(e.target.value)}>
             <option value="">{t('selectMerit')}</option>
             {Object.keys(groupedMerits).map((category) => (
               <optgroup label={t(category)} key={category}>
-                {groupedMerits[category].map((m) => (
+                {sortTraits(groupedMerits[category]).map((m) => (
                   <option key={m.name} value={m.name}>
-                    {t(`merit.${m.name.toLowerCase()}`)}
+                    {t(`${m.labelKey}`)}
                   </option>
                 ))}
               </optgroup>
@@ -95,44 +107,12 @@ export default function MeritsSection() {
           </Button>
         </Stack>
 
-        {/* Exibindo méritos com valor total */}
-        <div className="mb-3">
-          <strong>{t('totalMeritCost')}:</strong> {calculateTotalCost()}
-        </div>
-
-        {character.merits.map((merit) => (
+        {sortTraits(character.merits).map((merit) => (
           <Row key={merit.id} className="mb-3 align-items-center">
-            <Col md={4}>
-              {merit.custom ? (
-                <Form.Control
-                  placeholder={t('meritName')}
-                  value={merit.labelKey}
-                  onChange={(e) => updateMerit(merit.id, { labelKey: e.target.value })}
-                />
-              ) : (
-                <span className="fw-semibold">{t(merit.labelKey)}</span>
-              )}
-            </Col>
-            <Col md={3}>
-              <DotRatingField
-                label={merit.name}
-                value={merit.value}
-                onChange={(val) => updateMerit(merit.id, { value: val })}
-                disabled={merit.fixed}
-              />
-            </Col>
-            <Col md={4}>
-              {merit.custom && (
-                <Form.Control
-                  placeholder={t('description')}
-                  value={merit.description ?? ''}
-                  onChange={(e) => updateMerit(merit.id, { description: e.target.value })}
-                />
-              )}
-            </Col>
-            <Col md={1} className="text-end">
-              <Button size="sm" variant="outline-danger" onClick={() => removeMerit(merit.id)}>X</Button>
-            </Col>
+            {merit.custom 
+              ? <CustomTrait  merit={merit} updateMerit={updateMerit} removeMerit={removeMerit} />
+              : <DefaultTrait merit={merit} updateMerit={updateMerit} removeMerit={removeMerit} />
+            }
           </Row>
         ))}
       </Card.Body>
