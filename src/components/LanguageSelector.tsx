@@ -10,8 +10,8 @@ export default function LanguageSelector() {
       value={i18n.language}
       style={{ maxWidth: 150 }}
     >
-      <option value="pt">🇧🇷 Português</option>
-      <option value="en">🇺🇸 English</option>
+      <option value="pt-br">🇧🇷 Português</option>
+      <option value="en-us">🇺🇸 English</option>
     </Form.Select>
   );
 }

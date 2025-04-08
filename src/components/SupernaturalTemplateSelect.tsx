@@ -14,7 +14,7 @@ const TEMPLATE_LABELS: Record<SupernaturalTemplatesIDs, string> = {
 
 export default function SupernaturalTemplateSelect() {
   const { character, updateCharacter } = useCharacter();
-  const { t } = useTranslation();
+  const { t } = useTranslation("supernatural");
 
   return (
     <div className="p-3 border-bottom bg-white sticky-top" style={{ zIndex: 10 }}>
