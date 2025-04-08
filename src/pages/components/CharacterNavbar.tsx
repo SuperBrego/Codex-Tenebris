@@ -11,6 +11,7 @@ import {
   Nav,
   Form,
   Button,
+  ButtonGroup,
 } from 'react-bootstrap';
 
 export default function CharacterNavbar() {
@@ -83,55 +84,57 @@ export default function CharacterNavbar() {
           )}
 
           <Nav className="ms-auto d-flex align-items-center gap-2">
-            <Button
-              style={{ backgroundColor: theme.colors.background, borderColor: theme.colors.border }}
-              size="sm"
-              onClick={() => exportPortfolio(portfolio)}
-            >
-              <Download size={16} className="me-1" />
-              {t('export')}
-            </Button>
+            <ButtonGroup>
+              <Button
+                style={{ backgroundColor: theme.colors.background, borderColor: theme.colors.border }}
+                size="sm"
+                onClick={() => exportPortfolio(portfolio)}
+              >
+                <Download size={16} className="me-1" />
+                {t('export')}
+              </Button>
 
-            <Form.Label
-              className="btn btn-sm"
-              style={{
-                backgroundColor: theme.colors.background,
-                color: theme.colors.primaryText,
-                borderColor: theme.colors.border,
-                marginBottom: 0,
-                cursor: 'pointer',
-              }}
-            >
-              <Upload size={16} className="me-1" />
-              {t('import')}
-              <Form.Control
-                type="file"
-                accept="application/json"
-                hidden
-                onChange={async (e: any) => {
-                  const file = e.target.files?.[0];
-                  if (file) {
-                    try {
-                      const imported = await importPortfolioFile(file);
-                      setPortfolio(imported);
-                      save(imported);
-                    } catch (err) {
-                      alert('Erro ao importar personagem.');
-                      console.error(err);
-                    }
-                  }
+              <Form.Label
+                className="btn btn-sm"
+                style={{
+                  backgroundColor: theme.colors.background,
+                  color: theme.colors.primaryText,
+                  borderColor: theme.colors.border,
+                  marginBottom: 0,
+                  cursor: 'pointer',
                 }}
-              />
-            </Form.Label>
+              >
+                <Upload size={16} className="me-1" />
+                {t('import')}
+                <Form.Control
+                  type="file"
+                  accept="application/json"
+                  hidden
+                  onChange={async (e: any) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      try {
+                        const imported = await importPortfolioFile(file);
+                        setPortfolio(imported);
+                        save(imported);
+                      } catch (err) {
+                        alert('Erro ao importar personagem.');
+                        console.error(err);
+                      }
+                    }
+                  }}
+                />
+              </Form.Label>
 
-            <Button
-              style={{ backgroundColor: theme.colors.background, borderColor: theme.colors.border }}
-              size="sm"
-              onClick={() => addCharacter(new Character())}
-            >
-              <Plus size={16} className="me-1" />
-              {t('new')}
-            </Button>
+              <Button
+                style={{ backgroundColor: theme.colors.background, borderColor: theme.colors.border }}
+                size="sm"
+                onClick={() => addCharacter(new Character())}
+              >
+                <Plus size={16} className="me-1" />
+                {t('new')}
+              </Button>
+            </ButtonGroup>
 
             <LanguageSelector />
           </Nav>

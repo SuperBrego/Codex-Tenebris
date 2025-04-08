@@ -33,6 +33,11 @@ export default function DotRatingField({
     return dot <= value ? `${colors.primary}` : 'none';
   }
 
+  function cursorDisabled(dot: number): string {
+    if(max && dot > max) return 'default';
+    return 'pointer';
+  }
+
   return (
     <div className="d-flex justify-content-between align-items-center gap-2">
       <strong>{label}</strong>
@@ -44,7 +49,7 @@ export default function DotRatingField({
             fill={fill(dot)}
             stroke={"#000"}
             onClick={() => handleChangeDot(dot)}
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: cursorDisabled(dot)}}
           />
         ))}
       </Stack>

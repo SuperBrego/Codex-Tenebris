@@ -20,7 +20,7 @@ export default function MeritsSection() {
     if (!base) return;
 
     // Verificar duplicatas
-    if (character.merits.some((m) => m.name === name)) {
+    if (character.merits.some((m) => m.name === name && m.exclusive)) {
       alert(t('duplicateMerit'));
       return;
     }
@@ -34,7 +34,8 @@ export default function MeritsSection() {
       min: base.min,
       max: base.max,
       custom: false,
-      category: base.category
+      category: base.category,
+      customText: base.customText
     };
 
     updateCharacter({ merits: [...character.merits, merit] });
@@ -110,7 +111,7 @@ export default function MeritsSection() {
         {sortTraits(character.merits).map((merit) => (
           <Row key={merit.id} className="mb-3 align-items-center">
             {merit.custom 
-              ? <CustomTrait  merit={merit} updateMerit={updateMerit} removeMerit={removeMerit} />
+              ? <CustomTrait merit={merit} updateMerit={updateMerit} removeMerit={removeMerit} />
               : <DefaultTrait merit={merit} updateMerit={updateMerit} removeMerit={removeMerit} />
             }
           </Row>

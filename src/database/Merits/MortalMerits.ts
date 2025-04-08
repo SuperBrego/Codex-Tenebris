@@ -1,13 +1,15 @@
 import { Merit } from "../../interfaces/Merit";
 
 export const _MortalMerits: Merit[] = [
+  // ============= MENTAIS ============= //
   { 
     id: "investigative-aide", 
     name: "Assistente Investigativo", 
     labelKey: "merit.investigativeAide", 
     value: 1, 
     fixed: true, 
-    custom: false, 
+    exclusive: true,
+    customText: '',
     description: "Escolha uma Habilidade. Quando fizer testes para Descobrir Pistas com ela, você obtém sucesso excepcional com três sucessos em vez de cinco. Pistas obtidas dessa forma têm um elemento adicional.", 
     category: "Mental" 
   },
@@ -19,7 +21,6 @@ export const _MortalMerits: Merit[] = [
     min: 1, 
     max: 3, 
     fixed: false,
-    custom: false, 
     description: "Escolha uma Habilidade Mental. Em testes prolongados com essa Habilidade, adicione os pontos desta Vantagem. Pode ser comprada várias vezes para diferentes Habilidades.", 
     category: "Mental" 
   },
@@ -29,6 +30,7 @@ export const _MortalMerits: Merit[] = [
     labelKey: "merit.goodTimeManagement", 
     value: 3, 
     fixed: true, 
+    exclusive: true,
     description: "Pré-Requisito: Erudição •• ou Ciências ••.\nVocê reduz pela metade o tempo necessário entre testes de ações prolongadas.", 
     category: "Mental" 
   },
@@ -38,6 +40,7 @@ export const _MortalMerits: Merit[] = [
     labelKey: "merit.commonSense", 
     value: 2, 
     fixed: true, 
+    exclusive: true,
     description: "Uma vez por capítulo, teste Raciocínio + Autocontrole para fazer perguntas táticas ao Narrador e receber conselhos, como qual decisão é mais segura ou mais arriscada.", 
     category: "Mental" 
   },
@@ -47,7 +50,8 @@ export const _MortalMerits: Merit[] = [
     labelKey: "merit.encyclopedicKnowledge", 
     value: 2, 
     fixed: true, 
-    custom: false, 
+    exclusive: true,
+    customText: '',
     description: "Escolha uma Habilidade. Você pode fazer testes de Inteligência + Raciocínio para recordar fatos relevantes sobre esse assunto, mesmo sem pontos nela.", 
     category: "Mental" 
   },
@@ -57,6 +61,7 @@ export const _MortalMerits: Merit[] = [
     labelKey: "merit.viceRidden", 
     value: 2, 
     fixed: true, 
+    exclusive: true,
     description: "Você possui dois Vícios, mas ainda só pode recuperar Força de Vontade com um por cena.", 
     category: "Mental" 
   },
@@ -66,6 +71,7 @@ export const _MortalMerits: Merit[] = [
     labelKey: "merit.holisticAwareness", 
     value: 1, 
     fixed: true, 
+    exclusive: true,
     description: "Você pode tratar ferimentos leves sem equipamento médico moderno, usando conhecimentos naturais e botânicos.", 
     category: "Mental" 
   },
@@ -75,6 +81,7 @@ export const _MortalMerits: Merit[] = [
     labelKey: "merit.interdisciplinarySpecialty", 
     value: 1, 
     fixed: true, 
+    exclusive: true,
     description: "Pré-Requisito: Habilidade ••• com Especialização.\nVocê pode aplicar o bônus de uma Especialização em outras Habilidades com pelo menos um ponto, quando justificável.", 
     category: "Mental" 
   },
@@ -86,7 +93,7 @@ export const _MortalMerits: Merit[] = [
     min: 1, 
     max: 5, 
     fixed: false,
-    custom: false, 
+    customText: '',
     description: "Escolha uma Profissão e duas Habilidades Ativas relacionadas. Você recebe benefícios crescentes conforme aumenta os pontos nesta Vantagem.", 
     category: "Mental" 
   },
@@ -96,7 +103,8 @@ export const _MortalMerits: Merit[] = [
     labelKey: "merit.language", 
     value: 1, 
     fixed: true, 
-    custom: false, 
+    exclusive: false,
+    customText: '',
     description: "Seu personagem sabe falar, ler e escrever uma língua adicional além de sua língua nativa.", 
     category: "Mental" 
   },
@@ -106,6 +114,7 @@ export const _MortalMerits: Merit[] = [
     labelKey: "merit.indomitable", 
     value: 3, 
     fixed: true, 
+    exclusive: true,
     description: "Pré-Requisito: Perseverança •••.\nAdicione dois dados para resistir a poderes sobrenaturais de controle mental ou manipulação emocional.", 
     category: "Mental" 
   },
@@ -115,6 +124,7 @@ export const _MortalMerits: Merit[] = [
     labelKey: "merit.eideticMemory", 
     value: 2, 
     fixed: true, 
+    exclusive: true,
     description: "Você se lembra de detalhes com precisão impressionante. Bônus de +2 ao tentar recordar informações.", 
     category: "Mental" 
   },
@@ -146,6 +156,7 @@ export const _MortalMerits: Merit[] = [
     labelKey: "merit.eyeForTheStrange", 
     value: 2, 
     fixed: true, 
+    exclusive: true,
     description: "Pré-Requisito: Perseverança ••, Ocultismo •.\nVocê pode detectar evidências sobrenaturais e receber pistas relacionadas, ou bônus para investigações mundanas.", 
     category: "Mental" 
   },
@@ -155,6 +166,7 @@ export const _MortalMerits: Merit[] = [
     labelKey: "merit.patient", 
     value: 1, 
     fixed: true, 
+    exclusive: true,
     description: "Você pode fazer dois testes extras em ações prolongadas, além do limite normal.", 
     category: "Mental" 
   },
@@ -164,6 +176,7 @@ export const _MortalMerits: Merit[] = [
     labelKey: "merit.areaOfExpertise", 
     value: 1, 
     fixed: true, 
+    exclusive: true,
     description: "Pré-Requisito: Perseverança •• e uma Especialização de Habilidade.\nSubstitua o bônus +1 da sua Especialização por +2.", 
     category: "Mental" 
   },
@@ -173,7 +186,8 @@ export const _MortalMerits: Merit[] = [
     labelKey: "merit.multilingual", 
     value: 1, 
     fixed: true, 
-    custom: false, 
+    exclusive: false,
+    customText: '',
     description: "Cada vez que compra esta Vantagem, escolha dois idiomas. Pode ser substituído por Idioma específico.", 
     category: "Mental" 
   },
@@ -185,8 +199,11 @@ export const _MortalMerits: Merit[] = [
     min: 1, 
     max: 5, 
     fixed: false,
-    custom: false, 
     description: "Pré-Requisito: Raciocínio •••, Investigação •••.\nVocê pode descobrir múltiplas Pistas de uma só vez, até o seu número de sucessos ou nível de Vantagem.", 
     category: "Mental"
-   }
+  },
+  // ============= FÍSICAS ============= //
+  
+  // ============= SOCIAIS ============= //
+  // ========= ESTILOS DE LUTA ========= //
 ];
