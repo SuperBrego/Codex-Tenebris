@@ -2,6 +2,8 @@ import { Button, Col, Form } from "react-bootstrap";
 import { Merit } from "../interfaces/Merit";
 import DotRatingField from "./DotRatingField";
 import { useTranslation } from "react-i18next";
+import MeritTooltip from "./MeritTooltip";
+import { MeritRegistry } from "../database/AllMerits";
 
 interface Props {
   merit: Merit;
@@ -12,9 +14,8 @@ interface Props {
 export default function DefaultTrait({ merit, updateMerit, removeMerit }: Props) {
   const { t } = useTranslation();
   const hasTrait = (merit.customText !== undefined);
-  console.log('Hastrait', merit.customText)
 
-  return <>
+return <>
     <Col md={10}>
       <DotRatingField
         label={t(merit.labelKey)}
@@ -25,8 +26,9 @@ export default function DefaultTrait({ merit, updateMerit, removeMerit }: Props)
         disabled={merit.fixed}
       />
     </Col>
-    <Col md={1} className="text-end">
-      <Button size="sm" variant="outline-danger" onClick={() => removeMerit(merit.id)}>X</Button>
+    <Col md={2} className="text-end">
+      <MeritTooltip description={MeritRegistry[merit.labelKey]?.description ?? ''} />
+      <Button size="sm" variant="outline-danger" className="ms-1" onClick={() => removeMerit(merit.id)}>X</Button>
     </Col>
     {hasTrait && <Col md={8}>
       <Form.Control

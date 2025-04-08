@@ -5,7 +5,7 @@ const translations = {
     "import": "Importar",
     "export": "Exportar",
     "newCharacter": "Novo Personagem",
-
+    
     "templateSelect": "Tipo Sobrenatural",
     "template": "Modelo",
     "resetSkills": "Resetar Habilidades",
@@ -17,10 +17,10 @@ const translations = {
     "selectMerit": "Selecionar Vantagem",
     "addMerit": "Adicionar Vantagem",
     "customMerit": "Vantagem Personalizada",
-    "totalMeritCost": "Custo total de Vantagens",
+    "totalMeritCost": "Total em Vantagens",
     "meritName": "Nome da Vantagem",
     "description": "Descrição",
-
+    
     // ========== Personagem ========== //
     "name": "Nome",
     "age": "Idade",
@@ -28,10 +28,10 @@ const translations = {
     "player": "Jogador",
     "chronicle": "Crônica",
     "group": "Grupo",
-
+    
     "attributes": "Atributos",
     "skills": "Habilidades",
-
+    
     "mental": "Mental",
     "physical": "Físico",
     "social": "Social",
@@ -134,7 +134,26 @@ const translations = {
     "merit.patient": "Paciente",
     "merit.areaOfExpertise": "Perito",
     "merit.multilingual": "Poliglota",
-    "merit.investigativeProdigy": "Prodígio Investigativo"
+    "merit.investigativeProdigy": "Prodígio Investigativo",
+    // ==== Físicas ==== //
+    "merit.crackDriver": "Ás do Volante",
+    "merit.ambidextrous": "Ambidestro",
+    "merit.seizingTheEdge": "Aproveitar a Vantagem",
+    "merit.demolisher": "Demolidor",
+    "merit.doubleJointed": "Flexibilidade nas Juntas",
+    "merit.greyhound": "Galgo",
+    "merit.giant": "Gigante",
+    "merit.automotiveGenius": "Gênio Automotivo",
+    "merit.relentless": "Implacável",
+    "merit.hardy": "Inquebrável",
+    "merit.fleetOfFoot": "Ligeiro",
+    "merit.sleightOfHand": "Mãos Leves",
+    "merit.parkour": "Parkour",
+    "merit.smallFramed": "Pequeno",
+    "merit.stuntDriver": "Proeza Automotiva",
+    "merit.ironStamina": "Resistência Férrea",
+    "merit.quickDraw": "Saque Rápido"
+    
   },
   "en-US": {
     // ========== Common ========== //
@@ -152,9 +171,10 @@ const translations = {
     "selectMerit": "Select Merit",
     "addMerit": "Add Merit",
     "customMerit": "Custom Merit",
-    "totalMeritCost": "Total Merits Cost",
+    "totalMeritCost": "Total Merits Points",
     "meritName": "Merit Name",
     "description": "Description",
+    
     // ========== Character ========== //
     "name": "Name",
     "age": "Age",
@@ -167,19 +187,24 @@ const translations = {
     "mental": "Mental",
     "physical": "Physical",
     "social": "Social",
+    
     // ====== ATTRIBUTES ====== //
+    
     // === Mental === //
     "intelligence": "Intelligence",
     "wits": "Wits",
     "resolve": "Resolve",
+    
     // === Physical === //
     "strength": "Strength",
     "dexterity": "Dexterity",
     "stamina": "Stamina",
+    
     // === Social === //
     "presence": "Presence",
     "manipulation": "Manipulation",
     "composure": "Composure",
+    
     // ====== Skills ====== //
     "science": "Science",
     "academics": "Academics",
@@ -189,6 +214,7 @@ const translations = {
     "occult": "Occult",
     "crafts": "Crafts",
     "politics": "Politics",
+    
     "weaponry": "Weaponry",
     "firearms": "Firearms",
     "brawl": "Brawl",
@@ -197,6 +223,7 @@ const translations = {
     "athletics": "Athletics",
     "larceny": "Larceny",
     "survival": "Survival",
+    
     "subterfuge": "Subterfuge",
     "empathy": "Empathy",
     "expression": "Expression",
@@ -205,6 +232,7 @@ const translations = {
     "persuasion": "Persuasion",
     "socialize": "Socialize",
     "animalKen": "Animal Ken",
+    
     // ====== TEMPLATES ====== //
     // === Mortal === //
     "mortal": "Mortal",
@@ -253,6 +281,24 @@ const translations = {
     "merit.areaOfExpertise": "Area of Expertise",
     "merit.multilingual": "Multilingual",
     "merit.investigativeProdigy": "Investigative Prodigy",
+    // ==== PHYSICAL ==== //
+    "merit.crackDriver": "Crack Driver",
+    "merit.ambidextrous": "Ambidextrous",
+    "merit.seizingTheEdge": "Seizing the Edge",
+    "merit.demolisher": "Demolisher",
+    "merit.doubleJointed": "Double Jointed",
+    "merit.greyhound": "Greyhound",
+    "merit.giant": "Giant",
+    "merit.automotiveGenius": "Automotive Genius",
+    "merit.relentless": "Relentless",
+    "merit.hardy": "Hardy",
+    "merit.fleetOfFoot": "Fleet of Foot",
+    "merit.sleightOfHand": "Sleight of Hand",
+    "merit.parkour": "Parkour",
+    "merit.smallFramed": "Small-Framed",
+    "merit.stuntDriver": "Stunt Driver",
+    "merit.ironStamina": "Iron Stamina",
+    "merit.quickDraw": "Quick Draw"
   }
 };
 

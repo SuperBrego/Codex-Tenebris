@@ -28,7 +28,7 @@ export default function CustomTrait({ merit, updateMerit, removeMerit }: Props) 
         disabled={merit.fixed}
       />
     </Col>
-    <Col md={1} className="text-end">
+    <Col md={2} className="text-end">
       <Button size="sm" variant="outline-danger" onClick={() => removeMerit(merit.id)}>X</Button>
     </Col>
     <Col md={12}>
