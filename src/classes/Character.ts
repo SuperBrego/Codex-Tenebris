@@ -95,7 +95,7 @@ export class Character {
     this.chronicle = '';
     this.group = '';
     
-    this.health = createHealthTrack(this.healthPoints)
+    this.health = createHealthTrack(30);
     this.template = characterTemplate;
     this.templateTraits = getTemplateTraits(this.template);
     this.willpower = createStateTrackList(15, this.willpowerPoints);
