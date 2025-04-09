@@ -1,6 +1,6 @@
 import { Card } from "react-bootstrap";
-import { useCharacter } from "../../../hooks/useCharacter";
-import GroupedTraitBlock from "../../../shared/GroupedTraitBlock";
+import { useCharacter } from "../../hooks/useCharacter";
+import GroupedTraitBlock from "../../shared/GroupedTraitBlock";
 import { useTranslation } from "react-i18next";
 
 export default function AttributeSection() {

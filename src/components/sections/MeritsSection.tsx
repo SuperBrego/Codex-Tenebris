@@ -1,11 +1,11 @@
 import { Button, Card, Form, Row, Stack } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import { useCharacter } from "../../../hooks/useCharacter";
+import { useCharacter } from "../../hooks/useCharacter";
 import { useState } from "react";
-import { Merit } from "../../../interfaces/Merit";
-import { _MortalMerits } from "../../../database/Merits/MortalMerits";
-import CustomTrait from "../../../shared/CustomTrait";
-import DefaultTrait from "../../../shared/DefaultTrait";
+import { Merit } from "../../interfaces/Merit";
+import { _MortalMerits } from "../../database/Merits/MortalMerits";
+import CustomTrait from "../../shared/CustomTrait";
+import DefaultTrait from "../../shared/DefaultTrait";
 
 export default function MeritsSection() {
   const { character, updateCharacter } = useCharacter();

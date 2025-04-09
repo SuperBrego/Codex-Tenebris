@@ -1,9 +1,9 @@
 // components/common/SupernaturalTemplateSelect.tsx
 import { Form } from 'react-bootstrap';
-import { useCharacter } from '../hooks/useCharacter';
-import { SupernaturalTemplatesIDs } from '../enum/SupernaturalTemplates';
-import { getTemplateTraits } from '../Utils/SupernaturalTemplates';
 import { useTranslation } from 'react-i18next';
+import { SupernaturalTemplatesIDs } from '../enum/SupernaturalTemplates';
+import { useCharacter } from '../hooks/useCharacter';
+import { getTemplateTraits } from '../Utils/SupernaturalTemplates';
 
 const TEMPLATE_LABELS: Record<SupernaturalTemplatesIDs, string> = {
   [SupernaturalTemplatesIDs.Mortal]: 'mortal',

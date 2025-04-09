@@ -1,12 +1,12 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CharacterEditor from './pages/CharacterEditor';
+import EditorPage from './pages/EditorPage';
 
 function App() {
 
   return (
     <>
-    <CharacterEditor />
+    <EditorPage />
     </>
   )
 }

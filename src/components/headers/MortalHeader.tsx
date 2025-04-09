@@ -1,8 +1,8 @@
 import { Form } from 'react-bootstrap';
-import FieldRow from '../../../shared/FieldRow';
-import FormField from '../../../shared/FormFieldProps';
-import { useField } from '../../../hooks/useField';
-import { useTraitField } from '../../../hooks/useTraitField';
+import FieldRow from '../../shared/FieldRow';
+import FormField from '../../shared/FormFieldProps';
+import { useField } from '../../hooks/useField';
+import { useTraitField } from '../../hooks/useTraitField';
 
 export default function MortalHeader() {
   return (

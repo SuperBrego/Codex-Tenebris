@@ -1,6 +1,6 @@
 import { Card, Button } from "react-bootstrap";
-import { useCharacter } from "../../../hooks/useCharacter";
-import GroupedTraitBlock from "../../../shared/GroupedTraitBlock";
+import { useCharacter } from "../../hooks/useCharacter";
+import GroupedTraitBlock from "../../shared/GroupedTraitBlock";
 import { useTranslation } from "react-i18next";
 
 export default function SkillsSection() {
@@ -46,7 +46,7 @@ export default function SkillsSection() {
   const groups: ('mental' | 'physical' | 'social')[] = ['mental', 'physical', 'social'];
 
   return (
-    <div className="ps-4 w-50">
+    <div className="ps-4">
       <div className="d-flex justify-content-center mb-2">
         <Button variant="outline-danger" size="sm" onClick={resetAllSkills}>
           {t('resetSkills')}

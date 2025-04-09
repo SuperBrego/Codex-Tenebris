@@ -1,9 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Character } from '../../classes/Character';
-import LanguageSelector from '../../components/LanguageSelector';
-import { useTheme } from '../../context/ThemeContext';
-import { usePortfolio } from '../../hooks/usePortfolio';
-import { exportPortfolio, importPortfolioFile } from '../../Utils/PortfolioUtils';
+import LanguageSelector from './LanguageSelector';
 import { Trash2, Plus, Upload, Download } from 'lucide-react';
 import {
   Navbar,
@@ -13,6 +9,10 @@ import {
   Button,
   ButtonGroup,
 } from 'react-bootstrap';
+import { usePortfolio } from '../hooks/usePortfolio';
+import { useTheme } from '../context/ThemeContext';
+import { exportPortfolio, importPortfolioFile } from '../Utils/PortfolioUtils';
+import { Character } from '../classes/Character';
 
 export default function CharacterNavbar() {
   const { t } = useTranslation()
