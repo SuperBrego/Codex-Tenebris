@@ -46,8 +46,11 @@ export default function DotRatingField({
           <Circle
             key={dot}
             size={20}
-            fill={fill(dot)}
-            stroke={"#000"}
+            // fill={fill(dot)}
+            // stroke={"#000"}
+            fill={fill(dot)} // ou "none" se preferir transparente
+            stroke={dot <= value ? colors.primary : "black"}
+            strokeWidth={2}
             onClick={() => handleChangeDot(dot)}
             style={{ cursor: cursorDisabled(dot)}}
           />
