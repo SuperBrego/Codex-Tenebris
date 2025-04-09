@@ -87,6 +87,8 @@ export class Character {
   equipments: any[] = [];
   weapons: any[] = [];
   armors: any[] = [];
+
+  moralityValue: number = 7;
   
   constructor(name: string = "Personagem", characterTemplate: SupernaturalTemplatesIDs = SupernaturalTemplatesIDs.Mortal) {
     this.name = name;
@@ -98,7 +100,7 @@ export class Character {
     this.health = createHealthTrack(30);
     this.template = characterTemplate;
     this.templateTraits = getTemplateTraits(this.template);
-    this.willpower = createStateTrackList(15, this.willpowerPoints);
+    this.willpower = createStateTrackList(30, true);
     
     this.size = 5;
     this.extraVitality = 0;    
@@ -133,6 +135,10 @@ export class Character {
   get speed(): number {
     return this.getAttribute('strength') + this.getAttribute('dexterity') + 5;
   }  
+
+  get moralityType(): string {
+    return this.templateTraits.moralityType;
+  }
 
   getAttribute(type: string): number {
     for (const group of Object.values(this.attributes)) {

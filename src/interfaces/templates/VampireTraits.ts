@@ -1,8 +1,8 @@
 import { StateTrack } from "../StateTrack";
 import { Trait } from "../Trait";
-import { SupernaturalTemplate } from "../TemplateTraits";
+import { SupernaturalTraits } from "../SupernaturalTraits";
 
-export interface VampireTraits extends SupernaturalTemplate {
+export interface VampireTraits extends SupernaturalTraits {
   bloodPotency: number;
   clan: string;
   mask: string;

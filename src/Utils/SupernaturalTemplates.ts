@@ -21,12 +21,12 @@ function createMortalTraits(): MortalTraits {
     index: SupernaturalTemplatesIDs.Mortal,
     name: 'mortal',
     book: "WoD",
+    moralityType: 'Integridade',
+    moralityTrait: Array.from( {length: 10}, () => { return '' }),
+
     virtue: '',
     vice: '',
     faction: '',
-    moralityType: 'Humanidade',
-    moralityTrait: [],
-    morality: 0,
   };
 }
 
@@ -35,19 +35,23 @@ function createVampireTraits(): VampireTraits {
     name: 'vampire',
     index: SupernaturalTemplatesIDs.Vampire,
     book: "VtR",
-    bloodPotency: 0,
+    moralityType: 'Humanidade',
+    moralityTrait: Array.from( {length: 10}, () => { return '' }),
+
+    bloodPotency: 1,
     clan: '',
     mask: '',
     dirge: '',
     bloodline: '',
     covenant: '',
-    vitae: createStateTrackList(10, false),
+    vitae: createStateTrackList(20, false),
     disciplines: [],
     banes: [],
     devotions: [],
     ritesMiracles: [],
     vinculum: [],
     havens: [],
+
   };
 }
 
@@ -56,8 +60,11 @@ function createWerewolfTraits(): WerewolfTraits {
     index: SupernaturalTemplatesIDs.Werewolf,
     name: "werewolf",
     book: "WtF",
+    moralityType: 'Humanidade',
+    moralityTrait: Array.from( {length: 10}, () => { return '' }),
+
     primalUrge: 0,
-    essense: createStateTrackList(10, false),
+    essense: createStateTrackList(20, false),
     renown: { purity: 0, glory: 0, honor: 0, wisdom: 0, cunning: 0 },
     triggers: { passive: '', common: '', specific: '' },
     gifts: { moon: [], shadow: [], wolf: [] },
@@ -89,6 +96,12 @@ function createDeviantTraits(): DeviantTraits {
     index: SupernaturalTemplatesIDs.Deviant,
     name: "deviant",
     book: "DtR",
+
+    // ----------------------
+    moralityType: 'Não tem',
+    moralityTrait: Array.from( {length: 10}, () => { return '' }),
+    // ----------------------
+
     convictions: [],
     loyalty: [],
     scars: [],

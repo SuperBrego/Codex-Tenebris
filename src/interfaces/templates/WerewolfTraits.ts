@@ -1,8 +1,8 @@
 import { StateTrack } from "../StateTrack";
-import { SupernaturalTemplate } from "../TemplateTraits";
+import { SupernaturalTraits } from "../SupernaturalTraits";
 import { Trait } from "../Trait";
 
-export interface WerewolfTraits extends SupernaturalTemplate {
+export interface WerewolfTraits extends SupernaturalTraits {
   primalUrge: number;
   essense: StateTrack[];
   renown: Record<'purity' | 'glory' | 'honor' | 'wisdom' | 'cunning', number>;

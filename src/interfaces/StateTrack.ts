@@ -1,4 +1,4 @@
 
 export interface StateTrack {
-  state: boolean | number;
+  state: boolean;
 }

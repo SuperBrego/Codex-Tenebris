@@ -1,10 +1,7 @@
-import { SupernaturalTemplate } from "../TemplateTraits";
+import { SupernaturalTraits } from "../SupernaturalTraits";
 
-export interface MortalTraits extends SupernaturalTemplate {
+export interface MortalTraits extends SupernaturalTraits {
   virtue: string;
   vice: string;
   faction: string;
-  moralityType: string;
-  moralityTrait: string[];
-  morality: number;
 }

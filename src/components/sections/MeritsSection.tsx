@@ -6,10 +6,12 @@ import { Merit } from "../../interfaces/Merit";
 import { _MortalMerits } from "../../database/Merits/MortalMerits";
 import CustomTrait from "../../shared/CustomTrait";
 import DefaultTrait from "../../shared/DefaultTrait";
+import { useTheme } from "../../context/ThemeContext";
 
 export default function MeritsSection() {
   const { character, updateCharacter } = useCharacter();
   const { t } = useTranslation();
+  const { colors } = useTheme();
 
   const predefinedMerits: Merit[] = _MortalMerits;
 
@@ -81,7 +83,9 @@ export default function MeritsSection() {
 
   return (
     <Card className="mb-4">
-      <Card.Header className="fw-bold">{t('merits')}</Card.Header>
+      <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }} className="fw-bold">
+        {t('merits')}
+      </Card.Header>
       <Card.Body>
         {/* Exibindo méritos com valor total */}
         <div className="mb-3">

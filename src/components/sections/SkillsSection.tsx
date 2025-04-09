@@ -2,10 +2,12 @@ import { Card, Button } from "react-bootstrap";
 import { useCharacter } from "../../hooks/useCharacter";
 import GroupedTraitBlock from "../../shared/GroupedTraitBlock";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "../../context/ThemeContext";
 
 export default function SkillsSection() {
   const { character, updateCharacter } = useCharacter();
   const { t } = useTranslation();
+  const { colors } = useTheme();
 
   const updateSkill = (name: string, newValue: number) => {
     for (const group of ['mental', 'physical', 'social'] as const) {
@@ -47,11 +49,6 @@ export default function SkillsSection() {
 
   return (
     <div className="ps-4">
-      <div className="d-flex justify-content-center mb-2">
-        <Button variant="outline-danger" size="sm" onClick={resetAllSkills}>
-          {t('resetSkills')}
-        </Button>
-      </div>
 
       {groups.map((group) => {
         const sortedSkills = [...character.skills[group]].sort((a, b) =>
@@ -60,7 +57,10 @@ export default function SkillsSection() {
 
         return (
           <Card key={group} className="mb-3 shadow-sm">
-            <Card.Header className="fw-semibold text-center text-uppercase">
+            <Card.Header 
+              style={{ backgroundColor: colors.primary, color: colors.primaryText }}
+              className="fw-semibold text-center text-uppercase"
+            >
               {t(group)}
             </Card.Header>
             <Card.Body>
@@ -73,6 +73,12 @@ export default function SkillsSection() {
           </Card>
         );
       })}
+
+      <div className="d-flex justify-content-center mb-2">
+        <Button variant="outline-danger" size="sm" onClick={resetAllSkills}>
+          {t('resetSkills')}
+        </Button>
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { StateTrack } from "../interfaces/StateTrack";
 import { Trait } from "../interfaces/Trait";
 import { DamageType } from "../types/DamageType";
 
-export function createStateTrackList(quantity: number, initialState: boolean | number): StateTrack[] {
+export function createStateTrackList(quantity: number, initialState: boolean): StateTrack[] {
   return Array.from({ length: quantity }, () => ({ state: initialState }));
 }
 

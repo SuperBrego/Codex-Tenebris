@@ -20,6 +20,9 @@ const translations = {
     "totalMeritCost": "Total em Vantagens",
     "meritName": "Nome da Vantagem",
     "description": "Descrição",
+
+    "health": "Vitalidade",
+    "willpower": "Força de Vontade",
     
     // ========== Personagem ========== //
     "name": "Nome",
@@ -174,6 +177,9 @@ const translations = {
     "totalMeritCost": "Total Merits Points",
     "meritName": "Merit Name",
     "description": "Description",
+
+    "health": "Health",
+    "willpower": "Willpower",
     
     // ========== Character ========== //
     "name": "Name",
