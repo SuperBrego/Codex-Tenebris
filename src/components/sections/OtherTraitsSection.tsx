@@ -16,7 +16,7 @@ export default function OtherTraitsSection(): ReactElement {
   }
 
   return <>
-  <Card >
+  <Card>
     <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }}> 
       <span className="fw-bold text-center"> {t('otherTraits')} </span>
     </Card.Header>
@@ -75,6 +75,7 @@ export default function OtherTraitsSection(): ReactElement {
                 type="checkbox"
                 key={`beat-check-${index}`}
                 checked={beat}
+                style={{ fontSize: '1.25rem' }}
                 onChange={(e: any) => handleBeatCheck(e.target.checked, index)}
               />)
             }
