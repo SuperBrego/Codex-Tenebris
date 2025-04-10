@@ -22,7 +22,7 @@ export class Character {
   
   health: HealthBox[];
   willpower: StateTrack[];
-  size: number;
+  _size: number = 5;
   extraVitality: number;
   
   merits: Merit[] = [];
@@ -30,8 +30,10 @@ export class Character {
   aspirations: string[] = [];
   story: string = '';
   appearance: string = '';
+  beats: boolean[] = Array.from( { length: 5 }, () => { return false });
+  experience: number = 0;
   
-  npcs: { name: string; description: string }[] = [];
+  npcs: { id: number, name: string; description: string }[] = [];
   
   attributes: Record<'mental' | 'physical' | 'social', Trait[]> = {
     mental: [
@@ -102,7 +104,6 @@ export class Character {
     this.templateTraits = getTemplateTraits(this.template);
     this.willpower = createStateTrackList(30, true);
     
-    this.size = 5;
     this.extraVitality = 0;    
   }
   
@@ -115,6 +116,15 @@ export class Character {
     this.template = template;
     this.templateTraits = getTemplateTraits(template);
   }
+
+  set size(_size: number) {
+    this._size = _size;
+  }
+
+  get size(): number {
+    //                    Se contém Gigante.
+    return this._size + (this.merits.some(elem => elem.labelKey === 'merit.giant') ? 1 : 0);
+  }
   
   get healthPoints(): number {
     return this.size + this.stamina;
@@ -126,6 +136,11 @@ export class Character {
   
   get defense(): number {
     return Math.min(this.getAttribute('wits'), this.getAttribute('dexterity')) + this.getSkill('athletics');
+  }
+
+  // TODO: Função de Armadura. Pegar bônus de Equipamentos e outros.
+  get armor(): number {
+    return 0;
   }
   
   get initiative(): number {
