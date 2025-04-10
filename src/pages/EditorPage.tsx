@@ -25,7 +25,8 @@ export default function EditorPage() {
           <Col md={4}> 
             <SkillsSection /> 
           </Col>
-          {/* Vantagens */}
+          
+          {/* Todo o resto */}
           <Col md={8}>
             <Row>
               {/* Vantagens */}
@@ -35,6 +36,8 @@ export default function EditorPage() {
               </Col>
               <Col md={5}> <StatusPanel /> </Col>
             </Row>
+
+            {/* Seção de Equipamentos */}
           </Col>
           
         </Row>

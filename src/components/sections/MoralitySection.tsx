@@ -14,7 +14,7 @@ export default function MoralitySection(): ReactElement {
   }
 
   return <>
-    <Card>
+    <Card className="mb-3">
       <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }}> 
         <span className="text-center fw-bold">{character.moralityType}</span> 
       </Card.Header>

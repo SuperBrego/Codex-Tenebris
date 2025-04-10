@@ -4,6 +4,7 @@ import { useCharacter } from '../../hooks/useCharacter';
 import { useTranslation } from 'react-i18next';
 import MoralitySection from './MoralitySection';
 import TrackCheckboxCard from '../../shared/TrackCheckboxCard';
+import TextListCard from '../../shared/TextListCard';
 
 export default function StatusPanel(): ReactElement {
   const { character } = useCharacter();
@@ -32,6 +33,21 @@ export default function StatusPanel(): ReactElement {
 
       {/* Agora, itens de Templates */}
       
+      {/* Condições */}
+      <TextListCard 
+        label={t("conditions")}
+        list={character.conditions}
+        trait='conditions'
+        placeholder={`${t("textTraitPlaceholder")} ${t("conditions")}...`}
+      />
+
+      {/* Aspirações */}
+      <TextListCard 
+        label={t("aspirations")}
+        list={character.aspirations}
+        trait='aspirations'
+        placeholder={`${t("textTraitPlaceholder")} ${t("aspirations")}...`}
+      />
 
     </div>
   );

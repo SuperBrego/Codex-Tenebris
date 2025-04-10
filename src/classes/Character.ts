@@ -26,8 +26,10 @@ export class Character {
   extraVitality: number;
   
   merits: Merit[] = [];
-  conditions: any[] = [];
+  
+  conditions: string[] = [];
   aspirations: string[] = [];
+
   story: string = '';
   appearance: string = '';
   beats: boolean[] = Array.from( { length: 5 }, () => { return false });

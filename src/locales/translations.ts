@@ -26,6 +26,8 @@ const translations = {
 
     "health": "Vitalidade",
     "willpower": "Força de Vontade",
+
+    "add": "Adicionar",
     
     // ========== Personagem ========== //
     "name": "Nome",
@@ -42,6 +44,11 @@ const translations = {
     "initiative": "Iniciativa",
     "experience": "Experiência",
     "beats": "Atos",
+    
+    "conditions": "Condições",
+    "aspirations": "Aspirações",
+    
+    "textTraitPlaceholder": "Descreva ",
     
     "attributes": "Atributos",
     "skills": "Habilidades",
@@ -196,6 +203,8 @@ const translations = {
 
     "health": "Health",
     "willpower": "Willpower",
+
+    "add": "Add",
     
     // ========== Character ========== //
     "name": "Name",
@@ -212,6 +221,10 @@ const translations = {
     "initiative": "Initiative",
     "experience": "Experience",
     "beats": "Beats",
+    "conditions": "Conditions",
+    "aspirations": "Aspirations",
+    "conditionPlaceholder": "Name the condition...",
+    "aspirationPlaceholder": "Name the aspiration...",
 
     "attributes": "Attributes",
     "skills": "Skills",
