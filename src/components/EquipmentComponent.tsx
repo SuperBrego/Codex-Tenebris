@@ -1,11 +1,12 @@
 import { ReactElement } from "react";
 import { EquipmentTypes } from "../types/EquipmentTypes";
 import { Col, Container, Form, Row } from "react-bootstrap";
-import { Weapon } from "../interfaces/Equipment";
+import { Armor, Weapon } from "../interfaces/Equipment";
 import WeaponTraits from "./Equipments/WeaponTraits";
 import { useCharacter } from "../hooks/useCharacter";
 import { Trash2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import ArmorTraits from "./Equipments/ArmorTraits";
 
 interface Props {
   equipment: EquipmentTypes;
@@ -52,7 +53,13 @@ export default function EquipmentComponent({ equipment, onRemove }: Props): Reac
       </Col>
       
       <Col>
+        {/* Armas */}
         {(equipment.type === 'weapon') && <WeaponTraits weapon={equipment as Weapon} onChange={handleTraitChange} />}
+        
+        {/* Armaduras */}
+        {(equipment.type === 'armor') && <ArmorTraits armor={equipment as Armor} onChange={handleTraitChange} />}
+
+        {/* Geral */}
       </Col>
     </Row>
 
@@ -69,10 +76,6 @@ export default function EquipmentComponent({ equipment, onRemove }: Props): Reac
       </Col>
     </Row>
   </Container>
-  
-  {/* Armaduras */}
-  {/* Nome | Valor Geral/Valor Balístico | Força | Defesa | Tamanho | Custo */}
-  {/* Descrição....... */}
   
   {/* Geral */}
   {/* Nome | Durabilidade | Estrutura | Tamanho | Custo */}

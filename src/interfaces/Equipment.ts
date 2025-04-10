@@ -25,4 +25,5 @@ export interface Armor extends Equipment {
   ballisticRating: number;
   defense: number;
   speed: number;
+  strength: number;
 }

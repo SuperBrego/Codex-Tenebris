@@ -38,8 +38,9 @@ export default function EquipmentsSection(): ReactElement {
       ballisticRating: 0,
       cost: 0,
       defense: 0,
-      size: 0,
+      size: 1,
       speed: 0,
+      strength: 1,
       type: 'armor',
       description: '',
     };
