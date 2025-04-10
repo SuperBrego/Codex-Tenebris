@@ -24,7 +24,6 @@ export class Character {
   health: HealthBox[];
   willpower: StateTrack[];
   _size: number = 5;
-  extraVitality: number;
   
   merits: Merit[] = [];
   
@@ -90,8 +89,16 @@ export class Character {
   };
   
   equipments: EquipmentTypes[] = [];
+  
+  extraVitality: number = 0;
+  extraArmor: number = 0;
+  extraInitiative: number = 0;
+  extraSpeed: number = 0;
+  extraDefense: number = 0;
 
   moralityValue: number = 7;
+
+  // Bônuses
   
   constructor(name: string = "Personagem", characterTemplate: SupernaturalTemplatesIDs = SupernaturalTemplatesIDs.Mortal) {
     this.name = name;
@@ -104,8 +111,7 @@ export class Character {
     this.template = characterTemplate;
     this.templateTraits = getTemplateTraits(this.template);
     this.willpower = createStateTrackList(30, true);
-    
-    this.extraVitality = 0;    
+
   }
   
   // Sobrenatural
@@ -145,7 +151,7 @@ export class Character {
   }
   
   get initiative(): number {
-    return this.getAttribute('dexterity') + this.getAttribute('composure');
+    return this.getAttribute('dexterity') + this.getAttribute('composure') + this.extraInitiative;
   }
   
   get speed(): number {
