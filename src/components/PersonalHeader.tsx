@@ -7,8 +7,7 @@ export default function PersonalHeader() {
   const { character } = useCharacter();
 
   switch (character.template) {
-    case SupernaturalTemplatesIDs.Vampire:
-      return <VampireHeader />;
+    case SupernaturalTemplatesIDs.Vampire: return <VampireHeader />;
     default: return <MortalHeader />;
   }
 }
