@@ -2,8 +2,8 @@ import { ReactElement } from "react";
 import { Card } from "react-bootstrap";
 import { useCharacter } from "../hooks/useCharacter";
 import { StateTrack } from "../interfaces/StateTrack";
-import CheckboxesList from "./CheckBoxesList";
 import { useTheme } from "../context/ThemeContext";
+import CheckboxesList from "./CheckboxesList";
 
 interface BaseProps { 
   boxes: StateTrack[];
