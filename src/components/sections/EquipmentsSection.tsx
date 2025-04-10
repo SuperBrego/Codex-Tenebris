@@ -3,8 +3,11 @@ import { useTheme } from "../../context/ThemeContext";
 import { useTranslation } from "react-i18next";
 import { Accordion, AccordionBody, AccordionHeader, AccordionItem, Button, Card, Stack } from "react-bootstrap";
 import { useCharacter } from "../../hooks/useCharacter";
-import { Weapon, Armor, Gear } from "../../interfaces/Equipment";
 import EquipmentComponent from "../EquipmentComponent";
+import { createEquipment } from "../../Utils/Utils";
+import { Weapon } from "../../interfaces/Equipments/Weapon";
+import { Armor } from "../../interfaces/Equipments/Armor";
+import { Gear } from "../../interfaces/Equipments/Gear";
 
 export default function EquipmentsSection(): ReactElement {
   const { character, updateCharacter } = useCharacter();
@@ -12,55 +15,19 @@ export default function EquipmentsSection(): ReactElement {
   const { t } = useTranslation();
 
   const handleAddWeapon = () => {
-    const newWeapon: Weapon = {
-      id: crypto.randomUUID(),
-      name: '',
-      damage: 0,
-      cost: 0,
-      init: 0,
-      clip: 0,
-      size: 1,
-      strength: 0,
-      range: '',
-      description: '',
-      type: 'weapon'
-    };
-    
+    const newWeapon: Weapon = createEquipment('weapon') as Weapon;
     const equipList = [...character.equipments, newWeapon];
     updateCharacter({ equipments: equipList });
   }
   
   const handleAddArmor =  () => {
-    const newArmor: Armor = {
-      id: crypto.randomUUID(),
-      name: '',
-      generalRating: 0,
-      ballisticRating: 0,
-      cost: 0,
-      defense: 0,
-      size: 1,
-      speed: 0,
-      strength: 1,
-      type: 'armor',
-      description: '',
-    };
-    
+    const newArmor: Armor = createEquipment('armor') as Armor;    
     const equipList = [...character.equipments, newArmor];
     updateCharacter({ equipments: equipList });
   }
 
   const handleAddGear =  () => {
-    const newGear: Gear = {
-      id: crypto.randomUUID(),
-      name: '',
-      cost: 0,
-      size: 1,
-      durability: 0,
-      structure: '',
-      description: '',
-      type: 'gear'
-    };
-
+    const newGear: Gear = createEquipment('gear') as Gear;
     const equipList = [...character.equipments, newGear];
     updateCharacter({ equipments: equipList });
   }
