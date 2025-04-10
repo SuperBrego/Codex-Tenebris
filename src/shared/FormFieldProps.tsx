@@ -24,7 +24,8 @@ export default function FormField<T = string>({
     return (
       <Form.Group className="mb-2">
         <Form.Label>{t(labelKey)}</Form.Label>
-        <Form.Select value={value as string} onChange={(e) => setValue(e.target.value as T)}>
+        <Form.Select value={value as string} onChange={(e) => setValue(e.target.value as T)} size={'sm'}>
+          <option value={''} disabled>Selecione uma opção...</option>
           {options?.map((opt) => (
             <option key={opt} value={opt}>
               {opt}
@@ -40,6 +41,7 @@ export default function FormField<T = string>({
       <Form.Label>{t(labelKey)}</Form.Label>
       <Form.Control
         type={type}
+        size={'sm'}
         value={value as any}
         onChange={(e) => {
           const parsed = type === 'number' ? Number(e.target.value) : e.target.value;
