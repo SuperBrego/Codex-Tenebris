@@ -21,6 +21,9 @@ const translations = {
     "meritName": "Nome da Vantagem",
     "description": "Descrição",
 
+    "otherTraits": "Outras Características",
+    "otherBonus": "Outros Bônus",
+
     "health": "Vitalidade",
     "willpower": "Força de Vontade",
     
@@ -31,6 +34,14 @@ const translations = {
     "player": "Jogador",
     "chronicle": "Crônica",
     "group": "Grupo",
+
+    "size": "Tamanho",
+    "speed": "Velocidade",
+    "defense": "Defesa",
+    "armor": "Armadura",
+    "initiative": "Iniciativa",
+    "experience": "Experiência",
+    "beats": "Atos",
     
     "attributes": "Atributos",
     "skills": "Habilidades",
@@ -166,9 +177,11 @@ const translations = {
     "newCharacter": "New Character",
     "templateSelect": "Supernatural Type",
     "template": "Template",
+    
     "resetSkills": "Reset Skills",
     "specialtiesPlaceholder": "Specialties (comma separated)",
     "noSkills": "No skills with dots",
+    
     "duplicateMerit": "Duplicate Merit",
     "merits": "Merits",
     "selectMerit": "Select Merit",
@@ -177,6 +190,9 @@ const translations = {
     "totalMeritCost": "Total Merits Points",
     "meritName": "Merit Name",
     "description": "Description",
+
+    "otherTraits": "Other Traits",
+    "otherBonus": "Other Bonuses",
 
     "health": "Health",
     "willpower": "Willpower",
@@ -188,6 +204,15 @@ const translations = {
     "player": "Player",
     "chronicle": "Chronicle",
     "group": "Group",
+
+    "size": "Size",
+    "speed": "Speed",
+    "defense": "Defense",
+    "armor": "Armor",
+    "initiative": "Initiative",
+    "experience": "Experience",
+    "beats": "Beats",
+
     "attributes": "Attributes",
     "skills": "Skills",
     "mental": "Mental",
