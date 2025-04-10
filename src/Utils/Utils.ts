@@ -1,5 +1,7 @@
 import { useCharacter } from "../hooks/useCharacter";
-import { Weapon } from "../interfaces/Equipment";
+import { Armor } from "../interfaces/Equipments/Armor";
+import { Gear } from "../interfaces/Equipments/Gear";
+import { Weapon } from "../interfaces/Equipments/Weapon";
 import { HealthBox } from "../interfaces/HealthBox";
 import { StateTrack } from "../interfaces/StateTrack";
 import { Trait } from "../interfaces/Trait";
@@ -53,7 +55,8 @@ export function createEquipment(type: string): EquipmentTypes {
     strength: 1,
     type: 'armor',
     description: '',
-  };
+    active: false
+  } as Armor;
 
   return {
     id: crypto.randomUUID(),
@@ -64,6 +67,6 @@ export function createEquipment(type: string): EquipmentTypes {
     structure: '',
     description: '',
     type: 'gear'
-  };
+  } as Gear;
   
 }
