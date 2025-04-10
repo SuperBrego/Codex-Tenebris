@@ -4,6 +4,7 @@ import { Merit } from "../interfaces/Merit";
 import { Skill } from "../interfaces/Skill";
 import { StateTrack } from "../interfaces/StateTrack";
 import { Trait } from "../interfaces/Trait";
+import { EquipmentTypes } from "../types/EquipmentTypes";
 import { SupernaturalTemplatesType } from "../types/SupernaturalTemplatesType";
 import { getTemplateTraits } from "../Utils/SupernaturalTemplates";
 import { createHealthTrack, createStateTrackList } from "../Utils/Utils";
@@ -88,9 +89,7 @@ export class Character {
     ],
   };
   
-  equipments: any[] = [];
-  weapons: any[] = [];
-  armors: any[] = [];
+  equipments: EquipmentTypes[] = [];
 
   moralityValue: number = 7;
   
