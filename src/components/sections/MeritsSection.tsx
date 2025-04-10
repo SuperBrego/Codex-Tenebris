@@ -82,7 +82,7 @@ export default function MeritsSection() {
   }
 
   return (
-    <Card className="mb-4">
+    <Card className="mb-3">
       <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }} className="fw-bold">
         {t('merits')}
       </Card.Header>
