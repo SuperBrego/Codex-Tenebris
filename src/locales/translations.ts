@@ -5,6 +5,7 @@ const translations = {
     "import": "Importar",
     "export": "Exportar",
     "newCharacter": "Novo Personagem",
+    "add": "Adicionar",
     
     "templateSelect": "Tipo Sobrenatural",
     "template": "Modelo",
@@ -26,8 +27,15 @@ const translations = {
 
     "health": "Vitalidade",
     "willpower": "Força de Vontade",
+    
+    "equipments": "Equipamento",
+    "weapons/attacks": "Armas/Ataques",
+    "weapon/attack": "Arma/Ataque",
+    "armors": "Armaduras",
+    "gears": "Equipamento Gerais",
+    "gear": "Equipamento Geral",
+    "equipmentDescription": "Descrição do equipamento",
 
-    "add": "Adicionar",
     
     // ========== Personagem ========== //
     "name": "Nome",
@@ -184,6 +192,7 @@ const translations = {
     "newCharacter": "New Character",
     "templateSelect": "Supernatural Type",
     "template": "Template",
+    "add": "Add",
     
     "resetSkills": "Reset Skills",
     "specialtiesPlaceholder": "Specialties (comma separated)",
@@ -203,8 +212,12 @@ const translations = {
 
     "health": "Health",
     "willpower": "Willpower",
-
-    "add": "Add",
+    "equipments": "Equipments",
+    "weapons/attacks": "Weapons/Attacks",
+    "weapon/attack": "Weapon/Attack",
+    "armors": "Armors",
+    "gears": "General Gears",
+    "gear": "Gear",
     
     // ========== Character ========== //
     "name": "Name",
@@ -231,6 +244,7 @@ const translations = {
     "mental": "Mental",
     "physical": "Physical",
     "social": "Social",
+    "equipmentDescription": "Equipment Description",
     
     // ====== ATTRIBUTES ====== //
     
