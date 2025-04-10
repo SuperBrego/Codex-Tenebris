@@ -1,7 +1,8 @@
 import { ReactElement, useEffect, useState } from "react";
-import { Weapon } from "../../interfaces/Equipment";
-import { Col, Form, OverlayTrigger, Row, Stack, Tooltip } from "react-bootstrap";
+import { Col, Form, InputGroup, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
 import { MessageCircleQuestion } from "lucide-react";
+import InputGroupText from "react-bootstrap/esm/InputGroupText";
+import { Weapon } from "../../interfaces/Equipments/Weapon";
 
 interface Props {
   weapon: Weapon;
@@ -77,31 +78,28 @@ export default function WeaponTraits({ weapon, onChange }: Props): ReactElement 
 
       {/* Alcance */}
       <Col md={3} className="d-flex justify-content-center">
-        <Stack direction="horizontal" gap={1} className="align-items-center">
+        <InputGroup>
           <Form.Control
             value={closeRange}
             size="sm"
             className="text-center"
-            style={{ width: '3rem' }}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCloseRange(e.target.value)}
           />
-          <span>/</span>
+          <InputGroupText>/</InputGroupText>
           <Form.Control
             value={mediumRange}
             size="sm"
             className="text-center"
-            style={{ width: '3rem' }}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setMediumRange(e.target.value)}
           />
-          <span>/</span>
+          <InputGroupText>/</InputGroupText>
           <Form.Control
             value={longRange}
             size="sm"
             className="text-center"
-            style={{ width: '3rem' }}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLongRange(e.target.value)}
           />
-        </Stack>
+        </InputGroup>
       </Col>
       
       {/* Clipe */}

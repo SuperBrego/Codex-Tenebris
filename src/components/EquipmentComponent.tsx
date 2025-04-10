@@ -1,12 +1,13 @@
 import { ReactElement } from "react";
 import { EquipmentTypes } from "../types/EquipmentTypes";
 import { Col, Container, Form, Row } from "react-bootstrap";
-import { Armor, Weapon } from "../interfaces/Equipment";
 import WeaponTraits from "./Equipments/WeaponTraits";
 import { useCharacter } from "../hooks/useCharacter";
 import { Trash2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import ArmorTraits from "./Equipments/ArmorTraits";
+import { Weapon } from "../interfaces/Equipments/Weapon";
+import { Armor } from "../interfaces/Equipments/Armor";
 
 interface Props {
   equipment: EquipmentTypes;
@@ -51,16 +52,15 @@ export default function EquipmentComponent({ equipment, onRemove }: Props): Reac
           <Trash2 size={18} />
         </button>
       </Col>
+    </Row>
+    <Row className="px-2">
+      {/* Armas */}
+      {(equipment.type === 'weapon') && <WeaponTraits weapon={equipment as Weapon} onChange={handleTraitChange} />}
       
-      <Col>
-        {/* Armas */}
-        {(equipment.type === 'weapon') && <WeaponTraits weapon={equipment as Weapon} onChange={handleTraitChange} />}
-        
-        {/* Armaduras */}
-        {(equipment.type === 'armor') && <ArmorTraits armor={equipment as Armor} onChange={handleTraitChange} />}
+      {/* Armaduras */}
+      {(equipment.type === 'armor') && <ArmorTraits armor={equipment as Armor} onChange={handleTraitChange} />}
 
-        {/* Geral */}
-      </Col>
+      {/* Geral */}
     </Row>
 
     {/* Descrição */}

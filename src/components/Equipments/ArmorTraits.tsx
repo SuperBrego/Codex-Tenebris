@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
-import { Armor } from "../../interfaces/Equipment";
-import { Col, Form, Row } from "react-bootstrap";
+import { Col, Form, InputGroup, Row } from "react-bootstrap";
 import InputGroupText from "react-bootstrap/esm/InputGroupText";
+import { Armor } from "../../interfaces/Equipments/Armor";
 
 interface Props {
   armor: Armor;
@@ -43,21 +43,21 @@ export default function ArmorTraits({ armor, onChange }: Props): ReactElement {
     <Row className="mb-1">
       {/* Valor Geral/Balístico */}
       <Col md={2} className="d-flex justify-content-center">
-        <Form.Control 
-          className="flush"
-          value={armor.generalRating}
-          size="sm"
-          style={{ width: '3rem', textAlign: 'center'}}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value, 'generalRating', 'number')}
-        />
-        <InputGroupText>/</InputGroupText>
-        <Form.Control 
-          className="flush"
-          value={armor.ballisticRating}
-          size="sm"
-          style={{ width: '3rem', textAlign: 'center'}}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value, 'ballisticRating', 'number')}
-        />
+        <InputGroup>
+          <Form.Control 
+            className="text-center"
+            value={armor.generalRating}
+            size="sm"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value, 'generalRating', 'number')}
+          />
+          <InputGroupText>/</InputGroupText>
+          <Form.Control 
+            className="text-center"
+            value={armor.ballisticRating}
+            size="sm"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value, 'ballisticRating', 'number')}
+          />
+        </InputGroup>
       </Col>
       
       {/* Força */}
