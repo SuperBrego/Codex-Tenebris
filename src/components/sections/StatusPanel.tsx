@@ -2,8 +2,8 @@ import { ReactElement } from 'react';
 import TrackStatusCard from '../../shared/TrackStatusCard';
 import { useCharacter } from '../../hooks/useCharacter';
 import { useTranslation } from 'react-i18next';
-import TrackCheckboxCard from '../../shared/TrackCheckBoxCard';
 import MoralitySection from './MoralitySection';
+import TrackCheckboxCard from '../../shared/TrackCheckboxCard';
 
 export default function StatusPanel(): ReactElement {
   const { character } = useCharacter();
@@ -18,6 +18,7 @@ export default function StatusPanel(): ReactElement {
         trait='health' 
         boxes={character.health}
       />
+
       {/* Força de Vontade */}
       <TrackCheckboxCard
         label={`${t('willpower')}`}
@@ -28,6 +29,9 @@ export default function StatusPanel(): ReactElement {
       
       {/* Moralidade do Personagem */}
       <MoralitySection />
+
+      {/* Agora, itens de Templates */}
+      
 
     </div>
   );
