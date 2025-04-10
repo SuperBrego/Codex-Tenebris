@@ -15,6 +15,10 @@ export default function OtherTraitsSection(): ReactElement {
     updateCharacter( { beats: newBeats } )
   }
 
+  const handleExtraTraitChange = (trait: string, value: number) => {
+    updateCharacter({ [trait]: value });
+  }
+
   return <>
   <Card>
     <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }}> 
@@ -34,7 +38,15 @@ export default function OtherTraitsSection(): ReactElement {
         <Form.Label column> <strong>{t('speed')}:</strong> </Form.Label>
         <Form.Label column> {character.speed} </Form.Label>
         <Col> 
-          <Form.Control placeholder={`${t('otherBonus')}...`} />
+          <Form.Control 
+            size="sm" 
+            type="number"
+            className="text-center justify-self-center"
+            style={{ width: '3.5rem'}}
+            placeholder={`${t('otherBonus')}...`} 
+            value={character.extraSpeed}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleExtraTraitChange('extraSpeed', Number(e.target.value))}
+          />
         </Col>
       </Form.Group>
       
@@ -43,7 +55,15 @@ export default function OtherTraitsSection(): ReactElement {
         <Form.Label column> <strong>{t('defense')}:</strong> </Form.Label>
         <Form.Label column> {character.defense} </Form.Label>
         <Col> 
-          <Form.Control placeholder={`${t('otherBonus')}...`} />
+          <Form.Control 
+            size="sm" 
+            type="number"
+            className="text-center justify-self-center"
+            style={{ width: '3.5rem'}}
+            placeholder={`${t('otherBonus')}...`} 
+            value={character.extraDefense}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleExtraTraitChange('extraDefense', Number(e.target.value))}
+          />
         </Col>
       </Form.Group>
       
@@ -52,7 +72,15 @@ export default function OtherTraitsSection(): ReactElement {
         <Form.Label column> <strong>{t('armor')}:</strong> </Form.Label>
         <Form.Label column> {character.armor} </Form.Label>
         <Col> 
-          <Form.Control placeholder={`${t('otherBonus')}...`} />
+          <Form.Control 
+            size="sm" 
+            type="number"
+            className="text-center justify-self-center"
+            style={{ width: '3.5rem'}}
+            placeholder={`${t('otherBonus')}...`} 
+            value={character.extraArmor}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleExtraTraitChange('extraArmor', Number(e.target.value))}
+          />
         </Col>
       </Form.Group>
       
@@ -61,7 +89,15 @@ export default function OtherTraitsSection(): ReactElement {
         <Form.Label column> <strong>{t('initiative')}:</strong> </Form.Label>
         <Form.Label column> {character.initiative} </Form.Label>
         <Col> 
-          <Form.Control placeholder={`${t('otherBonus')}...`} />
+          <Form.Control 
+            size="sm" 
+            type="number"
+            className="text-center justify-self-center"
+            style={{ width: '3.5rem'}}
+            placeholder={`${t('otherBonus')}...`} 
+            value={character.extraInitiative}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleExtraTraitChange('extraInitiative', Number(e.target.value))}
+          />
         </Col>
       </Form.Group>
 
@@ -75,7 +111,7 @@ export default function OtherTraitsSection(): ReactElement {
                 type="checkbox"
                 key={`beat-check-${index}`}
                 checked={beat}
-                style={{ fontSize: '1.25rem' }}
+                style={{ fontSize: '1.4rem' }}
                 onChange={(e: any) => handleBeatCheck(e.target.checked, index)}
               />)
             }
@@ -88,7 +124,7 @@ export default function OtherTraitsSection(): ReactElement {
       <Form.Group as={Row} >
         <Form.Label column> <strong>{t('experience')}:</strong> </Form.Label>
         <Col>
-          <Form.Control
+          <Form.Control 
             size="sm"
             className="w-50 text-center"
             type="number"
