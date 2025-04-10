@@ -8,6 +8,8 @@ import { useTranslation } from "react-i18next";
 import ArmorTraits from "./Equipments/ArmorTraits";
 import { Weapon } from "../interfaces/Equipments/Weapon";
 import { Armor } from "../interfaces/Equipments/Armor";
+import GeatTraits from "./Equipments/GearTraits";
+import { Gear } from "../interfaces/Equipments/Gear";
 
 interface Props {
   equipment: EquipmentTypes;
@@ -61,6 +63,8 @@ export default function EquipmentComponent({ equipment, onRemove }: Props): Reac
       {(equipment.type === 'armor') && <ArmorTraits armor={equipment as Armor} onChange={handleTraitChange} />}
 
       {/* Geral */}
+      {equipment.type === 'gear' && <GeatTraits gear={equipment as Gear} onChange={handleTraitChange} />}
+
     </Row>
 
     {/* Descrição */}
@@ -76,9 +80,5 @@ export default function EquipmentComponent({ equipment, onRemove }: Props): Reac
       </Col>
     </Row>
   </Container>
-  
-  {/* Geral */}
-  {/* Nome | Durabilidade | Estrutura | Tamanho | Custo */}
-
   </>;
 }
