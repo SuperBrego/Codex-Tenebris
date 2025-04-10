@@ -2,6 +2,7 @@ import { ReactElement } from "react";
 import { Col, Form, InputGroup, Row } from "react-bootstrap";
 import InputGroupText from "react-bootstrap/esm/InputGroupText";
 import { Armor } from "../../interfaces/Equipments/Armor";
+import { useCharacter } from "../../hooks/useCharacter";
 
 interface Props {
   armor: Armor;
@@ -9,6 +10,14 @@ interface Props {
 }
 
 export default function ArmorTraits({ armor, onChange }: Props): ReactElement {
+  const { character, updateCharacter } = useCharacter();
+
+  const handleEquipArmor = (isEquiped: boolean) => {
+    const updated: Armor = {...armor, equiped: isEquiped};
+
+    const updatedEquips = character.equipments.map(equip => (equip.id === updated.id) ? updated : equip);
+    updateCharacter({ equipments: updatedEquips });
+  }
   
   return <>
     {/* Nome | Valor Geral/Valor Balístico | Força | Defesa | Tamanho | Custo */}
@@ -37,6 +46,11 @@ export default function ArmorTraits({ armor, onChange }: Props): ReactElement {
       {/* Custo */}
       <Col className="d-flex justify-content-center fw-bold">
         <div>Custo</div>
+      </Col>
+      
+      {/* Equipado? */}
+      <Col className="d-flex justify-content-center fw-bold">
+        <div>Equipado?</div>
       </Col>
     </Row>
 
@@ -97,6 +111,15 @@ export default function ArmorTraits({ armor, onChange }: Props): ReactElement {
           size="sm"
           style={{ width: '3rem', textAlign: 'center'}}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value, 'cost', 'number')}
+        />
+      </Col>
+      
+      {/* Equipado? */}
+      <Col className="d-flex justify-content-center">
+        <Form.Switch
+          checked={armor.equiped}
+          style={{ width: '3rem', textAlign: 'center'}}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleEquipArmor(e.target.checked)}
         />
       </Col>
     </Row>

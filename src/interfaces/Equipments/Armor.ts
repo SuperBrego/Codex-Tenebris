@@ -6,4 +6,5 @@ export interface Armor extends Equipment {
   defense: number;
   speed: number;
   strength: number;
+  equiped: boolean;
 }

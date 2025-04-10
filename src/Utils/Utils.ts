@@ -55,7 +55,7 @@ export function createEquipment(type: string): EquipmentTypes {
     strength: 1,
     type: 'armor',
     description: '',
-    active: false
+    equiped: false
   } as Armor;
 
   return {
