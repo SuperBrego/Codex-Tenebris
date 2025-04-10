@@ -7,6 +7,7 @@ import { _MortalMerits } from "../../database/Merits/MortalMerits";
 import CustomTrait from "../../shared/CustomTrait";
 import DefaultTrait from "../../shared/DefaultTrait";
 import { useTheme } from "../../context/ThemeContext";
+import { containsMerit } from "../../Utils/Utils";
 
 export default function MeritsSection() {
   const { character, updateCharacter } = useCharacter();
@@ -17,15 +18,9 @@ export default function MeritsSection() {
 
   const [selected, setSelected] = useState('');
 
-  const addMeritFromList = (name: string) => {
-    const base = predefinedMerits.find((m) => m.name === name);
+  const addMeritFromList = (labelKey: string) => {
+    const base = predefinedMerits.find((m) => m.labelKey === labelKey);
     if (!base) return;
-
-    // Verificar duplicatas
-    if (character.merits.some((m) => m.name === name && m.exclusive)) {
-      alert(t('duplicateMerit'));
-      return;
-    }
 
     const merit = {
       id: crypto.randomUUID(),
@@ -100,7 +95,7 @@ export default function MeritsSection() {
             {Object.keys(groupedMerits).map((category) => (
               <optgroup label={t(category)} key={category}>
                 {sortTraits(groupedMerits[category]).map((m) => (
-                  <option key={m.name} value={m.name}>
+                  <option key={m.name} value={m.labelKey} disabled={containsMerit(m.labelKey) && m.exclusive}>
                     {t(`${m.labelKey}`)}
                   </option>
                 ))}
