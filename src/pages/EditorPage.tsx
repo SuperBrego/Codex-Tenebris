@@ -8,6 +8,7 @@ import MeritsSection from "../components/sections/MeritsSection";
 import CharacterSummary from "./CharacterSummary";
 import StatusPanel from "../components/sections/StatusPanel";
 import OtherTraitsSection from "../components/sections/OtherTraitsSection";
+import EquipmentsSection from "../components/sections/EquipmentsSection";
 
 export default function EditorPage() {
   
@@ -38,6 +39,9 @@ export default function EditorPage() {
             </Row>
 
             {/* Seção de Equipamentos */}
+            <Row>
+              <Col> <EquipmentsSection /> </Col>
+            </Row>
           </Col>
           
         </Row>
