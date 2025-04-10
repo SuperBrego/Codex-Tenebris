@@ -26,7 +26,7 @@ export default function TrackCheckboxCard({ boxes, max = 30, label, trait, templ
   }
 
   return <>
-    <Card>
+    <Card className="mb-3">
       <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }}> 
         <span className="fw-bold">{label}</span>
       </Card.Header>
