@@ -7,6 +7,7 @@ import SkillsSection from "../components/sections/SkillsSection";
 import MeritsSection from "../components/sections/MeritsSection";
 import CharacterSummary from "./CharacterSummary";
 import StatusPanel from "../components/sections/StatusPanel";
+import OtherTraitsSection from "../components/sections/OtherTraitsSection";
 
 export default function EditorPage() {
   
@@ -28,7 +29,10 @@ export default function EditorPage() {
           <Col md={8}>
             <Row>
               {/* Vantagens */}
-              <Col md={7}> <MeritsSection /> </Col>
+              <Col md={7}> 
+                <MeritsSection />
+                <OtherTraitsSection />
+              </Col>
               <Col md={5}> <StatusPanel /> </Col>
             </Row>
           </Col>
