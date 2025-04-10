@@ -1,4 +1,5 @@
 import { SupernaturalTemplatesIDs } from "../enum/SupernaturalTemplates";
+import GalleryImage from "../interfaces/GalleryImage";
 import { HealthBox } from "../interfaces/HealthBox";
 import { Merit } from "../interfaces/Merit";
 import { Skill } from "../interfaces/Skill";
@@ -98,7 +99,7 @@ export class Character {
 
   moralityValue: number = 7;
 
-  // Bônuses
+  gallery: GalleryImage[] =[];
   
   constructor(name: string = "Personagem", characterTemplate: SupernaturalTemplatesIDs = SupernaturalTemplatesIDs.Mortal) {
     this.name = name;
