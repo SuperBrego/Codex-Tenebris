@@ -20,10 +20,9 @@ export default function PersonalInfoSection(): ReactElement {
         {t('description')}
       </Card.Header>
       <Card.Body>
-        <Row>
+        <Row className="mb-2">
         {/* Descrição */}
         <DescriptionTraits />
-
         <Col>
           <Card>
             <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }}>
@@ -33,7 +32,7 @@ export default function PersonalInfoSection(): ReactElement {
               <Form.Control
                 type="text"
                 as={'textarea'}
-                rows={10}
+                rows={12}
                 placeholder={`${t('characterDescription')}...`}
                 className="w-100"
                 value={character.personalInfo['physicalDescription']}
@@ -42,7 +41,9 @@ export default function PersonalInfoSection(): ReactElement {
             </Card.Body>
           </Card>
         </Col>
-        
+      </Row>
+
+      <Row className="mb-2">
         {/* História */}
         <Col>
           <Card>

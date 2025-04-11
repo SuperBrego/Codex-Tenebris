@@ -12,6 +12,7 @@ export default function DescriptionTraits(): ReactElement {
     dateofBirth: character.personalInfo.dateofBirth,
     hair: character.personalInfo.hair,
     eyes: character.personalInfo.eyes,
+    ethnicity: character.personalInfo.ethnicity,
     race: character.personalInfo.race,
     nationality: character.personalInfo.nationality,
     height: character.personalInfo.height,
@@ -39,7 +40,7 @@ export default function DescriptionTraits(): ReactElement {
                 </Col>
                 <Col>
                   <Form.Control
-                    type="text"
+                    type={(key === 'dateofBirth') ? "date" : "text"}
                     size="sm"
                     className="w-75"
                     value={character.personalInfo[key as keyof PersonalInfo]}
