@@ -22,6 +22,11 @@ const translations = {
     "meritName": "Nome da Vantagem",
     "description": "Descrição",
 
+    "physicalDescription": "Descrição Física",
+    "characterDescription": "Descrição do Personagem",
+    "story": "História",
+    "characterStory": "História do Personagem",
+
     "otherTraits": "Outras Características",
     "otherBonus": "Outros Bônus",
 
@@ -64,6 +69,17 @@ const translations = {
     "mental": "Mental",
     "physical": "Físico",
     "social": "Social",
+
+    "dateofBirth": "Data de Nascimento",
+    "hair": "Cabelo",
+    "eyes": "Olhos",
+    "ethnicity": "Etnia",
+    "race": "Raça",
+    "nationality": "Nacionalidade",
+    "height": "Altura",
+    "weight": "Peso",
+    "sex": "Sexo",
+    "gender": "Gênero",
     
     // ====== ATRIBUTOS ====== //
     // === Mentais === //
@@ -207,6 +223,11 @@ const translations = {
     "meritName": "Merit Name",
     "description": "Description",
 
+    "physicalDescription": "Physical Description",
+    "characterDescription": "Character Description",
+    "story": "Story",
+    "characterStory": "Character Story",
+
     "otherTraits": "Other Traits",
     "otherBonus": "Other Bonuses",
 
@@ -245,6 +266,17 @@ const translations = {
     "physical": "Physical",
     "social": "Social",
     "equipmentDescription": "Equipment Description",
+
+    "dateofBirth": "Date of birth",
+    "hair": "Hair",
+    "eyes": "Eyes",
+    "ethnicity": "Ethnicity",
+    "race": "Race",
+    "nationality": "Nationality",
+    "height": "Height",
+    "weight": "Weight",
+    "sex": "Sex",
+    "gender": "Gender",
     
     // ====== ATTRIBUTES ====== //
     

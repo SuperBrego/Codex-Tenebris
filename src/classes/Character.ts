@@ -2,6 +2,7 @@ import { SupernaturalTemplatesIDs } from "../enum/SupernaturalTemplates";
 import GalleryImage from "../interfaces/GalleryImage";
 import { HealthBox } from "../interfaces/HealthBox";
 import { Merit } from "../interfaces/Merit";
+import { PersonalInfo } from "../interfaces/PersonalInfo";
 import { Skill } from "../interfaces/Skill";
 import { StateTrack } from "../interfaces/StateTrack";
 import { Trait } from "../interfaces/Trait";
@@ -99,7 +100,21 @@ export class Character {
 
   moralityValue: number = 7;
 
+  // Itens Pessoais
   gallery: GalleryImage[] = [ { id: 'image-avatar', src: '', caption: 'Avatar' } ];
+  personalInfo: PersonalInfo = {
+    dateofBirth: '',
+    hair: '',
+    eyes: '',
+    race: '',
+    nationality: '',
+    ethnicity: '',
+    height: '',
+    weight: '',
+    sex: '',
+    gender: '',
+    physicalDescription: ''
+  }
   
   constructor(name: string = "Personagem", characterTemplate: SupernaturalTemplatesIDs = SupernaturalTemplatesIDs.Mortal) {
     this.name = name;

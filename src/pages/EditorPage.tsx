@@ -9,6 +9,7 @@ import CharacterSummary from "./CharacterSummary";
 import StatusPanel from "../components/sections/StatusPanel";
 import OtherTraitsSection from "../components/sections/OtherTraitsSection";
 import EquipmentsSection from "../components/sections/EquipmentsSection";
+import PersonalInfoSection from "../components/sections/PersonalInfoSection";
 
 export default function EditorPage() {
   
@@ -46,9 +47,12 @@ export default function EditorPage() {
           
         </Row>
       </Container>
+      
       <div className="p-2">
+        <PersonalInfoSection />
         <CharacterSummary />
-      </div>
+      </div> 
+     
     </ThemeProvider>
   );
 }
