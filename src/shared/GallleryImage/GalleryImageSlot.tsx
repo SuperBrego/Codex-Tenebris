@@ -27,14 +27,18 @@ export default function GalleryImageSlot({
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) onImageChange(file);
+    // Resetar o valor do input para permitir reescolher a mesma imagem
+    if (inputRef.current) {
+      inputRef.current.value = "";
+    }
   };
 
   return (
-    <div className="text-center">
+    <div className="text-center w-50">
       <div
         onClick={triggerFileInput}
         className="border border-secondary rounded d-flex align-items-center justify-content-center mb-1 position-relative"
-        style={{ width: "100%", height: "320px", cursor: "pointer", backgroundColor: "#f8f9fa" }}
+        style={{ width: "100%", height: "280px", cursor: "pointer", backgroundColor: "#f8f9fa" }}
       >
         {image.src ? (
           <>

@@ -99,7 +99,7 @@ export class Character {
 
   moralityValue: number = 7;
 
-  gallery: GalleryImage[] =[];
+  gallery: GalleryImage[] = [ { id: 'image-avatar', src: '', caption: 'Avatar' } ];
   
   constructor(name: string = "Personagem", characterTemplate: SupernaturalTemplatesIDs = SupernaturalTemplatesIDs.Mortal) {
     this.name = name;
