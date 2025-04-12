@@ -40,7 +40,7 @@ const translations = {
     "gears": "Equipamento Gerais",
     "gear": "Equipamento Geral",
     "equipmentDescription": "Descrição do equipamento",
-
+    "otherGear": "Outros Equipamentos",
     
     // ========== Personagem ========== //
     "name": "Nome",
@@ -63,6 +63,7 @@ const translations = {
     
     "textTraitPlaceholder": "Descreva ",
     
+    "attribute": "Atributo",
     "attributes": "Atributos",
     "skills": "Habilidades",
     
@@ -80,6 +81,14 @@ const translations = {
     "weight": "Peso",
     "sex": "Sexo",
     "gender": "Gênero",
+
+    "damage": "Dano",
+    "range": "Alcance",
+    "ballistic": "Balístico",
+    "general": "Geral",
+    "clip": "Clipe",
+    "structure": "Estrutura",
+    "durability": "Durabilidade",
     
     // ====== ATRIBUTOS ====== //
     // === Mentais === //
@@ -260,12 +269,14 @@ const translations = {
     "conditionPlaceholder": "Name the condition...",
     "aspirationPlaceholder": "Name the aspiration...",
 
+    "attribute": "Attribute",
     "attributes": "Attributes",
     "skills": "Skills",
     "mental": "Mental",
     "physical": "Physical",
     "social": "Social",
     "equipmentDescription": "Equipment Description",
+    "otherGear": "Other Gear",
 
     "dateofBirth": "Date of birth",
     "hair": "Hair",
@@ -277,6 +288,14 @@ const translations = {
     "weight": "Weight",
     "sex": "Sex",
     "gender": "Gender",
+
+    "damage": "Damage",
+    "range": "Range",
+    "ballistic": "Ballistic",
+    "general": "General",
+    "clip": "Clip",
+    "structure": "Structure",
+    "durability": "Durability",
     
     // ====== ATTRIBUTES ====== //
     

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import LanguageSelector from './LanguageSelector';
-import { Trash2, Plus, Upload, Download } from 'lucide-react';
+import { Trash2, Plus, Upload } from 'lucide-react';
 import {
   Navbar,
   Container,
@@ -11,8 +11,9 @@ import {
 } from 'react-bootstrap';
 import { usePortfolio } from '../hooks/usePortfolio';
 import { useTheme } from '../context/ThemeContext';
-import { exportPortfolio, importPortfolioFile } from '../Utils/PortfolioUtils';
+import { importPortfolioFile } from '../Utils/PortfolioUtils';
 import { Character } from '../classes/Character';
+import ExportButton from './ExportButton';
 
 export default function CharacterNavbar() {
   const { t } = useTranslation()
@@ -23,7 +24,6 @@ export default function CharacterNavbar() {
     setActiveCharacter,
     addCharacter,
     removeCharacter,
-    portfolio,
     setPortfolio,
     save,
   } = usePortfolio();
@@ -85,14 +85,7 @@ export default function CharacterNavbar() {
 
           <Nav className="ms-auto d-flex align-items-center gap-2">
             <ButtonGroup>
-              <Button
-                style={{ backgroundColor: theme.colors.background, borderColor: theme.colors.border }}
-                size="sm"
-                onClick={() => exportPortfolio(portfolio)}
-              >
-                <Download size={16} className="me-1" />
-                {t('export')}
-              </Button>
+              <ExportButton />
 
               <Form.Label
                 className="btn btn-sm"
