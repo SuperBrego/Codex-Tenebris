@@ -14,7 +14,6 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   );
 
   useEffect(() => {
-    console.log(character.template);
     const newTheme = themesByTemplate[character.template] ?? themesByTemplate[SupernaturalTemplatesIDs.Mortal];
     setTheme(newTheme);
   }, [character.template]);
