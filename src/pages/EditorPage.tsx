@@ -1,4 +1,4 @@
-import { Col, Container, Row, ThemeProvider } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import CharacterNavbar from "../components/CharacterNavbar";
 import SupernaturalTemplateSelect from "../components/SupernaturalTemplateSelect";
 import PersonalHeader from "../components/PersonalHeader";
@@ -14,9 +14,8 @@ import PersonalInfoSection from "../components/sections/PersonalInfoSection";
 export default function EditorPage() {
   
   return (
-    <ThemeProvider>
+    <>
       <CharacterNavbar />
-      
       <Container className="mt-4" fluid>
         <SupernaturalTemplateSelect />
         <PersonalHeader />
@@ -53,6 +52,6 @@ export default function EditorPage() {
         <CharacterSummary />
       </div> 
      
-    </ThemeProvider>
+    </>
   );
 }
