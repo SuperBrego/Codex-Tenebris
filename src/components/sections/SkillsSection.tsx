@@ -1,10 +1,14 @@
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Row, Col } from "react-bootstrap";
 import { useCharacter } from "../../hooks/useCharacter";
 import GroupedTraitBlock from "../../shared/GroupedTraitBlock";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../../context/ThemeContext";
 
-export default function SkillsSection() {
+interface SkillsSectionProps {
+  orientation?: 'vertical' | 'horizontal';
+}
+
+export default function SkillsSection({ orientation = 'vertical' }: SkillsSectionProps) {
   const { character, updateCharacter } = useCharacter();
   const { t } = useTranslation();
   const { colors } = useTheme();
@@ -49,30 +53,59 @@ export default function SkillsSection() {
 
   return (
     <div className="ps-4">
+      {orientation === 'horizontal' ? (
+        <Row>
+          {groups.map((group) => {
+            const sortedSkills = [...character.skills[group]].sort((a, b) =>
+              t(a.labelKey).localeCompare(t(b.labelKey))
+            );
 
-      {groups.map((group) => {
-        const sortedSkills = [...character.skills[group]].sort((a, b) =>
-          t(a.labelKey).localeCompare(t(b.labelKey))
-        );
+            return (
+              <Col md={4} key={group}>
+                <Card className="mb-3 shadow-sm">
+                  <Card.Header 
+                    style={{ backgroundColor: colors.primary, color: colors.primaryText }}
+                    className="fw-semibold text-center text-uppercase"
+                  >
+                    {t(group)}
+                  </Card.Header>
+                  <Card.Body>
+                    <GroupedTraitBlock
+                      traits={sortedSkills}
+                      onChange={updateSkill}
+                      onEditSpecialty={updateSpecialty}
+                    />
+                  </Card.Body>
+                </Card>
+              </Col>
+            );
+          })}
+        </Row>
+      ) : (
+        groups.map((group) => {
+          const sortedSkills = [...character.skills[group]].sort((a, b) =>
+            t(a.labelKey).localeCompare(t(b.labelKey))
+          );
 
-        return (
-          <Card key={group} className="mb-3 shadow-sm">
-            <Card.Header 
-              style={{ backgroundColor: colors.primary, color: colors.primaryText }}
-              className="fw-semibold text-center text-uppercase"
-            >
-              {t(group)}
-            </Card.Header>
-            <Card.Body>
-              <GroupedTraitBlock
-                traits={sortedSkills}
-                onChange={updateSkill}
-                onEditSpecialty={updateSpecialty}
-              />
-            </Card.Body>
-          </Card>
-        );
-      })}
+          return (
+            <Card key={group} className="mb-3 shadow-sm">
+              <Card.Header 
+                style={{ backgroundColor: colors.primary, color: colors.primaryText }}
+                className="fw-semibold text-center text-uppercase"
+              >
+                {t(group)}
+              </Card.Header>
+              <Card.Body>
+                <GroupedTraitBlock
+                  traits={sortedSkills}
+                  onChange={updateSkill}
+                  onEditSpecialty={updateSpecialty}
+                />
+              </Card.Body>
+            </Card>
+          );
+        })
+      )}
 
       <div className="d-flex justify-content-center mb-2">
         <Button variant="outline-danger" size="sm" onClick={resetAllSkills}>
@@ -81,4 +114,5 @@ export default function SkillsSection() {
       </div>
     </div>
   );
+
 }
