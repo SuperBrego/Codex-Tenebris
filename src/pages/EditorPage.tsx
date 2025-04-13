@@ -1,57 +1,47 @@
-import { Col, Container, Row } from "react-bootstrap";
-import CharacterNavbar from "../components/CharacterNavbar";
-import SupernaturalTemplateSelect from "../components/SupernaturalTemplateSelect";
-import PersonalHeader from "../components/PersonalHeader";
-import AttributeSection from "../components/sections/AttributesSection";
-import SkillsSection from "../components/sections/SkillsSection";
-import MeritsSection from "../components/sections/MeritsSection";
-import CharacterSummary from "./CharacterSummary";
-import StatusPanel from "../components/sections/StatusPanel";
-import OtherTraitsSection from "../components/sections/OtherTraitsSection";
-import EquipmentsSection from "../components/sections/EquipmentsSection";
-import PersonalInfoSection from "../components/sections/PersonalInfoSection";
+import { Button } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import CondensedLayout from "../Views/CondensedLayout";
+import OriginalLayout from "../Views/OriginalLayout";
+
+const STORAGE_KEY = "layoutMode";
 
 export default function EditorPage() {
+  const [layoutMode, setLayoutMode] = useState<'original' | 'condensado'>('original');
+
+  // Carrega do localStorage ao montar
+  useEffect(() => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === 'original' || saved === 'condensado') {
+      setLayoutMode(saved);
+    }
+  }, []);
+
+  // Salva no localStorage sempre que mudar
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, layoutMode);
+  }, [layoutMode]);
   
   return (
     <>
-      <CharacterNavbar />
-      <Container className="mt-4" fluid>
-        <SupernaturalTemplateSelect />
-        <PersonalHeader />
-        <AttributeSection />
-
-        <Row className="mt-4">
-          {/* Coluna de Habilidades */}
-          <Col md={4}> 
-            <SkillsSection /> 
-          </Col>
-          
-          {/* Todo o resto */}
-          <Col md={8}>
-            <Row>
-              {/* Vantagens */}
-              <Col md={7}> 
-                <MeritsSection />
-                <OtherTraitsSection />
-              </Col>
-              <Col md={5}> <StatusPanel /> </Col>
-            </Row>
-
-            {/* Seção de Equipamentos */}
-            <Row>
-              <Col> <EquipmentsSection /> </Col>
-            </Row>
-          </Col>
-          
-        </Row>
-      </Container>
+      {/* Botão fixo abaixo do navbar */}
+      <div
+        style={{
+          position: 'fixed',
+          top: '72px',
+          right: '16px',
+          zIndex: 1025, // abaixo do navbar
+        }}
+      >
+        <Button
+          size="sm"
+          variant="secondary"
+          onClick={() => setLayoutMode((prev) => (prev === 'original' ? 'condensado' : 'original')) }
+        >
+          Trocar para Layout {layoutMode === 'original' ? 'Condensado' : 'Original'}
+        </Button>
+      </div>
       
-      <div className="p-2">
-        <PersonalInfoSection />
-        <CharacterSummary />
-      </div> 
-     
+      {layoutMode === 'original' ? <OriginalLayout /> : <CondensedLayout />}
     </>
   );
 }

@@ -34,11 +34,11 @@ export default function GalleryImageSlot({
   };
 
   return (
-    <div className="text-center w-75">
+    <div className="text-center">
       <div
         onClick={triggerFileInput}
         className="border border-secondary rounded d-flex align-items-center justify-content-center mb-1 position-relative"
-        style={{ width: "100%", height: "280px", cursor: "pointer", backgroundColor: "#f8f9fa" }}
+        style={{ minWidth: '260px', width: "100%", height: "280px", cursor: "pointer", backgroundColor: "#f8f9fa" }}
       >
         {image.src ? (
           <>
