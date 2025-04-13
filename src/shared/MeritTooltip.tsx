@@ -30,7 +30,7 @@ export default function MeritTooltip({ description }: Props) {
   return (
     <>
       <OverlayTrigger trigger="click" placement="auto" overlay={popover} rootClose>
-        <span role="button" className="ms-2 text-muted" title="Ver descrição">
+        <span role="button" className="ms-2" title="Ver descrição">
           <BadgeInfo />
         </span>
       </OverlayTrigger>
