@@ -1,14 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import LanguageSelector from './LanguageSelector';
 import { Trash2, Plus, Upload } from 'lucide-react';
-import {
-  Navbar,
-  Container,
-  Nav,
-  Form,
-  Button,
-  ButtonGroup,
-} from 'react-bootstrap';
+import { Navbar, Container, Nav, Form, Button, ButtonGroup } from 'react-bootstrap';
 import { usePortfolio } from '../hooks/usePortfolio';
 import { useTheme } from '../context/ThemeContext';
 import { importPortfolioFile } from '../Utils/PortfolioUtils';
@@ -25,10 +18,9 @@ export default function CharacterNavbar() {
     addCharacter,
     removeCharacter,
     setPortfolio,
-    save,
   } = usePortfolio();
 
-  const theme = useTheme();
+  const { colors } = useTheme();
 
   const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedId = e.target.value;
@@ -44,31 +36,29 @@ export default function CharacterNavbar() {
 
       // Isso assegura que o active está corretamente configurado ANTES de jogar no Jotai
       imported.setActive(imported.activeId || imported.characters[0]?.id || '');
-
       setPortfolio(imported);
-      save(imported);
     } catch (err) {
       alert('Erro ao importar personagem.');
       console.error(err);
     }
-  }
-  
+  }  
 
   return (
     <>
-      <div style={{ height: '72px' }} />
+      <div style={{ height: '45px' }} />
 
       <Navbar
         expand="lg"
         fixed="top"
         style={{
-          backgroundColor: theme.colors.background,
-          borderBottom: `1px solid ${theme.colors.border}`,
+          backgroundColor: colors.background,
+          borderBottom: `1px solid ${colors.border}`,
+          zIndex: 1030, // igual ao padrão do Bootstrap para .navbar
         }}
         variant="dark"
       >
         <Container fluid>
-          <Navbar.Brand style={{ color: theme.colors.primaryText, fontWeight: 'bold' }}>
+          <Navbar.Brand style={{ color: colors.primaryText, fontWeight: 'bold' }}>
             Codex Tenebris
           </Navbar.Brand>
 
@@ -76,15 +66,15 @@ export default function CharacterNavbar() {
             value={active?.id ?? ''}
             onChange={handleSelect}
             style={{
-              backgroundColor: theme.colors.background,
-              borderColor: theme.colors.border,
-              color: '#E6EEF9',
+              backgroundColor: colors.background,
+              borderColor: colors.border,
+              color: colors.primaryText,
               width: 'auto',
             }}
             className="me-3 w-25"
           >
             {characters.map((char) => (
-              <option key={char.id} value={char.id} style={{ color: theme.colors.primaryText }} >
+              <option key={char.id} value={char.id} style={{ color: colors.primaryText }} >
                 {char.name || 'Sem nome'} - {t(char.templateTraits.name)}
               </option>
             ))}
@@ -109,9 +99,9 @@ export default function CharacterNavbar() {
               <Form.Label
                 className="btn btn-sm"
                 style={{
-                  backgroundColor: theme.colors.background,
-                  color: theme.colors.primaryText,
-                  borderColor: theme.colors.border,
+                  backgroundColor: colors.background,
+                  color: colors.primaryText,
+                  borderColor: colors.border,
                   marginBottom: 0,
                   cursor: 'pointer',
                 }}
@@ -127,7 +117,7 @@ export default function CharacterNavbar() {
               </Form.Label>
 
               <Button
-                style={{ backgroundColor: theme.colors.background, borderColor: theme.colors.border }}
+                style={{ backgroundColor: colors.background, borderColor: colors.border }}
                 size="sm"
                 onClick={() => addCharacter(new Character())}
               >

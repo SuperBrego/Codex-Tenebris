@@ -18,6 +18,6 @@ function loadPortfolio(): Portfolio {
 
 export const characterListAtom = atom<Portfolio>(loadPortfolio());
 
-export const savePortfolioAtom = atom(null, (get, _set, updated: Portfolio) => {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(updated.toJSON()));
-});
+// export const savePortfolioAtom = atom(null, (get, _set, updated: Portfolio) => {
+//   localStorage.setItem(STORAGE_KEY, JSON.stringify(updated.toJSON()));
+// });
