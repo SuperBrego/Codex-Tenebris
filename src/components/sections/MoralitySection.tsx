@@ -3,6 +3,7 @@ import { ReactElement } from "react";
 import { Card, Form, Stack } from "react-bootstrap";
 import { useCharacter } from "../../hooks/useCharacter";
 import { useTheme } from "../../context/ThemeContext";
+import { SupernaturalTemplatesIDs } from "../../enum/SupernaturalTemplates";
 
 export default function MoralitySection(): ReactElement {
   const { character, updateCharacter } = useCharacter();
@@ -13,10 +14,17 @@ export default function MoralitySection(): ReactElement {
     updateCharacter({ moralityValue: value });
   }
 
+  const moralityType: Record<SupernaturalTemplatesIDs, string> = {
+    [SupernaturalTemplatesIDs.Mortal]: 'Integridade',
+    [SupernaturalTemplatesIDs.Vampire]: 'Humanidade',
+    [SupernaturalTemplatesIDs.Werewolf]: 'Harmonia',
+    [SupernaturalTemplatesIDs.Deviant]: 'Lealdade e Convicção',
+  };
+
   return <>
     <Card className="mb-3">
       <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }}> 
-        <span className="text-center fw-bold">{character.moralityType}</span> 
+        <span className="text-center fw-bold">{moralityType[character.template]}</span> 
       </Card.Header>
       <Card.Body>
         <Stack gap={1}>

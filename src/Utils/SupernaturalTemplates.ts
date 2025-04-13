@@ -21,7 +21,6 @@ function createMortalTraits(): MortalTraits {
     index: SupernaturalTemplatesIDs.Mortal,
     name: 'mortal',
     book: "WoD",
-    moralityType: 'Integridade',
     moralityTrait: Array.from( {length: 10}, () => { return '' }),
 
     virtue: '',
@@ -35,7 +34,6 @@ function createVampireTraits(): VampireTraits {
     name: 'vampire',
     index: SupernaturalTemplatesIDs.Vampire,
     book: "VtR",
-    moralityType: 'Humanidade',
     moralityTrait: Array.from( {length: 10}, () => { return '' }),
 
     bloodPotency: 1,
@@ -60,7 +58,6 @@ function createWerewolfTraits(): WerewolfTraits {
     index: SupernaturalTemplatesIDs.Werewolf,
     name: "werewolf",
     book: "WtF",
-    moralityType: 'Humanidade',
     moralityTrait: Array.from( {length: 10}, () => { return '' }),
 
     primalUrge: 0,
@@ -98,7 +95,6 @@ function createDeviantTraits(): DeviantTraits {
     book: "DtR",
 
     // ----------------------
-    moralityType: 'Não tem',
     moralityTrait: Array.from( {length: 10}, () => { return '' }),
     // ----------------------
 

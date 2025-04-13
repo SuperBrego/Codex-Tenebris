@@ -174,10 +174,6 @@ export class Character {
     return this.getAttribute('strength') + this.getAttribute('dexterity') + 5;
   }  
   
-  get moralityType(): string {
-    return this.templateTraits.moralityType;
-  }
-  
   getAttribute(type: string): number {
     for (const group of Object.values(this.attributes)) {
       const attr = group.find((a) => a.name === type);
