@@ -26,15 +26,15 @@ const translations = {
     "totalMeritCost": "Total em Vantagens",
     "meritName": "Nome da Vantagem",
     "description": "Descrição",
-
+    
     "physicalDescription": "Descrição Física",
     "characterDescription": "Descrição do Personagem",
     "story": "História",
     "characterStory": "História do Personagem",
-
+    
     "otherTraits": "Outras Características",
     "otherBonus": "Outros Bônus",
-
+    
     "health": "Vitalidade",
     "willpower": "Força de Vontade",
     
@@ -58,7 +58,7 @@ const translations = {
     "player": "Jogador",
     "chronicle": "Crônica",
     "group": "Grupo",
-
+    
     "size": "Tamanho",
     "speed": "Velocidade",
     "defense": "Defesa",
@@ -79,7 +79,7 @@ const translations = {
     "mental": "Mental",
     "physical": "Físico",
     "social": "Social",
-
+    
     "dateofBirth": "Data de Nascimento",
     "hair": "Cabelo",
     "eyes": "Olhos",
@@ -90,7 +90,7 @@ const translations = {
     "weight": "Peso",
     "sex": "Sexo",
     "gender": "Gênero",
-
+    
     "damage": "Dano",
     "cost": "Custo",
     "range": "Alcance",
@@ -99,7 +99,7 @@ const translations = {
     "clip": "Clipe",
     "structure": "Estrutura",
     "durability": "Durabilidade",
-
+    
     "power": "Poder",
     "finesse": "Refinamento",
     "resistence": "Resistência",
@@ -273,8 +273,52 @@ const translations = {
     "merit.smallFramed": "Pequeno",
     "merit.stuntDriver": "Proeza Automotiva",
     "merit.ironStamina": "Resistência Férrea",
-    "merit.quickDraw": "Saque Rápido"
-    
+    "merit.quickDraw": "Saque Rápido",
+    // ========= SOCIAIS ============= //
+    "merit.allies": "Aliados",
+    "merit.anonymity": "Anonimato",
+    "merit.striking_looks": "Aparência Surpreendente",
+    "merit.taste": "Bom Gosto",
+    "merit.contacts": "Contato",
+    "merit.fast_talking": "Eloquência",
+    "merit.staff": "Equipe",
+    "merit.fame": "Fama",
+    "merit.mystery_cult_initiation": "Iniciado em Culto",
+    "merit.true_friend": "Amigo Verdadeiro",
+    "merit.alternate_identity": "Identidade Alternativa",
+    "merit.status": "Status",
+    "merit.resources": "Recursos",
+    "merit.safe_place": "Local Seguro",
+    "merit.retainer": "Servidor",
+    "merit.spin_doctor": "Marqueteiro",
+    "merit.iron_will": "Vontade de Ferro",
+    "merit.barfly": "Habitué",
+    "merit.fixer": "Negociante",
+    "merit.sympathetic": "Simpático",
+    "merit.table_turner": "Virar o Jogo",
+    "merit.takes_one_to_know_one": "Um Conhece o Outro",
+    "merit.small_unit_tactics": "Táticas Militares",
+    "merit.closed_book": "Livro Fechado",
+    "merit.inspiring": "Fonte de Inspiração",
+    // ========= Marciais ============= //
+    "merit.grappling": "Aprisionamento",
+    "merit.improvised_weaponry": "Armas Improvisadas",
+    "merit.light_weapons": "Armas Leves",
+    "merit.heavy_weapons": "Armas Pesadas",
+    "merit.martial_arts": "Artes Marciais",
+    "merit.marksmanship": "Atirador",
+    "merit.street_fighting": "Briga de Rua",
+    "merit.close_quarters_combat": "Combate em Espaços Fechados",
+    "merit.defensive_combat": "Combate Defensivo",
+    "merit.armed_defense": "Defesa Armada",
+    "merit.unarmed_defense": "Defesa Desarmada",
+    "merit.cheap_shot": "Golpe Baixo",
+    "merit.fighting_fitness": "Luta Rápida",
+    "merit.choke_hold": "Mata Leão",
+    "merit.shiv": "Navalha",
+    "merit.iron_skin": "Pele de Aço",
+    "merit.firefight": "Pistoleiro",
+    "merit.police_tactics": "Táticas Policiais",
   },
   "en-US": {
     // ========== Common ========== //
@@ -303,15 +347,15 @@ const translations = {
     "totalMeritCost": "Total Merits Points",
     "meritName": "Merit Name",
     "description": "Description",
-
+    
     "physicalDescription": "Physical Description",
     "characterDescription": "Character Description",
     "story": "Story",
     "characterStory": "Character Story",
-
+    
     "otherTraits": "Other Traits",
     "otherBonus": "Other Bonuses",
-
+    
     "health": "Health",
     "willpower": "Willpower",
     "equipments": "Equipments",
@@ -328,11 +372,11 @@ const translations = {
     "player": "Player",
     "chronicle": "Chronicle",
     "group": "Group",
-
+    
     "power": "Power",
     "finesse": "Finesse",
     "resistence": "Resistence",
-
+    
     "size": "Size",
     "speed": "Speed",
     "defense": "Defense",
@@ -344,7 +388,7 @@ const translations = {
     "aspirations": "Aspirations",
     "conditionPlaceholder": "Name the condition...",
     "aspirationPlaceholder": "Name the aspiration...",
-
+    
     "attribute": "Attribute",
     "attributes": "Attributes",
     "skills": "Skills",
@@ -357,7 +401,7 @@ const translations = {
     "close": "Close",
     "medium": "Medium",
     "far": "Far",
-
+    
     "dateofBirth": "Date of birth",
     "hair": "Hair",
     "eyes": "Eyes",
@@ -368,7 +412,7 @@ const translations = {
     "weight": "Weight",
     "sex": "Sex",
     "gender": "Gender",
-
+    
     "damage": "Damage",
     "cost": "Cost",
     "range": "Range",
@@ -539,7 +583,52 @@ const translations = {
     "merit.smallFramed": "Small-Framed",
     "merit.stuntDriver": "Stunt Driver",
     "merit.ironStamina": "Iron Stamina",
-    "merit.quickDraw": "Quick Draw"
+    "merit.quickDraw": "Quick Draw",
+    // ========= SOCIALS ============= //
+    "merit.allies": "Allies",
+    "merit.anonymity": "Anonymity",
+    "merit.striking_looks": "Striking Looks",
+    "merit.taste": "Taste",
+    "merit.contacts": "Contacts",
+    "merit.fast_talking": "Fast Talking",
+    "merit.staff": "Staff",
+    "merit.fame": "Fame",
+    "merit.mystery_cult_initiation": "Mystery Cult Initiation",
+    "merit.true_friend": "True Friend",
+    "merit.alternate_identity": "Alternate Identity",
+    "merit.status": "Status",
+    "merit.resources": "Resources",
+    "merit.safe_place": "Safe Place",
+    "merit.retainer": "Retainer",
+    "merit.spin_doctor": "Spin Doctor",
+    "merit.iron_will": "Iron Will",
+    "merit.barfly": "Barfly",
+    "merit.fixer": "Fixer",
+    "merit.sympathetic": "Sympathetic",
+    "merit.table_turner": "Table Turner",
+    "merit.takes_one_to_know_one": "Takes One To Know_One",
+    "merit.small_unit_tactics": "Small Unit Tactics",
+    "merit.closed_book": "Closed Book",
+    "merit.inspiring": "Inspiring",
+    // ========= MARTIAL ========= //
+    "merit.grappling": "Grappling",
+    "merit.improvised_weaponry": "Improvised Weaponry",
+    "merit.light_weapons": "Light Weapons",
+    "merit.heavy_weapons": "Heavy Weapons",
+    "merit.martial_arts": "Martial Arts",
+    "merit.marksmanship": "Marksmanship",
+    "merit.street_fighting": "Street Fighting",
+    "merit.close_quarters_combat": "Close Quarters Combat",
+    "merit.defensive_combat": "Defensive Combat",
+    "merit.armed_defense": "Armed Defense",
+    "merit.unarmed_defense": "Unarmed Defense",
+    "merit.cheap_shot": "Cheap Shot",
+    "merit.fighting_fitness": "Fighting Fitness",
+    "merit.choke_hold": "Choke Hold",
+    "merit.shiv": "Shiv",
+    "merit.iron_skin": "Iron Skin",
+    "merit.firefight": "Firefight",
+    "merit.police_tactics": "Police Tactics",
   }
 };
 
