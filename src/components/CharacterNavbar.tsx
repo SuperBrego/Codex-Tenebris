@@ -18,6 +18,7 @@ export default function CharacterNavbar() {
     addCharacter,
     removeCharacter,
     setPortfolio,
+    save
   } = usePortfolio();
 
   const { colors } = useTheme();
@@ -37,6 +38,7 @@ export default function CharacterNavbar() {
       // Isso assegura que o active está corretamente configurado ANTES de jogar no Jotai
       imported.setActive(imported.activeId || imported.characters[0]?.id || '');
       setPortfolio(imported);
+      save(imported);
     } catch (err) {
       alert('Erro ao importar personagem.');
       console.error(err);

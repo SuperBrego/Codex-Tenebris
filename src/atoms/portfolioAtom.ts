@@ -18,6 +18,15 @@ function loadPortfolio(): Portfolio {
 
 export const characterListAtom = atom<Portfolio>(loadPortfolio());
 
-// export const savePortfolioAtom = atom(null, (get, _set, updated: Portfolio) => {
-//   localStorage.setItem(STORAGE_KEY, JSON.stringify(updated.toJSON()));
-// });
+export const savePortfolioAtom = atom(null, (get, _set, updated: Portfolio) => {
+  return;
+  const cleanedPortfolio = updated; // ou uma função que gere uma cópia limpa
+  
+  cleanedPortfolio.characters.forEach((character) => {
+    character.gallery = [
+      { id: 'image-avatar', src: '', caption: 'Avatar' },
+    ];
+  });
+  
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(cleanedPortfolio.toJSON()));
+});
