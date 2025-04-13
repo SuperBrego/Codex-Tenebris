@@ -13,6 +13,7 @@ export default function HealthSection() {
       max={character.healthPoints}
       trait='health' 
       boxes={character.health}
+      subtitle='Forma Dalu +2, Forma Gauru +4, Forma Urshul +3'
     />
   </>
 }
