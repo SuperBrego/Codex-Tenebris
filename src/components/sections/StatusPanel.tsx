@@ -5,13 +5,14 @@ import { useTranslation } from 'react-i18next';
 import MoralitySection from './MoralitySection';
 import TrackCheckboxCard from '../../shared/TrackCheckboxCard';
 import TextListCard from '../../shared/TextListCard';
+import { Stack } from 'react-bootstrap';
 
 export default function StatusPanel(): ReactElement {
   const { character } = useCharacter();
   const { t } = useTranslation();
 
   return (
-    <div className="status-panel">
+    <Stack>
       {/* Vitalidade */}
       <TrackStatusCard
         label={`${t('health')}`} 
@@ -49,6 +50,6 @@ export default function StatusPanel(): ReactElement {
         placeholder={`${t("textTraitPlaceholder")} ${t("aspirations")}...`}
       />
 
-    </div>
+    </Stack>
   );
 };
