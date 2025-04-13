@@ -46,6 +46,10 @@ const translations = {
     "gear": "Equipamento Geral",
     "equipmentDescription": "Descrição do equipamento",
     "otherGear": "Outros Equipamentos",
+    "equipped": "Equipado",
+    "close": "Perto",
+    "medium": "Médio",
+    "far": "Longe",
     
     // ========== Personagem ========== //
     "name": "Nome",
@@ -88,15 +92,17 @@ const translations = {
     "gender": "Gênero",
 
     "damage": "Dano",
+    "cost": "Custo",
     "range": "Alcance",
     "ballistic": "Balístico",
     "general": "Geral",
     "clip": "Clipe",
     "structure": "Estrutura",
     "durability": "Durabilidade",
-    "powers": "Power",
-    "finesse": "Finesse",
-    "resistence": "Resistence",
+
+    "power": "Poder",
+    "finesse": "Refinamento",
+    "resistence": "Resistência",
     
     // ====== ATRIBUTOS ====== //
     // === Mentais === //
@@ -323,6 +329,10 @@ const translations = {
     "chronicle": "Chronicle",
     "group": "Group",
 
+    "power": "Power",
+    "finesse": "Finesse",
+    "resistence": "Resistence",
+
     "size": "Size",
     "speed": "Speed",
     "defense": "Defense",
@@ -343,6 +353,10 @@ const translations = {
     "social": "Social",
     "equipmentDescription": "Equipment Description",
     "otherGear": "Other Gear",
+    "equipped": "Equipped",
+    "close": "Close",
+    "medium": "Medium",
+    "far": "Far",
 
     "dateofBirth": "Date of birth",
     "hair": "Hair",
@@ -356,11 +370,9 @@ const translations = {
     "gender": "Gender",
 
     "damage": "Damage",
+    "cost": "Cost",
     "range": "Range",
     "ballistic": "Ballistic",
-    "powers": "Power",
-    "finesse": "Finesse",
-    "resistence": "Resistence",
     "general": "General",
     "clip": "Clip",
     "structure": "Structure",

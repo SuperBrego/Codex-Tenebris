@@ -3,6 +3,7 @@ import { Col, Form, InputGroup, Row } from "react-bootstrap";
 import InputGroupText from "react-bootstrap/esm/InputGroupText";
 import { Armor } from "../../interfaces/Equipments/Armor";
 import { useCharacter } from "../../hooks/useCharacter";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   armor: Armor;
@@ -11,6 +12,7 @@ interface Props {
 
 export default function ArmorTraits({ armor, onChange }: Props): ReactElement {
   const { character, updateCharacter } = useCharacter();
+  const { t } = useTranslation();
 
   const handleEquipArmor = (isEquiped: boolean) => {
     const updated: Armor = {...armor, equiped: isEquiped};
@@ -25,32 +27,32 @@ export default function ArmorTraits({ armor, onChange }: Props): ReactElement {
     <Row className="mb-1">
       {/* Valor Geral/Balístico */}
       <Col md={2} className="d-flex justify-content-center fw-bold">
-        <div>Geral/Balístico</div>
+        <div>{t('general')}/{t('ballistic')}</div>
       </Col>
       
       {/* Força */}
       <Col className="d-flex justify-content-center fw-bold">
-        <div>Força</div>
+        <div>{t('strength')}</div>
       </Col>
       
       {/* Defesa */}
       <Col className="d-flex justify-content-center fw-bold">
-        <div>Defesa</div>
+        <div>{t('defense')}</div>
       </Col>
       
       {/* Tamanho */}
       <Col className="d-flex justify-content-center fw-bold">
-        <div>Tamanho</div>
+        <div>{t('size')}</div>
       </Col>
       
       {/* Custo */}
       <Col className="d-flex justify-content-center fw-bold">
-        <div>Custo</div>
+        <div>{t('cost')}</div>
       </Col>
       
       {/* Equipado? */}
       <Col className="d-flex justify-content-center fw-bold">
-        <div>Equipado?</div>
+        <div>{t('equipped')}?</div>
       </Col>
     </Row>
 

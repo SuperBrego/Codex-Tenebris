@@ -1,6 +1,7 @@
 import { ReactElement } from "react";
 import { Gear } from "../../interfaces/Equipments/Gear";
 import { Col, Form, Row } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   gear: Gear;
@@ -8,26 +9,28 @@ interface Props {
 }
 
 export default function GeatTraits({ gear, onChange }: Props): ReactElement {
+  const { t } = useTranslation();
+
   return <>
     <Row className="mb-1">
       {/* Durabilidade */}
       <Col className="d-flex justify-content-center fw-bold">
-        <div>Durabilidade</div>
+        <div>{t('durability')}</div>
       </Col>
       
       {/* Estrutura */}
       <Col className="d-flex justify-content-center fw-bold">
-        <div>Estrutura</div>
+        <div>{t('structure')}</div>
       </Col>
       
       {/* Tamanho */}
       <Col className="d-flex justify-content-center fw-bold">
-        <div>Tamanho</div>
+        <div>{t('size')}</div>
       </Col>
       
       {/* Custo */}
       <Col className="d-flex justify-content-center fw-bold">
-        <div>Custo</div>
+        <div>{t('cost')}</div>
       </Col>
     </Row>
     

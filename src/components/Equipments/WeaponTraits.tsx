@@ -3,6 +3,7 @@ import { Col, Form, InputGroup, OverlayTrigger, Row, Tooltip } from "react-boots
 import { MessageCircleQuestion } from "lucide-react";
 import InputGroupText from "react-bootstrap/esm/InputGroupText";
 import { Weapon } from "../../interfaces/Equipments/Weapon";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   weapon: Weapon;
@@ -10,6 +11,7 @@ interface Props {
 }
 
 export default function WeaponTraits({ weapon, onChange }: Props): ReactElement {
+  const { t } = useTranslation();
   const [closeRange, setCloseRange] = useState<string>(weapon.range.split('/')[0] ?? '');
   const [mediumRange, setMediumRange] = useState<string>(weapon.range.split('/')[1] ?? '');
   const [longRange, setLongRange] = useState<string>(weapon.range.split('/')[2] ?? '');
@@ -26,41 +28,41 @@ export default function WeaponTraits({ weapon, onChange }: Props): ReactElement 
     <Row className="mb-1">
       {/* Dano */}
       <Col className="d-flex justify-content-center fw-bold">
-        <div>Dano</div>
+        <div>{t('damage')}</div>
       </Col>
       
       {/* Alcance */}
       <Col md={3} className="d-flex justify-content-center fw-bold">
         <div>
-          <OverlayTrigger placement="top" overlay={<Tooltip>(Perto/Médio/Longe)</Tooltip>}>
-            <div>Alcance <MessageCircleQuestion size={14} /> </div>
+          <OverlayTrigger placement="top" overlay={<Tooltip>({t('close')}/{t('medium')}/{t('far')})</Tooltip>}>
+            <div>{t('range')} <MessageCircleQuestion size={14} /> </div>
           </OverlayTrigger>
         </div>
       </Col>
       
       {/* Clipe */}
       <Col className="d-flex justify-content-center fw-bold">
-        <div>Clipe</div>
+        <div>{t('clip')}</div>
       </Col>
       
       {/* Iniciativa */}
       <Col className="d-flex justify-content-center fw-bold">
-        <div>Iniciativa</div>
+        <div>{t('initiative')}</div>
       </Col>
       
       {/* Força */}
       <Col className="d-flex justify-content-center fw-bold">
-        <div>Força</div>
+        <div>{t('strength')}</div>
       </Col>
       
       {/* Tamanho */}
       <Col className="d-flex justify-content-center fw-bold">
-        <div>Tamanho</div>
+        <div>{t('size')}</div>
       </Col>
       
       {/* Custo */}
       <Col className="d-flex justify-content-center fw-bold">
-        <div>Custo</div>
+        <div>{t('cost')}</div>
       </Col>
     </Row>
 
@@ -83,12 +85,14 @@ export default function WeaponTraits({ weapon, onChange }: Props): ReactElement 
             value={closeRange}
             size="sm"
             className="text-center"
+            placeholder={t('close')}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCloseRange(e.target.value)}
-          />
+            />
           <InputGroupText>/</InputGroupText>
           <Form.Control
             value={mediumRange}
             size="sm"
+            placeholder={t('medium')}
             className="text-center"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setMediumRange(e.target.value)}
           />
@@ -97,6 +101,7 @@ export default function WeaponTraits({ weapon, onChange }: Props): ReactElement 
             value={longRange}
             size="sm"
             className="text-center"
+            placeholder={t('far')}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLongRange(e.target.value)}
           />
         </InputGroup>
