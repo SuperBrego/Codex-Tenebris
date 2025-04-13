@@ -169,14 +169,15 @@ body[data-theme] .form-check-input:focus {
 
 /* ========= Modal ========= */
 body[data-theme] .modal-content {
-  background-color: var(--border);
-  color: var(--text);
+  background-color: var(--text);
+  color: var(--primary);
   border-color: var(--border);
 }
 
 body[data-theme] .modal-header,
 body[data-theme] .modal-footer {
   background-color: var(--surface);
+  color: var(--text);
 }
 
 /* ========= Tooltip ========= */
