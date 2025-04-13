@@ -1,12 +1,22 @@
 import { Button, Card, Col, Row } from "react-bootstrap";
 import { useCharacter } from "../hooks/useCharacter";
-import { Plus, Trash2 } from "lucide-react";
-import GalleryImageSlot from "../shared/GallleryImage/GalleryImageSlot";
+import { Plus } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
+import ReorderableGalleryItem from "../shared/GallleryImage/ReorderableGalleryItem";
+import { useDragReorder } from "../hooks/useDragReorder";
 
 export default function GallerySection() {
   const { character, updateCharacter } = useCharacter();
   const { colors } = useTheme();
+
+  const {
+    draggingIndex,
+    handleDragStart,
+    handleDrop,
+    handleDragOver,
+    swapImages,
+  } = useDragReorder(character.gallery, (updated) => updateCharacter({ gallery: updated }));
+  
 
   const updateGalleryImage = (id: string, file: File) => {
     const reader = new FileReader();
@@ -56,35 +66,31 @@ export default function GallerySection() {
       </Card.Header>
       <Card.Body>
         <Row className="mb-3">
-          <Col md={12}> 
+          <Col md={12}>
             <Button variant="outline-primary" onClick={addGalleryImage}>
               <Plus className="me-1" /> Adicionar Imagem
             </Button>
           </Col>
         </Row>
-        
+
         <Row className="g-3">
           {character.gallery.map((image, index) => (
-            <Col md={4} key={image.id}>
-              <GalleryImageSlot
-                image={image}
-                onImageChange={(file: any) => updateGalleryImage(image.id, file)}
-                onClearImage={() => clearGalleryImage(image.id)}
-                editableCaption={index >= 1}
-                onUpdateCaption={(caption: string) => updateGalleryCaption(image.id, caption)}
-              />
-              {index >= 1 && (
-                <div className="text-end mt-1">
-                  <Button
-                    variant="outline-danger"
-                    size="sm"
-                    onClick={() => removeGalleryImage(image.id)}
-                  >
-                    <Trash2 className="me-1" /> Remover
-                  </Button>
-                </div>
-              )}
-            </Col>
+            <ReorderableGalleryItem
+              key={image.id}
+              index={index}
+              image={image}
+              isFirst={index === 0}
+              onImageChange={(file) => updateGalleryImage(image.id, file)}
+              onClearImage={() => clearGalleryImage(image.id)}
+              onUpdateCaption={(caption) => updateGalleryCaption(image.id, caption)}
+              onRemove={index > 0 ? () => removeGalleryImage(image.id) : undefined}
+              onMoveUp={index > 1 ? () => swapImages(index, index - 1) : undefined}
+              onMoveDown={index < character.gallery.length - 1 ? () => swapImages(index, index + 1) : undefined}
+              onDragStart={() => handleDragStart(index)}
+              onDrop={() => handleDrop(index)}
+              onDragOver={handleDragOver}
+              isDragging={draggingIndex === index}
+            />
           ))}
         </Row>
       </Card.Body>
