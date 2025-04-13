@@ -6,11 +6,9 @@ import VampireHeader from "./headers/VampireHeader";
 import { Card, Col, Row } from "react-bootstrap";
 import GalleryImageSlot from "../shared/GallleryImage/GalleryImageSlot";
 import WerewolfHeader from "./headers/WerewolfHeader";
-import { useTheme } from "../context/ThemeContext";
 
 export default function PersonalHeader() {
   const { character, updateCharacter } = useCharacter();
-  const { colors } = useTheme();
   const avatar = character.gallery.find(img => img.id === 'image-avatar')!;
 
   function headerInfo(): ReactElement {
@@ -51,7 +49,7 @@ export default function PersonalHeader() {
     <Row className="mt-2 mb-2">
       <Col md={8}>
         <Card>
-          <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }}> 
+          <Card.Header> 
             Sobre o Personagem
           </Card.Header>
           <Card.Body> {headerInfo()} </Card.Body>

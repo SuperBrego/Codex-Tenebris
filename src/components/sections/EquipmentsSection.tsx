@@ -1,5 +1,4 @@
 import { ReactElement } from "react";
-import { useTheme } from "../../context/ThemeContext";
 import { useTranslation } from "react-i18next";
 import { Accordion, AccordionBody, AccordionHeader, AccordionItem, Button, Card, Stack } from "react-bootstrap";
 import { useCharacter } from "../../hooks/useCharacter";
@@ -11,7 +10,6 @@ import { Gear } from "../../interfaces/Equipments/Gear";
 
 export default function EquipmentsSection(): ReactElement {
   const { character, updateCharacter } = useCharacter();
-  const { colors } = useTheme();
   const { t } = useTranslation();
 
   const handleAddWeapon = () => {
@@ -39,12 +37,12 @@ export default function EquipmentsSection(): ReactElement {
 
   return <>
   <Card>
-    <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }}>
+    <Card.Header>
       {t("equipments")}
     </Card.Header>
 
     <Card.Body>
-      <Accordion alwaysOpen activeKey={['weapons', 'armors', 'gears']}>
+      <Accordion alwaysOpen defaultActiveKey={['weapons', 'armors', 'gears']} className="mb-3">
         {/* Armas */}
         <AccordionItem eventKey="weapons">
           <AccordionHeader>{t("weapons/attacks")}</AccordionHeader>

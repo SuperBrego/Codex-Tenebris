@@ -1,0 +1,75 @@
+/* =======================
+   Cores base por variável
+   ======================= */
+   :root {
+    --background: #ffffff;
+    --surface: #f0f0f0;
+    --border: #cccccc;
+    --primary: #007bff;
+    --primary-text: #ffffff;
+    --text: #000000;
+    --accent: #ffcc00;
+    --danger: #dc3545;
+    --highlight: #ffffcc;
+  }
+  
+  /* =======================
+     Estilo base da página
+     ======================= */
+  body[data-theme] {
+    background-color: var(--background);
+    color: var(--text);
+  }
+  
+  /* =======================
+     Cartões e superfícies
+     ======================= */
+  body[data-theme] .card {
+    background-color: var(--surface);
+    border-color: var(--border);
+    color: var(--text);
+  }
+  
+  /* =======================
+     Botão .btn-primary
+     ======================= */
+  body[data-theme] .btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--primary-text);
+  }
+  
+  body[data-theme] .btn-primary:hover,
+  body[data-theme] .btn-primary:focus,
+  body[data-theme] .btn-primary:active {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--primary-text);
+  }
+  
+  /* =======================
+     Botão .btn-outline-primary
+     ======================= */
+  body[data-theme] .btn-outline-primary {
+    background-color: transparent;
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+  
+  body[data-theme] .btn-outline-primary:hover,
+  body[data-theme] .btn-outline-primary:focus,
+  body[data-theme] .btn-outline-primary:active {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--primary-text);
+  }
+  
+  /* =======================
+     Transições suaves
+     ======================= */
+  body,
+  .card,
+  .btn {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  

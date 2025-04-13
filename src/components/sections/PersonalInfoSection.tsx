@@ -3,12 +3,10 @@ import DescriptionTraits from "../Personal/DescriptionTraits";
 import { Card, Col, Form, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useCharacter } from "../../hooks/useCharacter";
-import { useTheme } from "../../context/ThemeContext";
 
 export default function PersonalInfoSection(): ReactElement {
   const { character, updateCharacter } = useCharacter();
-  const { colors } = useTheme();
-  const { t } = useTranslation();
+    const { t } = useTranslation();
 
   const onChange = (key: string, value: string) => {
     updateCharacter({ personalInfo: { ...character.personalInfo, [key]: value }});
@@ -16,7 +14,7 @@ export default function PersonalInfoSection(): ReactElement {
 
   return <>
     <Card>
-      <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }} className="fw-bold">
+      <Card.Header>
         {t('description')}
       </Card.Header>
       <Card.Body>
@@ -25,7 +23,7 @@ export default function PersonalInfoSection(): ReactElement {
         <DescriptionTraits />
         <Col>
           <Card>
-            <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }}>
+            <Card.Header>
               {t('physicalDescription')}
             </Card.Header>
             <Card.Body>
@@ -47,7 +45,7 @@ export default function PersonalInfoSection(): ReactElement {
         {/* História */}
         <Col>
           <Card>
-            <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }}>
+            <Card.Header>
               {t('story')}
             </Card.Header>
             <Card.Body>

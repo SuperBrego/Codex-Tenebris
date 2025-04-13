@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button, Modal, Stack, ListGroup, Form } from "react-bootstrap";
 import { Download } from "lucide-react";
-import { useTheme } from "../context/ThemeContext";
 import { useTranslation } from "react-i18next";
 import { useCharacter } from "../hooks/useCharacter";
 import { usePortfolio } from "../hooks/usePortfolio";
@@ -11,7 +10,6 @@ export default function ExportButton() {
   const { character } = useCharacter();
   const { portfolio } = usePortfolio();
   const { t } = useTranslation();
-  const { colors } = useTheme();
 
   const [show, setShow] = useState(false);
   const [selectedFormat, setSelectedFormat] = useState<"json" | "bbcode">("json");
@@ -56,14 +54,7 @@ export default function ExportButton() {
 
   return (
     <>
-      <Button
-        style={{
-          backgroundColor: colors.background,
-          borderColor: colors.border
-        }}
-        size="sm"
-        onClick={() => setShow(true)}
-      >
+      <Button variant="outline-primary" size="sm" onClick={() => setShow(true)} >
         <Download size={16} className="me-1" />
         {t("export")}
       </Button>

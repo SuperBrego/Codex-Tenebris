@@ -1,14 +1,12 @@
 import { Button, Card, Col, Row } from "react-bootstrap";
 import { useCharacter } from "../hooks/useCharacter";
 import { Plus } from "lucide-react";
-import { useTheme } from "../context/ThemeContext";
 import ReorderableGalleryItem from "../shared/GallleryImage/ReorderableGalleryItem";
 import { useDragReorder } from "../hooks/useDragReorder";
 
 export default function GallerySection() {
   const { character, updateCharacter } = useCharacter();
-  const { colors } = useTheme();
-
+  
   const {
     draggingIndex,
     handleDragStart,
@@ -61,9 +59,7 @@ export default function GallerySection() {
 
   return (
     <Card>
-      <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }}>
-        Galeria
-      </Card.Header>
+      <Card.Header> Galeria </Card.Header>
       <Card.Body>
         <Row className="mb-3">
           <Col md={12}>

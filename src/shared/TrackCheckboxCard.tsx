@@ -2,7 +2,6 @@ import { ReactElement } from "react";
 import { Card } from "react-bootstrap";
 import { useCharacter } from "../hooks/useCharacter";
 import { StateTrack } from "../interfaces/StateTrack";
-import { useTheme } from "../context/ThemeContext";
 import CheckboxesList from "./CheckboxesList";
 
 interface BaseProps { 
@@ -15,7 +14,6 @@ type Props = | (BaseProps & { trait: string; templateTrait?: never }) | (BasePro
 
 export default function TrackCheckboxCard({ boxes, max = 30, label, trait, templateTrait }: Props): ReactElement {
   const { character, updateCharacter } = useCharacter();
-  const { colors } = useTheme();
 
   const handleChangeStats = (boxes: StateTrack[]) => {
     if(trait) updateCharacter({ [trait]: boxes });
@@ -27,7 +25,7 @@ export default function TrackCheckboxCard({ boxes, max = 30, label, trait, templ
 
   return <>
     <Card className="mb-3">
-      <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }}> 
+      <Card.Header> 
         <span className="fw-bold">{label}</span>
       </Card.Header>
       <Card.Body className="d-flex justify-content-center">

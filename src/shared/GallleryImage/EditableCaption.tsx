@@ -41,7 +41,6 @@ export default function EditableCaption({ caption, editable, onUpdate }: Props) 
   return (
     <OverlayTrigger placement="top" overlay={<Tooltip>Editar Legenda...</Tooltip>}>
       <small
-        className="text-muted"
         style={{ cursor: "pointer" }}
         onClick={() => setIsEditing(true)}
       >

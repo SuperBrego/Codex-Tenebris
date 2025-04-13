@@ -6,13 +6,11 @@ import { Merit } from "../../interfaces/Merit";
 import { _MortalMerits } from "../../database/Merits/MortalMerits";
 import CustomTrait from "../../shared/CustomTrait";
 import DefaultTrait from "../../shared/DefaultTrait";
-import { useTheme } from "../../context/ThemeContext";
 import { containsMerit } from "../../Utils/Utils";
 
 export default function MeritsSection() {
   const { character, updateCharacter } = useCharacter();
   const { t } = useTranslation();
-  const { colors } = useTheme();
 
   const predefinedMerits: Merit[] = _MortalMerits;
 
@@ -78,7 +76,7 @@ export default function MeritsSection() {
 
   return (
     <Card className="mb-3">
-      <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }} className="fw-bold">
+      <Card.Header>
         {t('merits')}
       </Card.Header>
       <Card.Body>

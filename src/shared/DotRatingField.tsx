@@ -2,6 +2,7 @@
 import { Stack } from 'react-bootstrap';
 import { Circle } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useCharacter } from '../hooks/useCharacter';
 
 interface Props {
   label: string;
@@ -21,6 +22,8 @@ export default function DotRatingField({
   onChange 
 }: Props) {
   const { colors } = useTheme();
+  const { character } = useCharacter();
+  const extraDots = character.getTemplateValues(label) ?? 0;
 
   const handleChangeDot = (dot: number) => {
     if(max && dot > max) return;
@@ -37,7 +40,7 @@ export default function DotRatingField({
     if(max && dot > max) return 'default';
     return 'pointer';
   }
-
+  
   return (
     <div className="d-flex justify-content-between align-items-center gap-2">
       <strong>{label}</strong>
@@ -46,13 +49,23 @@ export default function DotRatingField({
           <Circle
             key={dot}
             size={20}
-            // fill={fill(dot)}
-            // stroke={"#000"}
             fill={fill(dot)} // ou "none" se preferir transparente
-            stroke={dot <= value ? colors.primary : "black"}
+            stroke={dot <= value ? colors.primary : colors.border}
             strokeWidth={2}
             onClick={() => handleChangeDot(dot)}
             style={{ cursor: cursorDisabled(dot)}}
+          />
+        ))}
+
+        {Array.from({ length: extraDots }, (_, i) => i + 1).map((dot) => (
+          <Circle
+            key={dot + 5}
+            size={20}
+            fill={colors.primary}
+            stroke={colors.border}
+            strokeWidth={2}
+            onClick={() => {}}
+            style={{ cursor: "default" }}
           />
         ))}
       </Stack>

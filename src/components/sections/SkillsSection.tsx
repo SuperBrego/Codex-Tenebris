@@ -2,7 +2,6 @@ import { Card, Button, Row, Col } from "react-bootstrap";
 import { useCharacter } from "../../hooks/useCharacter";
 import GroupedTraitBlock from "../../shared/GroupedTraitBlock";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "../../context/ThemeContext";
 
 interface SkillsSectionProps {
   orientation?: 'vertical' | 'horizontal';
@@ -11,7 +10,6 @@ interface SkillsSectionProps {
 export default function SkillsSection({ orientation = 'vertical' }: SkillsSectionProps) {
   const { character, updateCharacter } = useCharacter();
   const { t } = useTranslation();
-  const { colors } = useTheme();
 
   const updateSkill = (name: string, newValue: number) => {
     for (const group of ['mental', 'physical', 'social'] as const) {
@@ -63,10 +61,7 @@ export default function SkillsSection({ orientation = 'vertical' }: SkillsSectio
             return (
               <Col md={4} key={group}>
                 <Card className="mb-3 shadow-sm">
-                  <Card.Header 
-                    style={{ backgroundColor: colors.primary, color: colors.primaryText }}
-                    className="fw-semibold text-center text-uppercase"
-                  >
+                  <Card.Header>
                     {t(group)}
                   </Card.Header>
                   <Card.Body>
@@ -89,10 +84,7 @@ export default function SkillsSection({ orientation = 'vertical' }: SkillsSectio
 
           return (
             <Card key={group} className="mb-3 shadow-sm">
-              <Card.Header 
-                style={{ backgroundColor: colors.primary, color: colors.primaryText }}
-                className="fw-semibold text-center text-uppercase"
-              >
+              <Card.Header>
                 {t(group)}
               </Card.Header>
               <Card.Body>

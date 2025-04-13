@@ -23,7 +23,7 @@ export default function MoralitySection(): ReactElement {
 
   return <>
     <Card className="mb-3">
-      <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }}> 
+      <Card.Header> 
         <span className="text-center fw-bold">{moralityType[character.template]}</span> 
       </Card.Header>
       <Card.Body>

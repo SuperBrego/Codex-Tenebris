@@ -1,6 +1,5 @@
 import { ReactElement } from "react";
 import { Button, Card, Form } from "react-bootstrap";
-import { useTheme } from "../context/ThemeContext";
 import { useCharacter } from "../hooks/useCharacter";
 import { PlusCircle, Trash2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -15,7 +14,6 @@ type Props = | (BaseProps & { trait: string; templateTrait?: never }) | (BasePro
 
 export default function TextListCard({ label, trait, templateTrait, list, placeholder = 'Descrição' }: Props): ReactElement {
   const { character, updateCharacter } = useCharacter();
-  const { colors } = useTheme();
   const { t } = useTranslation();
 
   const handleAdd = () => {
@@ -51,7 +49,7 @@ export default function TextListCard({ label, trait, templateTrait, list, placeh
 
   return <>
     <Card className="mb-3">
-      <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }}>
+      <Card.Header>
         {label}
       </Card.Header>
       <Card.Body>

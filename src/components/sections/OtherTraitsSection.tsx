@@ -2,12 +2,10 @@ import { ReactElement } from "react";
 import { Card, Col, Form, Row, Stack } from "react-bootstrap";
 import { useCharacter } from "../../hooks/useCharacter";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "../../context/ThemeContext";
 
 export default function OtherTraitsSection(): ReactElement {
   const { character, updateCharacter } = useCharacter();
   const { t } = useTranslation();
-  const { colors } = useTheme();
 
   const handleBeatCheck = (isChecked: boolean, index: number) => {
     const newBeats = character.beats;
@@ -21,7 +19,7 @@ export default function OtherTraitsSection(): ReactElement {
 
   return <>
   <Card>
-    <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }}> 
+    <Card.Header> 
       <span className="fw-bold text-center"> {t('otherTraits')} </span>
     </Card.Header>
     <Card.Body>

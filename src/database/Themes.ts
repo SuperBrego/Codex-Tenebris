@@ -21,7 +21,7 @@ export const vampireTheme: Theme = {
   colors: {
     background: "#1a0d0f",     // fundo escuro avermelhado, quase negro
     surface: "#2c1416",        // superfície com leve destaque sobre o fundo
-    border: "#3f1c1f",         // tom mais vivo para elementos de borda
+    border: "#6a474a ",         // tom mais vivo para elementos de borda
     primary: "#8b1e1e",        // vermelho-sangue principal, usado no título e elementos marcantes
     primaryText: "#e0d6d6",    // texto claro contrastando com o vermelho e o fundo
     text: "#c4b0b0",           // texto comum mais suave

@@ -99,11 +99,8 @@ export default function CharacterNavbar() {
               <ExportButton />
 
               <Form.Label
-                className="btn btn-sm"
+                className="btn btn-sm btn-outline-primary"
                 style={{
-                  backgroundColor: colors.background,
-                  color: colors.primaryText,
-                  borderColor: colors.border,
                   marginBottom: 0,
                   cursor: 'pointer',
                 }}
@@ -119,7 +116,7 @@ export default function CharacterNavbar() {
               </Form.Label>
 
               <Button
-                style={{ backgroundColor: colors.background, borderColor: colors.border }}
+                variant='outline-primary'
                 size="sm"
                 onClick={() => addCharacter(new Character())}
               >
