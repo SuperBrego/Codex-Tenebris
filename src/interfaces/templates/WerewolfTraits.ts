@@ -5,6 +5,7 @@ import { Trait } from "../Trait";
 export interface WerewolfTraits extends SupernaturalTraits {
   primalUrge: number;
   essense: StateTrack[];
+  activeForm: 'hishu' | 'dalu' | 'gauru' | 'urshul' | 'urhan';
   renown: Record<'purity' | 'glory' | 'honor' | 'wisdom' | 'cunning', number>;
   triggers: Record<'passive' | 'common' | 'specific', string>;
   gifts: Record<'moon' | 'shadow' | 'wolf', Trait[]>;
