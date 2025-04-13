@@ -4,6 +4,7 @@ import GalleryImage from "../../interfaces/GalleryImage";
 import EditableCaption from "./EditableCaption";
 import ImageModalViewer from "./ImageModalViewer";
 import { Plus, X, ZoomIn } from "lucide-react";
+import { useTheme } from "../../context/ThemeContext";
 
 interface GalleryImageSlotProps {
   image: GalleryImage;
@@ -20,6 +21,7 @@ export default function GalleryImageSlot({
   editableCaption = false,
   onUpdateCaption,
 }: GalleryImageSlotProps) {
+  const { colors } = useTheme(); 
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [showModal, setShowModal] = useState(false);
 
@@ -38,7 +40,7 @@ export default function GalleryImageSlot({
       <div
         onClick={triggerFileInput}
         className="border border-secondary rounded d-flex align-items-center justify-content-center mb-1 position-relative"
-        style={{ minWidth: '260px', width: "100%", height: "280px", cursor: "pointer", backgroundColor: "#f8f9fa" }}
+        style={{ minWidth: '260px', width: "100%", height: "280px", cursor: "pointer", backgroundColor: colors.background }}
       >
         {image.src ? (
           <>
