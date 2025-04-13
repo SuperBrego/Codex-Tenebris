@@ -7,7 +7,7 @@ import { useTraitField } from "../../hooks/useTraitField";
 
 export default function WerewolfHeader(): ReactElement {
   return <>
-  <Form className="border rounded p-3 mb-4">
+  <Form>
     <FieldRow>
       <FormField labelKey="name" use={() => useField('name')} />
       <FormField labelKey="blood" use={() => useTraitField('blood')} />

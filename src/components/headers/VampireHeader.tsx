@@ -6,7 +6,7 @@ import { useField } from '../../hooks/useField';
 
 export default function VampireHeader() {
   return (
-    <Form className="border rounded p-3 mb-4">
+    <Form>
       <FieldRow>
         <FormField labelKey="name" use={() => useField('name')} />
         <FormField labelKey="mask" use={() => useTraitField('mask')} />

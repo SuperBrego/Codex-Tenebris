@@ -6,7 +6,7 @@ import { useTraitField } from '../../hooks/useTraitField';
 
 export default function MortalHeader() {
   return (
-    <Form className="border rounded p-3 mb-4">
+    <Form>
       <FieldRow>
         <FormField labelKey="name" use={() => useField('name')} />
         <FormField labelKey="virtue" use={() => useTraitField('virtue')} />

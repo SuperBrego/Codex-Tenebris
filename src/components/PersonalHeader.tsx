@@ -3,12 +3,14 @@ import { SupernaturalTemplatesIDs } from "../enum/SupernaturalTemplates";
 import { useCharacter } from "../hooks/useCharacter";
 import MortalHeader from "./headers/MortalHeader";
 import VampireHeader from "./headers/VampireHeader";
-import { Col, Row } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
 import GalleryImageSlot from "../shared/GallleryImage/GalleryImageSlot";
 import WerewolfHeader from "./headers/WerewolfHeader";
+import { useTheme } from "../context/ThemeContext";
 
 export default function PersonalHeader() {
   const { character, updateCharacter } = useCharacter();
+  const { colors } = useTheme();
   const avatar = character.gallery.find(img => img.id === 'image-avatar')!;
 
   function headerInfo(): ReactElement {
@@ -47,7 +49,14 @@ export default function PersonalHeader() {
 
   return <>
     <Row className="mt-2 mb-2">
-      <Col md={8}> {headerInfo()} </Col>
+      <Col md={8}>
+        <Card>
+          <Card.Header style={{ backgroundColor: colors.primary, color: colors.primaryText }}> 
+            Sobre o Personagem
+          </Card.Header>
+          <Card.Body> {headerInfo()} </Card.Body>
+        </Card>
+      </Col>
       <Col md={4} className="d-flex justify-content-center">
         <GalleryImageSlot
           image           = {avatar}
