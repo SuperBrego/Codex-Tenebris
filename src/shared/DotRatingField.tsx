@@ -1,8 +1,9 @@
 // components/common/DotRatingField.tsx
 import { Stack } from 'react-bootstrap';
-import { Circle } from 'lucide-react';
+import { Ban, Circle } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useCharacter } from '../hooks/useCharacter';
+import React from 'react';
 
 interface Props {
   label: string;
@@ -46,15 +47,26 @@ export default function DotRatingField({
       <strong>{label}</strong>
       <Stack direction="horizontal" gap={1}>
         {[1, 2, 3, 4, 5].map((dot) => (
-          <Circle
-            key={dot}
-            size={20}
-            fill={fill(dot)} // ou "none" se preferir transparente
-            stroke={dot <= value ? colors.primary : colors.border}
-            strokeWidth={2}
-            onClick={() => handleChangeDot(dot)}
-            style={{ cursor: cursorDisabled(dot)}}
-          />
+          <React.Fragment key={dot}>
+            {(max && dot > max) 
+            ? <Ban
+              size={20}
+              fill={fill(dot)} // ou "none" se preferir transparente
+              stroke={dot <= value ? colors.primary : colors.border}
+              strokeWidth={2}
+              onClick={() => {}}
+              style={{ cursor: "default"}}
+            />
+            : <Circle
+              size={20}
+              fill={fill(dot)} // ou "none" se preferir transparente
+              stroke={dot <= value ? colors.primary : colors.border}
+              strokeWidth={2}
+              onClick={() => handleChangeDot(dot)}
+              style={{ cursor: cursorDisabled(dot)}}
+            />}
+          </React.Fragment>
+          
         ))}
 
         {Array.from({ length: extraDots }, (_, i) => i + 1).map((dot) => (
