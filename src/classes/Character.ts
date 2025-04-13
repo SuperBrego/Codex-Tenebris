@@ -5,6 +5,7 @@ import { Merit } from "../interfaces/Merit";
 import { PersonalInfo } from "../interfaces/PersonalInfo";
 import { Skill } from "../interfaces/Skill";
 import { StateTrack } from "../interfaces/StateTrack";
+import { WerewolfTraits } from "../interfaces/templates/WerewolfTraits";
 import { Trait } from "../interfaces/Trait";
 import { EquipmentTypes } from "../types/EquipmentTypes";
 import { SupernaturalTemplatesType } from "../types/SupernaturalTemplatesType";
@@ -145,12 +146,14 @@ export class Character {
   }
   
   get size(): number {
+    const templateSize = this.getTemplateValues('size') || 0;
+    const meritSize = (this.merits.some(elem => elem.labelKey === 'merit.giant') ? 1 : 0);
     //                    Se contém Gigante.
-    return this._size + (this.merits.some(elem => elem.labelKey === 'merit.giant') ? 1 : 0);
+    return this._size + meritSize + templateSize;
   }
   
   get healthPoints(): number {
-    return this.size + this.stamina;
+    return this.size + this.stamina + this.extraVitality;
   }
   
   get willpowerPoints(): number {
@@ -223,7 +226,10 @@ export class Character {
   // ============== FÍSICOS ============== //
   get strength(): number   { return this.getAttribute('strength'); }
   get dexterity(): number  { return this.getAttribute('dexterity'); }
-  get stamina(): number    { return this.getAttribute('stamina'); }
+  get stamina(): number    { 
+    const templateExtra: number = this.getTemplateValues('stamina') || 0;
+    return this.getAttribute('stamina') + templateExtra; 
+  }
   
   set strength(value: number)   { this.setAttribute('strength', value); }
   set dexterity(value: number)  { this.setAttribute('dexterity', value); }
@@ -295,6 +301,45 @@ export class Character {
   set persuasion(value: number)  { this.setSkill('persuasion', value); }
   set socialize(value: number)   { this.setSkill('socialize', value); }
   set animalKen(value: number)   { this.setSkill('animalKen', value); }
+
+  getTemplateValues(trait: string): number {
+    const valuesByTrait: Record<string, Record<SupernaturalTemplatesIDs, () => number>> = {
+      size: {
+        [SupernaturalTemplatesIDs.Mortal]: () => 0,
+        [SupernaturalTemplatesIDs.Werewolf]: () => {
+          const form = (this.templateTraits as WerewolfTraits).activeForm;
+          if (form === 'dalu') return 1;
+          if (form === 'gauru') return 2;
+          if (form === 'urshul') return 1;
+          if (form === 'urhan') return -1;
+          return 0;
+        },
+        [SupernaturalTemplatesIDs.Vampire]: () => 0,
+        [SupernaturalTemplatesIDs.Deviant]: () => 0,
+      },
+      stamina: {
+        [SupernaturalTemplatesIDs.Mortal]: () => 0,
+        [SupernaturalTemplatesIDs.Werewolf]: () => {
+          const form = (this.templateTraits as WerewolfTraits).activeForm;
+          if (form === 'dalu') return 1;
+          if (form === 'gauru') return 2;
+          if (form === 'urshul') return 2;
+          if (form === 'urhan') return 1;
+          return 0;
+        },
+        [SupernaturalTemplatesIDs.Vampire]: () => 0,
+        [SupernaturalTemplatesIDs.Deviant]: () => 0,
+      },
+      // Pode adicionar outros traits aqui se quiser depois.
+    };
+  
+    const traitMap = valuesByTrait[trait];
+    if (!traitMap) return 0;
+  
+    const templateFunc = traitMap[this.template];
+    return templateFunc ? templateFunc() : 0;
+  }
+  
   
   // Character.ts
   static fromJSON(raw: any): Character {
