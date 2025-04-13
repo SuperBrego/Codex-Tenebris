@@ -117,7 +117,10 @@ export default function ExportButton() {
               )}
             </ListGroup>
 
-            <div style={{ flex: 1, maxHeight: "60vh", overflowY: "auto", whiteSpace: "pre-wrap" }}>
+            <div 
+              className="border-start border-1 rounded p-2"
+              style={{ flex: 1, maxHeight: "60vh", overflowY: "auto", whiteSpace: "pre-wrap", backgroundColor: "lightgray" }}
+            >
               <code>{exportContent[selectedFormat]}</code>
             </div>
           </Stack>
