@@ -34,7 +34,7 @@ export default function GalleryImageSlot({
   };
 
   return (
-    <div className="text-center w-50">
+    <div className="text-center w-75">
       <div
         onClick={triggerFileInput}
         className="border border-secondary rounded d-flex align-items-center justify-content-center mb-1 position-relative"
