@@ -36,7 +36,7 @@ export default function StatusBoxesList({ traitBoxes, max = 20, onChange }: Prop
   };
 
   return (
-    <Stack direction='horizontal'>
+    <Stack direction='horizontal' className='d-flex justify-content-center'>
       {boxes.slice(0, max).map((box, index) => (
         <div key={index} onClick={() => handleProgressState(index)} style={{ cursor: 'pointer' }}>
           {boxDisplay[box.state]}
