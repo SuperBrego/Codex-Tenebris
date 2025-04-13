@@ -1,0 +1,8 @@
+.reorderable-slot {
+  position: relative;
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+.reorderable-slot.dragging {
+  opacity: 0.6;
+  z-index: 10;
+}
