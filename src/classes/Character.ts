@@ -31,7 +31,7 @@ export class Character {
   
   conditions: string[] = [];
   aspirations: string[] = [];
-
+  
   story: string = '';
   appearance: string = '';
   beats: boolean[] = Array.from( { length: 5 }, () => { return false });
@@ -97,9 +97,9 @@ export class Character {
   extraInitiative: number = 0;
   extraSpeed: number = 0;
   extraDefense: number = 0;
-
+  
   moralityValue: number = 7;
-
+  
   // Itens Pessoais
   gallery: GalleryImage[] = [ { id: 'image-avatar', src: '', caption: 'Avatar' } ];
   personalInfo: PersonalInfo = {
@@ -127,7 +127,7 @@ export class Character {
     this.template = characterTemplate;
     this.templateTraits = getTemplateTraits(this.template);
     this.willpower = createStateTrackList(30, true);
-
+    
   }
   
   // Sobrenatural
@@ -139,11 +139,11 @@ export class Character {
     this.template = template;
     this.templateTraits = getTemplateTraits(template);
   }
-
+  
   set size(_size: number) {
     this._size = _size;
   }
-
+  
   get size(): number {
     //                    Se contém Gigante.
     return this._size + (this.merits.some(elem => elem.labelKey === 'merit.giant') ? 1 : 0);
@@ -160,7 +160,7 @@ export class Character {
   get defense(): number {
     return Math.min(this.getAttribute('wits'), this.getAttribute('dexterity')) + this.getSkill('athletics');
   }
-
+  
   // TODO: Função de Armadura. Pegar bônus de Equipamentos e outros.
   get armor(): number {
     return 0;
@@ -173,11 +173,11 @@ export class Character {
   get speed(): number {
     return this.getAttribute('strength') + this.getAttribute('dexterity') + 5;
   }  
-
+  
   get moralityType(): string {
     return this.templateTraits.moralityType;
   }
-
+  
   getAttribute(type: string): number {
     for (const group of Object.values(this.attributes)) {
       const attr = group.find((a) => a.name === type);
@@ -299,5 +299,12 @@ export class Character {
   set persuasion(value: number)  { this.setSkill('persuasion', value); }
   set socialize(value: number)   { this.setSkill('socialize', value); }
   set animalKen(value: number)   { this.setSkill('animalKen', value); }
+  
+  // Character.ts
+  static fromJSON(raw: any): Character {
+    const c = new Character();
+    Object.assign(c, raw);
+    return c;
+  }
   
 }

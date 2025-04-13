@@ -1,31 +1,57 @@
 import { useState } from "react";
-import { Button, Modal, Stack, ListGroup } from "react-bootstrap";
+import { Button, Modal, Stack, ListGroup, Form } from "react-bootstrap";
 import { Download } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 import { useTranslation } from "react-i18next";
 import { useCharacter } from "../hooks/useCharacter";
+import { usePortfolio } from "../hooks/usePortfolio";
 import { characterToBBCode, downloadFile } from "../Utils/Export";
-
 
 export default function ExportButton() {
   const { character } = useCharacter();
+  const { portfolio } = usePortfolio();
   const { t } = useTranslation();
   const { colors } = useTheme();
 
   const [show, setShow] = useState(false);
   const [selectedFormat, setSelectedFormat] = useState<"json" | "bbcode">("json");
+  const [scope, setScope] = useState<"current" | "selected" | "all">("current");
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+
+  const toggleSelection = (id: string) => {
+    setSelectedIds(prev =>
+      prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]
+    );
+  };
+
+  const charactersToExport = scope === "all"
+    ? portfolio.characters
+    : scope === "selected"
+      ? portfolio.characters.filter(c => selectedIds.includes(c.id))
+      : [character];
 
   const exportContent = {
-    json: JSON.stringify(character, null, 2),
-    bbcode: characterToBBCode(character, t)
+    json: JSON.stringify({
+      characters: charactersToExport,
+      activeId: character.id
+    }, null, 2),
+
+    bbcode: charactersToExport
+      .map(c => `[b]${c.name}[/b]\n\n${characterToBBCode(c, t)}`)
+      .join("\n\n" + "-".repeat(30) + "\n\n")
   };
 
   const handleDownload = () => {
-    const filename = `${character.name || "personagem"}.${selectedFormat === "json" ? "json" : "txt"}`;
+    const filename =
+      scope === "all"
+        ? `portfolio.${selectedFormat === "json" ? "json" : "txt"}`
+        : scope === "selected"
+          ? `selecionados.${selectedFormat === "json" ? "json" : "txt"}`
+          : `${character.name || "personagem"}.${selectedFormat === "json" ? "json" : "txt"}`;
+
     const content = exportContent[selectedFormat];
     const mime = selectedFormat === "json" ? "application/json" : "text/plain";
     downloadFile(content, filename, mime);
-
   };
 
   return (
@@ -48,7 +74,7 @@ export default function ExportButton() {
         </Modal.Header>
         <Modal.Body>
           <Stack direction="horizontal" gap={4}>
-            <ListGroup style={{ minWidth: "200px" }}>
+            <ListGroup style={{ minWidth: "220px" }}>
               <ListGroup.Item
                 action
                 active={selectedFormat === "json"}
@@ -63,6 +89,41 @@ export default function ExportButton() {
               >
                 BBCode
               </ListGroup.Item>
+
+              <hr />
+
+              <Form.Check
+                type="radio"
+                label={t("currentCharacter")}
+                checked={scope === "current"}
+                onChange={() => setScope("current")}
+              />
+              <Form.Check
+                type="radio"
+                label={t("selectedCharacters")}
+                checked={scope === "selected"}
+                onChange={() => setScope("selected")}
+              />
+              <Form.Check
+                type="radio"
+                label={t("entirePortfolio")}
+                checked={scope === "all"}
+                onChange={() => setScope("all")}
+              />
+
+              {scope === "selected" && (
+                <div style={{ marginTop: "1rem", paddingLeft: "0.5rem" }}>
+                  {portfolio.characters.map(c => (
+                    <Form.Check
+                      key={c.id}
+                      type="checkbox"
+                      label={c.name}
+                      checked={selectedIds.includes(c.id)}
+                      onChange={() => toggleSelection(c.id)}
+                    />
+                  ))}
+                </div>
+              )}
             </ListGroup>
 
             <div style={{ flex: 1, maxHeight: "60vh", overflowY: "auto", whiteSpace: "pre-wrap" }}>
