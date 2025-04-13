@@ -35,6 +35,25 @@ export default function CharacterNavbar() {
     setActiveCharacter(selectedId);
   };
 
+  async function handlePortfolioImport(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+  
+    try {
+      const imported = await importPortfolioFile(file);
+
+      // Isso assegura que o active está corretamente configurado ANTES de jogar no Jotai
+      imported.setActive(imported.activeId || imported.characters[0]?.id || '');
+
+      setPortfolio(imported);
+      save(imported);
+    } catch (err) {
+      alert('Erro ao importar personagem.');
+      console.error(err);
+    }
+  }
+  
+
   return (
     <>
       <div style={{ height: '72px' }} />
@@ -103,19 +122,7 @@ export default function CharacterNavbar() {
                   type="file"
                   accept="application/json"
                   hidden
-                  onChange={async (e: any) => {
-                    const file = e.target.files?.[0];
-                    if (file) {
-                      try {
-                        const imported = await importPortfolioFile(file);
-                        setPortfolio(imported);
-                        save(imported);
-                      } catch (err) {
-                        alert('Erro ao importar personagem.');
-                        console.error(err);
-                      }
-                    }
-                  }}
+                  onChange={handlePortfolioImport}
                 />
               </Form.Label>
 
