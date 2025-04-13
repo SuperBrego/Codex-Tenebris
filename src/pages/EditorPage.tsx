@@ -6,7 +6,10 @@ import OriginalLayout from "../Views/OriginalLayout";
 const STORAGE_KEY = "layoutMode";
 
 export default function EditorPage() {
-  const [layoutMode, setLayoutMode] = useState<'original' | 'condensado'>('original');
+  const [layoutMode, setLayoutMode] = useState<'original' | 'condensado'>(() => {
+    const saved = localStorage.getItem("layoutMode");
+    return saved === 'condensado' ? 'condensado' : 'original';
+  });  
 
   // Carrega do localStorage ao montar
   useEffect(() => {
@@ -37,7 +40,7 @@ export default function EditorPage() {
           variant="secondary"
           onClick={() => setLayoutMode((prev) => (prev === 'original' ? 'condensado' : 'original')) }
         >
-          Trocar para Layout {layoutMode === 'original' ? 'Condensado' : 'Original'}
+          Trocar para Layout {layoutMode === 'original' ? 'condensado' : 'original'}
         </Button>
       </div>
       
