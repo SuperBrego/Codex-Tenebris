@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { SupernaturalTemplatesIDs } from '../enum/SupernaturalTemplates';
 import { useCharacter } from '../hooks/useCharacter';
 import { getTemplateTraits } from '../Utils/SupernaturalTemplates';
+import { useTheme } from '../context/ThemeContext';
 
 const TEMPLATE_LABELS: Record<SupernaturalTemplatesIDs, string> = {
   [SupernaturalTemplatesIDs.Mortal]: 'mortal',
@@ -15,9 +16,13 @@ const TEMPLATE_LABELS: Record<SupernaturalTemplatesIDs, string> = {
 export default function SupernaturalTemplateSelect() {
   const { character, updateCharacter } = useCharacter();
   const { t } = useTranslation();
+  const { colors } = useTheme();
 
   return (
-    <div className="p-3 border-bottom bg-white sticky-top" style={{ zIndex: 10 }}>
+    <header 
+      className="p-3 border-bottom rounded-bottom" 
+      style={{ backgroundColor: colors.primary, color: colors.primaryText }}
+    >
       <Form.Label className="fw-semibold"> {t('templateSelect')} </Form.Label>
       <Form.Select
         id={`template-select-${character.template}`}
@@ -36,6 +41,6 @@ export default function SupernaturalTemplateSelect() {
           </option>
         ))}
       </Form.Select>
-    </div>
+    </header>
   );
 }
