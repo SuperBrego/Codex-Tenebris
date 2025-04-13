@@ -1,17 +1,17 @@
 // hooks/usePortfolio.ts
 import { useAtom } from 'jotai';
 import { Character } from '../classes/Character';
-import { characterListAtom, savePortfolioAtom } from '../atoms/portfolioAtom';
+import { characterListAtom } from '../atoms/portfolioAtom'; // savePortfolioAtom
 
 export function usePortfolio() {
   const [portfolio, setPortfolio] = useAtom(characterListAtom);
-  const [, save] = useAtom(savePortfolioAtom);
+  // const [, save] = useAtom(savePortfolioAtom);
 
   function emitUpdate() {
     const updated = Object.create(Object.getPrototypeOf(portfolio));
     Object.assign(updated, portfolio);
     setPortfolio(updated);
-    save(updated);
+    // save(updated);
   }
 
   function addCharacter(character: Character) {
@@ -43,6 +43,6 @@ export function usePortfolio() {
     updateCharacter,
     setActiveCharacter,
     setPortfolio, // <-- aqui
-    save           // <-- aqui
+    // save           // <-- aqui
   };
 }
