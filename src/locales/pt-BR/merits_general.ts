@@ -19,7 +19,11 @@ export const general = {
   "merit.areaOfExpertise": "Perito",
   "merit.multilingual": "Poliglota",
   "merit.investigativeProdigy": "Prodígio Investigativo",
-
+  "merit.fastReflexes": "Reflexos Rápidos",
+  "merit.directionSense": "Senso de Direção",
+  "merit.dangerSense": "Senso de Perigo",
+  "merit.toleranceForBiology": "Tolerante à Biologia",
+  "merit.virtuous": "Tolerante à Biologia",
   // ==== Físicas ==== //
   "merit.crackDriver": "Ás do Volante",
   "merit.ambidextrous": "Ambidestro",
@@ -59,6 +63,9 @@ export const general = {
   "merit.iron_will": "Vontade de Ferro",
   "merit.barfly": "Habitué",
   "merit.fixer": "Negociante",
+  "merit.pusher": "Negociante",
+  "merit.mentor": "Mentor",
+  "merit.hobbyistClique": "Filiação",
   "merit.sympathetic": "Simpático",
   "merit.table_turner": "Virar o Jogo",
   "merit.takes_one_to_know_one": "Um Conhece o Outro",
