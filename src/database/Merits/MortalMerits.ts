@@ -279,7 +279,7 @@ export const _MortalMerits: Merit[] = [
   },
   { 
     id: "virtuous", 
-    name: "Tolerante à Biologia",
+    name: "Virtuoso",
     labelKey: "merit.virtuous", 
     value: 2, 
     min: 2, 

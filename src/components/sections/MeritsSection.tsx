@@ -6,13 +6,22 @@ import { Merit } from "../../interfaces/Merit";
 import { _MortalMerits } from "../../database/Merits/MortalMerits";
 import CustomTrait from "../../shared/CustomTrait";
 import DefaultTrait from "../../shared/DefaultTrait";
-import { containsMerit } from "../../Utils/Utils";
+import { SupernaturalTemplatesIDs } from "../../enum/SupernaturalTemplates";
+import { _WerewolfMerits } from "../../database/Merits/WerewolfMerits";
+
+const additionalMerits: Record<SupernaturalTemplatesIDs, Merit[]> = {
+  [SupernaturalTemplatesIDs.Mortal]: [],
+  [SupernaturalTemplatesIDs.Vampire]: [],
+  [SupernaturalTemplatesIDs.Werewolf]: _WerewolfMerits,
+  [SupernaturalTemplatesIDs.Deviant]: [],
+};
 
 export default function MeritsSection() {
   const { character, updateCharacter } = useCharacter();
   const { t } = useTranslation();
-
-  const predefinedMerits: Merit[] = _MortalMerits;
+  
+  const templateMerits: Merit[] = additionalMerits[character.template] ?? [];
+  const predefinedMerits: Merit[] = templateMerits.concat(_MortalMerits);
 
   const [selected, setSelected] = useState('');
 
@@ -62,6 +71,11 @@ export default function MeritsSection() {
   const calculateTotalCost = () => {
     return character.merits.reduce((total, merit) => total + merit.value, 0);
   };
+
+  function containsMerit(meritLabel: string): boolean {
+    const found = character.merits.find(elem => elem.labelKey === meritLabel);
+    return (found !== undefined);
+  }
 
   // Agrupar méritos por categoria
   const groupedMerits = predefinedMerits.reduce((groups, merit) => {

@@ -11,6 +11,7 @@ import { martial as meritsMartial_pt } from "./pt-BR/merits_martial";
 import { equipment as equipment_pt } from "./pt-BR/equipment";
 import { vampire as vampire_pt } from "./pt-BR/vampire";
 import { werewolf as werewolf_pt } from "./pt-BR/werewolf";
+import { werewolf_merits as werewolfMerits_pt } from "./pt-BR/merits_werewolf";
 
 import { common as common_en } from "./en-US/common";
 import { character as character_en } from "./en-US/character";
@@ -25,6 +26,7 @@ import { martial as meritsMartial_en } from "./en-US/merits_martial";
 import { equipment as equipment_en } from "./en-US/equipment";
 import { vampire as vampire_en } from "./en-US/vampire";
 import { werewolf as werewolf_en } from "./en-US/werewolf";
+import { werewolf_merits as werewolfMerits_en } from "./en-US/merits_werewolf";
 
 const ptBR = {
   ...common_pt,
@@ -40,6 +42,7 @@ const ptBR = {
   ...equipment_pt,
   ...vampire_pt,
   ...werewolf_pt,
+  ...werewolfMerits_pt,
 };
 
 const enUS = {
@@ -56,6 +59,7 @@ const enUS = {
   ...equipment_en,
   ...vampire_en,
   ...werewolf_en,
+  ...werewolfMerits_en,
 };
 
 export default {
