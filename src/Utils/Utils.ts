@@ -1,4 +1,3 @@
-import { useCharacter } from "../hooks/useCharacter";
 import { Armor } from "../interfaces/Equipments/Armor";
 import { Gear } from "../interfaces/Equipments/Gear";
 import { Weapon } from "../interfaces/Equipments/Weapon";
@@ -18,12 +17,6 @@ export function createTrait(name: string, value: number, labelKey: string): Trai
 
 export function createHealthTrack(quantity: number, initialState: DamageType = 'none'): HealthBox[] {
   return Array.from({ length: quantity }, () => ({ state: initialState }));
-}
-
-export function containsMerit(meritLabel: string): boolean {
-  const { character } = useCharacter();
-  const found = character.merits.find(elem => elem.labelKey === meritLabel);
-  return (found !== undefined);
 }
 
 export function createEquipment(type: string): EquipmentTypes {
