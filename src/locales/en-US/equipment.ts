@@ -1,0 +1,23 @@
+export const equipment = {
+  "equipments": "Equipments",
+  "weapons/attacks": "Weapons/Attacks",
+  "weapon/attack": "Weapon/Attack",
+  "armors": "Armors",
+  "gears": "General Gears",
+  "gear": "Gear",
+  "equipmentDescription": "Equipment Description",
+  "otherGear": "Other Gear",
+  "equipped": "Equipped",
+  "close": "Close",
+  "medium": "Medium",
+  "far": "Far",
+  
+  "damage": "Damage",
+  "cost": "Cost",
+  "range": "Range",
+  "ballistic": "Ballistic",
+  "general": "General",
+  "clip": "Clip",
+  "structure": "Structure",
+  "durability": "Durability",
+};

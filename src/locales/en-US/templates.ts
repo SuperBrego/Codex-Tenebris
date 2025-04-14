@@ -1,0 +1,20 @@
+export const templates = {
+  "templateSelect": "Supernatural Type",
+  "template": "Template",
+  "mortal": "Mortal",
+  "virtue": "Virtue",
+  "vice": "Vice",
+  "faction": "Faction",
+  
+  "mage": "Mage",
+  "hunter": "Hunter",
+  "changeling": "Changeling",
+  "promethean": "Promethean",
+  "demon": "Demon",
+  "mummy": "Mummy",
+  "beast": "Beast",
+  "geist": "Geist",
+  "wraith": "Wraith",
+  "deviant": "Deviant",
+  "sin-eater": "Sin-Eater",
+};

@@ -1,7 +1,9 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import translations from './locales/translations';
+
+// Importa o arquivo unificado que junta tudo
+import translations from './locales/index';
 
 i18n
   .use(LanguageDetector)
@@ -9,13 +11,13 @@ i18n
   .init({
     resources: {
       "pt-BR": { translation: translations["pt-BR"] },
-      "en-US": { translation: translations["en-US"] }
+      "en-US": { translation: translations["en-US"] },
     },
-    lng: "pt-BR",            // idioma padrão
-    fallbackLng: "en-US",    // fallback
+    lng: "pt-BR",
+    fallbackLng: "en-US",
     interpolation: {
-      escapeValue: false     // não escapar HTML
-    }
-  });  
+      escapeValue: false,
+    },
+  });
 
 export default i18n;
