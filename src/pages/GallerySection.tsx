@@ -3,9 +3,11 @@ import { useCharacter } from "../hooks/useCharacter";
 import { Plus } from "lucide-react";
 import ReorderableGalleryItem from "../shared/GallleryImage/ReorderableGalleryItem";
 import { useDragReorder } from "../hooks/useDragReorder";
+import { useTranslation } from "react-i18next";
 
 export default function GallerySection() {
   const { character, updateCharacter } = useCharacter();
+  const { t } = useTranslation();
   
   const {
     draggingIndex,
@@ -59,7 +61,7 @@ export default function GallerySection() {
 
   return (
     <Card>
-      <Card.Header> Galeria </Card.Header>
+      <Card.Header> {t('gallery')} </Card.Header>
       <Card.Body>
         <Row className="mb-3">
           <Col md={12}>
