@@ -100,6 +100,22 @@ body[data-theme] .btn-outline-danger:disabled {
   cursor: not-allowed;
 }
 
+/* ========= Tables ========= */
+body[data-theme] th {
+  background-color: var(--primary);
+  color: var(--text);
+  text-align: center;
+}
+
+body[data-theme] tr:nth-child(even) td {
+  background-color: var(--surface);
+  color: var(--text);
+}
+
+body[data-theme] tr:nth-child(odd) td {
+  background-color: color-mix(in srgb, var(--surface) 85%, white);
+  color: var(--text);
+}
 
 /* ========= Badges ========= */
 body[data-theme] .badge {
@@ -181,9 +197,9 @@ body[data-theme] .modal-footer {
 }
 
 /* ========= Tooltip ========= */
-body[data-theme] .tooltip-inner {
+body[data-theme] .popover-header {
   background-color: var(--text);
-  color: var(--primary-text);
+  color: var(--primary);
 }
 
 body[data-theme] .tooltip.bs-tooltip-top .arrow::before,
