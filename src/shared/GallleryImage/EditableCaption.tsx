@@ -17,7 +17,7 @@ export default function EditableCaption({ caption, editable, onUpdate }: Props) 
   };
 
   if (!editable) {
-    return <small className="text-muted">{caption || <em>(sem legenda)</em>}</small>;
+    return <small>{caption || <em>(sem legenda)</em>}</small>;
   }
 
   if (isEditing) {
