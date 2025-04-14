@@ -166,7 +166,11 @@ export class Character {
   
   // TODO: Função de Armadura. Pegar bônus de Equipamentos e outros.
   get armor(): number {
-    return 0;
+    // Vantagem Pele de Aço
+    const ironSkinMerit = (this.merits.find(elem => elem.labelKey === 'merit.iron_skin'));
+    const ironSkinValue = (ironSkinMerit) ? (ironSkinMerit.value === 4 ? 2 : 1) : 0;
+
+    return 0 + ironSkinValue;
   }
   
   get initiative(): number {
