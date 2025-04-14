@@ -63,7 +63,7 @@ export default function FormattedDescription({ description }: Props) {
     }
 
     // Linhas de título com "Efeitos:", "Pré-Requisitos:" etc.
-    if (/^(Pré-Requisitos|Efeitos|Desvantagens|Nível.*Descrição):?/i.test(line)) {
+    if (/^(Pré-Requisitos|Pré-Requisito|Efeitos|Desvantagens|Nível.*Descrição):?/i.test(line)) {
       const [title, ...rest] = line.split(":");
       output.push(
         <p key={`title-${i}`}>
