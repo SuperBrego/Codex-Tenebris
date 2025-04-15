@@ -37,4 +37,9 @@ export const common = {
   "otherBonus": "Outros Bônus",
 
   "textTraitPlaceholder": "Descreva ",
+
+  // merit groups
+  "fighting_merits": "Luta",
+  "werewolf_merits": "Vantagens de Lobisomem",
+  "werewolf_fighting": "Lobisomem Marcial"
 };
