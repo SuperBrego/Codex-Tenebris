@@ -59,7 +59,7 @@ function createWerewolfTraits(): WerewolfTraits {
     name: "werewolf",
     book: "WtF",
     moralityTrait: Array.from( {length: 10}, () => { return '' }),
-
+    activeForm: 'hishu',
     primalUrge: 0,
     essense: createStateTrackList(20, false),
     renown: { purity: 0, glory: 0, honor: 0, wisdom: 0, cunning: 0 },
