@@ -6,8 +6,8 @@ export default function CharacterSummary() {
   const { character } = useCharacter();
   const { t } = useTranslation();
 
-  const attributes = Object.entries(character.attributes).flatMap(([group, traits]) => traits);
-  const skills = Object.entries(character.skills).flatMap(([group, traits]) => traits);
+  const attributes = Object.entries(character.attributes).flatMap(([_, traits]) => traits);
+  const skills = Object.entries(character.skills).flatMap(([_, traits]) => traits);
 
   const mainAttributes = ['strength', 'dexterity', 'stamina', 'intelligence', 'wits', 'resolve'];
 

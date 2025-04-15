@@ -18,7 +18,7 @@ function loadPortfolio(): Portfolio {
 
 export const characterListAtom = atom<Portfolio>(loadPortfolio());
 
-export const savePortfolioAtom = atom(null, (get, _set, updated: Portfolio) => {
+export const savePortfolioAtom = atom(null, (_, _set, updated: Portfolio) => {
   return;
   const cleanedPortfolio = updated; // ou uma função que gere uma cópia limpa
   
