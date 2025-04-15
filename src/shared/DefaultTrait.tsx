@@ -3,7 +3,6 @@ import { Merit } from "../interfaces/Merit";
 import DotRatingField from "./DotRatingField";
 import { useTranslation } from "react-i18next";
 import MeritTooltip from "./MeritTooltip";
-import { MeritRegistry } from "../database/AllMerits";
 
 interface Props {
   merit: Merit;
@@ -27,7 +26,7 @@ return <>
       />
     </Col>
     <Col md={2} className="text-end">
-      <MeritTooltip description={MeritRegistry[merit.labelKey]?.description ?? ''} />
+      <MeritTooltip description={t(`${merit.labelKey}.description`)} />
       <Button size="sm" variant="outline-danger" className="ms-1" onClick={() => removeMerit(merit.id)}>X</Button>
     </Col>
     {hasTrait && <Col md={8}>
