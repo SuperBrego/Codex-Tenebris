@@ -1,4 +1,6 @@
 export const werewolf = {
+  "forms": "Forms",
+  "form": "Form",
   "werewolf": "Werewolf",
   "blood": "Blood",
   "bone": "Bone",
@@ -50,5 +52,4 @@ export const werewolf = {
   "honor": "Honor",
   "wisdom": "Wisdom",
   "cunning": "Cunning",
-  "form": "Form",
 }

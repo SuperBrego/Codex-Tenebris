@@ -48,4 +48,6 @@ export const character = {
   "weight": "Weight",
   "sex": "Sex",
   "gender": "Gender",
+
+  "perception": "Perception",
 };

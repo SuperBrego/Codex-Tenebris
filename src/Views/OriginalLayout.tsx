@@ -10,18 +10,19 @@ import EquipmentsSection from "../components/sections/EquipmentsSection";
 import PersonalInfoSection from "../components/sections/PersonalInfoSection";
 import StatusPanel from "../components/sections/StatusPanel";
 import GallerySection from "../pages/GallerySection";
+import WerewolfForms from "../components/templateSections/werewolf/WerewolfFormsCards";
 
 export default function OriginalLayout() {
   
   return (
     <>
       <CharacterNavbar />
-      <Container className="mt-4" fluid>
+      <Container className="mt-3" fluid>
         <SupernaturalTemplateSelect />
         <PersonalHeader />
         <AttributeSection />
 
-        <Row className="mt-4">
+        <Row className="mt-3">
           {/* Coluna de Habilidades */}
           <Col md={4}> 
             <SkillsSection /> 
@@ -44,6 +45,9 @@ export default function OriginalLayout() {
             </Row>
           </Col>
           
+        </Row>
+        <Row className="mt-3">
+          <Col> <WerewolfForms /> </Col>
         </Row>
       </Container>
       

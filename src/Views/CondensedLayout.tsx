@@ -14,6 +14,7 @@ import MoralitySection from "../components/sections/MoralitySection";
 import ConditionsSection from "../components/sections/ConditionsSection";
 import AspirationsSections from "../components/sections/AspirationsSection";
 import GallerySection from "../pages/GallerySection";
+import WerewolfForms from "../components/templateSections/werewolf/WerewolfFormsCards";
 
 export default function CondensedLayout() {
   return (
@@ -52,6 +53,10 @@ export default function CondensedLayout() {
       <Row className="mt-3">
         <Col md={6}><MeritsSection /></Col>
         <Col md={6}><OtherTraitsSection /></Col>
+      </Row>
+      
+      <Row className="mt-3">
+        <Col md={12}> <WerewolfForms /> </Col>
       </Row>
 
       {/* Equipamentos: Ataques, Armaduras, Gerais */}

@@ -38,6 +38,8 @@ export const common = {
 
   "textTraitPlaceholder": "Descreva ",
 
+  "active": "Ativa",
+
   // merit groups
   "fighting_merits": "Luta",
   "werewolf_merits": "Vantagens de Lobisomem",

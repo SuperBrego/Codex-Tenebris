@@ -37,6 +37,8 @@ export const common = {
   "otherBonus": "Other Bonuses",
   "textTraitPlaceholder": "Describe",
 
+  "active": "Active",
+
   // merit groups
   "fighting_merits": "Fighting",
   "werewolf_merits": "Werewolf Merits",

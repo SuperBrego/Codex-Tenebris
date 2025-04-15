@@ -184,7 +184,7 @@ export class Character {
   getAttribute(type: string): number {
     for (const group of Object.values(this.attributes)) {
       const attr = group.find((a) => a.name === type);
-      if (attr) return attr.value;
+      if (attr) return attr.value + this.getTemplateValues(type);
     }
     return 0;
   }
@@ -329,6 +329,19 @@ export class Character {
           if (form === 'gauru') return 2;
           if (form === 'urshul') return 2;
           if (form === 'urhan') return 1;
+          return 0;
+        },
+        [SupernaturalTemplatesIDs.Vampire]: () => 0,
+        [SupernaturalTemplatesIDs.Deviant]: () => 0,
+      },
+      strength: {
+        [SupernaturalTemplatesIDs.Mortal]: () => 0,
+        [SupernaturalTemplatesIDs.Werewolf]: () => {
+          const form = (this.templateTraits as WerewolfTraits).activeForm;
+          if (form === 'dalu') return 1;
+          if (form === 'gauru') return 3;
+          if (form === 'urshul') return 2;
+          if (form === 'urhan') return 0;
           return 0;
         },
         [SupernaturalTemplatesIDs.Vampire]: () => 0,
