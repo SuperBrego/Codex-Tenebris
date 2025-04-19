@@ -28,7 +28,7 @@ export default function TrackCheckboxCard({ boxes, max = 30, label, trait, templ
       <Card.Header> 
         <span className="fw-bold">{label}</span>
       </Card.Header>
-      <Card.Body className="d-flex justify-content-center">
+      <Card.Body className="d-flex justify-content-center flex-wrap">
         <CheckboxesList traitBoxes={boxes} max={max} onChange={handleChangeStats} />
       </Card.Body>
     </Card>
