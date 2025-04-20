@@ -1,16 +1,5 @@
 import { Portfolio } from "../classes/Portfolio";
-
-export function exportPortfolio(portfolio: Portfolio) {
-  const dataStr = JSON.stringify(portfolio.toJSON(), null, 2);
-  const blob = new Blob([dataStr], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'portfolio.json';
-  a.click();
-  URL.revokeObjectURL(url);
-}
+import { migratePortfolio } from "../migrations";
 
 export function importPortfolioFile(file: File): Promise<Portfolio> {
   return new Promise((resolve, reject) => {
@@ -18,8 +7,9 @@ export function importPortfolioFile(file: File): Promise<Portfolio> {
     reader.onload = () => {
       try {
         const raw = reader.result as string;
-        const data = JSON.parse(raw);
-        const portfolio = Portfolio.fromJSON(data);
+        const json = JSON.parse(raw);
+        const migrated = migratePortfolio(json); // <- Aplicar migrações aqui
+        const portfolio = Portfolio.fromJSON(migrated);
         resolve(portfolio);
       } catch (e) {
         reject(e);

@@ -1,0 +1,1 @@
+export const CURRENT_PORTFOLIO_VERSION = 2;
