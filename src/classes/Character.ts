@@ -362,6 +362,7 @@ export class Character {
   static fromJSON(raw: any): Character {
     const c = new Character();
     Object.assign(c, raw);
+    Object.assign(c.templateTraits, raw.templateTraits);
     return c;
   }
   
