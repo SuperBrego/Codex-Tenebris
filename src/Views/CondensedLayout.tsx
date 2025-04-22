@@ -14,7 +14,9 @@ import MoralitySection from "../components/sections/MoralitySection";
 import ConditionsSection from "../components/sections/ConditionsSection";
 import AspirationsSections from "../components/sections/AspirationsSection";
 import GallerySection from "../pages/GallerySection";
-import WerewolfForms from "../components/templateSections/werewolf/WerewolfFormsCards";
+import WerewolfForms from "../modules/werewolf/WerewolfFormsCards";
+import Renown from "../modules/werewolf/Renown";
+import Essence from "../modules/werewolf/Essence";
 
 export default function CondensedLayout() {
   return (
@@ -39,11 +41,16 @@ export default function CondensedLayout() {
         <Col md={6}> <HealthSection />   </Col>
         <Col md={6}> <WillpowerSection /> </Col>
         <Col md={6}>
+          {/* Para Lobisomem */}
+          <Renown />
+          <Essence />
+
           {/* Condições */}
           <ConditionsSection />
     
           {/* Aspirações */}
           <AspirationsSections />
+
         </Col>
         <Col md={6}>
           <MoralitySection />
@@ -57,6 +64,12 @@ export default function CondensedLayout() {
       
       <Row className="mt-3">
         <Col md={12}> <WerewolfForms /> </Col>
+      </Row>
+
+      <Row className="mt-3">
+        <Col md={2}> 
+          
+        </Col>
       </Row>
 
       {/* Equipamentos: Ataques, Armaduras, Gerais */}

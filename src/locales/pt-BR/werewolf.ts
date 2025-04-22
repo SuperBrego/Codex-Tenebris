@@ -54,4 +54,6 @@ export const werewolf = {
   "honor": "Honra",
   "wisdom": "Sabedoria",
   "cunning": "Sagacidade",
+  "essence": "Essência",
+  "renownSubtitle": "Renome mede as conquistas do Uratha, marcadas por runas prateadas visíveis no Hisil e concedidas pelos Lunes."
 }

@@ -38,6 +38,9 @@ export const common = {
   "textTraitPlaceholder": "Describe",
 
   "active": "Active",
+  "viewDetails": "View Details",
+  "bonus": "Bonus",
+  "total": "Total",
 
   // merit groups
   "fighting_merits": "Fighting",

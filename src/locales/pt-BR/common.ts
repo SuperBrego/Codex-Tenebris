@@ -39,6 +39,9 @@ export const common = {
   "textTraitPlaceholder": "Descreva ",
 
   "active": "Ativa",
+  "viewDetails": "Ver Detalhes",
+  "bonus": "Bônus",
+  "total": "Total",
 
   // merit groups
   "fighting_merits": "Luta",

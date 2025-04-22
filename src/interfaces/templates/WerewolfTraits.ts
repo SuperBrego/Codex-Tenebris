@@ -1,11 +1,12 @@
+import { FormType } from "../../Utils/werewolfFormsData";
 import { StateTrack } from "../StateTrack";
 import { SupernaturalTraits } from "../SupernaturalTraits";
 import { Trait } from "../Trait";
 
 export interface WerewolfTraits extends SupernaturalTraits {
   primalUrge: number;
-  essense: StateTrack[];
-  activeForm: 'hishu' | 'dalu' | 'gauru' | 'urshul' | 'urhan';
+  essence: StateTrack[];
+  activeForm: FormType;
   renown: Record<'purity' | 'glory' | 'honor' | 'wisdom' | 'cunning', number>;
   triggers: Record<'passive' | 'common' | 'specific', string>;
   gifts: Record<'moon' | 'shadow' | 'wolf', Trait[]>;

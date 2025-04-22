@@ -10,7 +10,7 @@ import EquipmentsSection from "../components/sections/EquipmentsSection";
 import PersonalInfoSection from "../components/sections/PersonalInfoSection";
 import StatusPanel from "../components/sections/StatusPanel";
 import GallerySection from "../pages/GallerySection";
-import WerewolfForms from "../components/templateSections/werewolf/WerewolfFormsCards";
+import WerewolfForms from "../modules/werewolf/WerewolfFormsCards";
 
 export default function OriginalLayout() {
   
