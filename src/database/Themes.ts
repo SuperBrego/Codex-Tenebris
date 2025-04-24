@@ -49,14 +49,14 @@ export const werewolfTheme: Theme = {
 export const deviantTheme: Theme = {
   name: "deviant",
   colors: {
-    background: "#1a0e14",     // roxo escuro quase preto
-    surface: "#2d1c26",        // magenta escuro com tons de ferrugem
-    border: "#613948",         // rosa queimado ou vinho profundo
-    primary: "#a74b7d",        // magenta vívido usado no título e detalhes
-    primaryText: "#f7f0f5",    // branco levemente rosado para legibilidade
-    text: "#e2d1dc",           // texto comum (rosa claro acinzentado)
-    accent: "#ff71c8",         // rosa neon/distópico para interações destacadas
-    danger: "#c1126b",         // vermelho-púrpura intenso, usado para alertas
-    highlight: "#fff4fb",      // usado para destacar áreas em layouts com muito contraste
+    background: "#402324",      // caput-mortuum — fundo muito escuro e quente
+    surface: "#582F30",         // caput-mortuum-2 — um tom mais claro para superfícies
+    border: "#AC5757",          // redwood — bordas intensas com caráter emocional
+    primary: "#A89797",         // rose-quartz — tom neutro magenta-acinzentado para destaque
+    primaryText: "#F6ECEB",     // snow — legibilidade clara com tom rosado
+    text: "#A8979F",            // rose-quartz novamente como texto normal
+    accent: "#F6ECEB",          // snow — como destaque mais claro em hover, tooltips etc.
+    danger: "#AC5757",          // redwood — tom emocional quente para erros/alertas
+    highlight: "#F6ECEB",       // snow — realce visual em componentes
   }
 };
