@@ -1,6 +1,6 @@
 import { StateTrack } from "../StateTrack";
-import { Trait } from "../Trait";
 import { SupernaturalTraits } from "../SupernaturalTraits";
+import { SpecialTrait } from "../SpecialTrait";
 
 export interface VampireTraits extends SupernaturalTraits {
   bloodPotency: number;
@@ -10,10 +10,10 @@ export interface VampireTraits extends SupernaturalTraits {
   bloodline: string;
   covenant: string;
   vitae: StateTrack[];
-  disciplines: Trait[];
+  disciplines: SpecialTrait[];
   banes: string[];
-  devotions: Trait[];
-  ritesMiracles: Trait[];
+  devotions: SpecialTrait[];
+  ritesMiracles: SpecialTrait[];
   vinculum: any[];
   havens: any[];
 }

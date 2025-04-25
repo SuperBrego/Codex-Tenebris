@@ -2,14 +2,14 @@ import { Button, Card, Form, Row, Stack } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useCharacter } from "../../hooks/useCharacter";
 import { useState } from "react";
-import { Merit } from "../../interfaces/Merit";
+import { SpecialTrait } from "../../interfaces/SpecialTrait";
 import { _MortalMerits } from "../../database/Merits/MortalMerits";
 import CustomTrait from "../../shared/CustomTrait";
 import DefaultTrait from "../../shared/DefaultTrait";
 import { SupernaturalTemplatesIDs } from "../../enum/SupernaturalTemplates";
 import { _WerewolfMerits } from "../../database/Merits/WerewolfMerits";
 
-const additionalMerits: Record<SupernaturalTemplatesIDs, Merit[]> = {
+const additionalMerits: Record<SupernaturalTemplatesIDs, SpecialTrait[]> = {
   [SupernaturalTemplatesIDs.Mortal]: [],
   [SupernaturalTemplatesIDs.Vampire]: [],
   [SupernaturalTemplatesIDs.Werewolf]: _WerewolfMerits,
@@ -20,8 +20,8 @@ export default function MeritsSection() {
   const { character, updateCharacter } = useCharacter();
   const { t } = useTranslation();
   
-  const templateMerits: Merit[] = additionalMerits[character.template] ?? [];
-  const predefinedMerits: Merit[] = templateMerits.concat(_MortalMerits);
+  const templateMerits: SpecialTrait[] = additionalMerits[character.template] ?? [];
+  const predefinedMerits: SpecialTrait[] = templateMerits.concat(_MortalMerits);
 
   const [selected, setSelected] = useState('');
 
@@ -33,6 +33,7 @@ export default function MeritsSection() {
       id: crypto.randomUUID(),
       name: base.name,
       labelKey: base.labelKey,
+      type: 'merit',
       value: base.fixed ? base.value ?? 1 : base.min ?? 1,
       fixed: base.fixed,
       min: base.min,
@@ -59,7 +60,7 @@ export default function MeritsSection() {
     updateCharacter({ merits: [...character.merits, custom] });
   };
 
-  const updateMerit = (id: string, partial: Partial<Merit>) => {
+  const updateMerit = (id: string, partial: Partial<SpecialTrait>) => {
     const updated = character.merits.map((m) => (m.id === id ? { ...m, ...partial } : m));
     updateCharacter({ merits: updated });
   };
@@ -84,7 +85,7 @@ export default function MeritsSection() {
     return groups;
   }, {} as Record<string, typeof predefinedMerits>);
 
-  const sortTraits = (list: Merit[]): Merit[] => {
+  const sortTraits = (list: SpecialTrait[]): SpecialTrait[] => {
     return list.sort((a, b) => t(a.labelKey).localeCompare(t(b.labelKey)));
   }
 
@@ -122,8 +123,8 @@ export default function MeritsSection() {
         {sortTraits(character.merits).map((merit) => (
           <Row key={merit.id} className="mb-3 align-items-center">
             {merit.custom 
-              ? <CustomTrait merit={merit} updateMerit={updateMerit} removeMerit={removeMerit} />
-              : <DefaultTrait merit={merit} updateMerit={updateMerit} removeMerit={removeMerit} />
+              ? <CustomTrait specialTrait={merit} update={updateMerit} remove={removeMerit} />
+              : <DefaultTrait specialTrait={merit} update={updateMerit} remove={removeMerit} />
             }
           </Row>
         ))}

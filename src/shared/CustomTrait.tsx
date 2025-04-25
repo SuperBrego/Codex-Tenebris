@@ -1,42 +1,42 @@
 import { Button, Col, Form } from "react-bootstrap";
-import { Merit } from "../interfaces/Merit";
+import { SpecialTrait } from "../interfaces/SpecialTrait";
 import DotRatingField from "./DotRatingField";
 import { useTranslation } from "react-i18next";
 
 interface Props {
-  merit: Merit;
-  updateMerit: (id: string, updates: Partial<Merit>) => void;
-  removeMerit: (id: string) => void;
+  specialTrait: SpecialTrait;
+  update: (id: string, updates: Partial<SpecialTrait>) => void;
+  remove: (id: string) => void;
 }
 
-export default function CustomTrait({ merit, updateMerit, removeMerit }: Props) {
+export default function CustomTrait({ specialTrait: trait, update, remove }: Props) {
   const { t } = useTranslation();
 
   return <>
     <Col md={5}>
       <Form.Control
         placeholder={t('meritName')}
-        value={merit.labelKey}
-        onChange={(e) => updateMerit(merit.id, { labelKey: e.target.value })}
+        value={trait.labelKey}
+        onChange={(e) => update(trait.id, { labelKey: e.target.value })}
         />
     </Col>
     <Col md={5}>
       <DotRatingField
-        label={merit.name}
-        value={merit.value}
-        onChange={(val) => updateMerit(merit.id, { value: val })}
-        disabled={merit.fixed}
+        label={trait.name}
+        value={trait.value}
+        onChange={(val) => update(trait.id, { value: val })}
+        disabled={trait.fixed}
       />
     </Col>
     <Col md={2} className="text-end">
-      <Button size="sm" variant="outline-danger" onClick={() => removeMerit(merit.id)}>X</Button>
+      <Button size="sm" variant="outline-danger" onClick={() => remove(trait.id)}>X</Button>
     </Col>
     <Col md={12}>
       <Form.Control
         as={'textarea'}
         placeholder={t('description')}
-        value={merit.description ?? ''}
-        onChange={(e) => updateMerit(merit.id, { description: e.target.value })}
+        value={trait.description ?? ''}
+        onChange={(e) => update(trait.id, { description: e.target.value })}
       />
     </Col>
   </>;

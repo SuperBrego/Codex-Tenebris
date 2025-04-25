@@ -1,8 +1,9 @@
 import { Trait } from './Trait';
 
-export interface Merit extends Trait {
+export interface SpecialTrait extends Trait {
   id: string;
   fixed: boolean;         // Se true, custo não pode ser editado
+  type: string;
   category: string        // Categoria: Física, Mental, Social, etc.
   min?: number;           // Mínimo para customização
   max?: number;           // Máximo para customização

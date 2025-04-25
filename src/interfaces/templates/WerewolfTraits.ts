@@ -1,7 +1,7 @@
 import { FormType } from "../../Utils/werewolfFormsData";
+import { SpecialTrait } from "../SpecialTrait";
 import { StateTrack } from "../StateTrack";
 import { SupernaturalTraits } from "../SupernaturalTraits";
-import { Trait } from "../Trait";
 
 export interface WerewolfTraits extends SupernaturalTraits {
   primalUrge: number;
@@ -9,8 +9,8 @@ export interface WerewolfTraits extends SupernaturalTraits {
   activeForm: FormType;
   renown: Record<'purity' | 'glory' | 'honor' | 'wisdom' | 'cunning', number>;
   triggers: Record<'passive' | 'common' | 'specific', string>;
-  gifts: Record<'moon' | 'shadow' | 'wolf', Trait[]>;
-  rites: Trait[];
+  gifts: SpecialTrait[];// Record<'moon' | 'shadow' | 'wolf', 
+  rites: SpecialTrait[];
   totem: {
     name: string;
     power: number;
@@ -23,7 +23,7 @@ export interface WerewolfTraits extends SupernaturalTraits {
     speed: number;
     size: number;
     corpus: number;
-    influences: Trait[];
+    influences: SpecialTrait[];
     aspiration: string;
     numina: string;
     bonuses: string;

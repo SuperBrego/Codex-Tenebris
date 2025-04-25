@@ -1,7 +1,7 @@
 import { SupernaturalTemplatesIDs } from "../enum/SupernaturalTemplates";
 import GalleryImage from "../interfaces/GalleryImage";
 import { HealthBox } from "../interfaces/HealthBox";
-import { Merit } from "../interfaces/Merit";
+import { SpecialTrait } from "../interfaces/SpecialTrait";
 import { PersonalInfo } from "../interfaces/PersonalInfo";
 import { Skill } from "../interfaces/Skill";
 import { StateTrack } from "../interfaces/StateTrack";
@@ -28,7 +28,7 @@ export class Character {
   willpower: StateTrack[];
   _size: number = 5;
   
-  merits: Merit[] = [];
+  merits: SpecialTrait[] = [];
   
   conditions: string[] = [];
   aspirations: string[] = [];

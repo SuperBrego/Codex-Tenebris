@@ -2,7 +2,7 @@ import { Character } from "../classes/Character";
 import { Armor } from "../interfaces/Equipments/Armor";
 import { Gear } from "../interfaces/Equipments/Gear";
 import { Weapon } from "../interfaces/Equipments/Weapon";
-import { Merit } from "../interfaces/Merit";
+import { SpecialTrait } from "../interfaces/SpecialTrait";
 
 
 export function downloadFile(content: string, filename: string, mimeType: string) {
@@ -30,8 +30,8 @@ export function characterToBBCode(character: Character, t: (key: string) => stri
     return skill.specialties ? `${base} ([i]${skill.specialties}[/i])` : base;
   }).join("\n");
   
-  const meritsToBBGrouped = (merits: Merit[]): string => {
-    const groupMap: Record<string, Merit[]> = {};
+  const meritsToBBGrouped = (merits: SpecialTrait[]): string => {
+    const groupMap: Record<string, SpecialTrait[]> = {};
     
     for (const merit of merits) {
       const category = merit.category?.toUpperCase() || "OUTROS";
