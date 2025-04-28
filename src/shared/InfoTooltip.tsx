@@ -7,7 +7,7 @@ interface Props {
   description: string;
 }
 
-export default function MeritTooltip({ description }: Props) {
+export default function InfoTooltip({ description }: Props) {
   const [showModal, setShowModal] = useState(false);
 
   const handleShow = () => setShowModal(true);

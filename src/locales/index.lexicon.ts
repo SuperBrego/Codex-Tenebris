@@ -1,13 +1,14 @@
 import { commonLexicon } from "./common.lexicon";
-import { supernaturalLexicon } from "./supernatural.lexicon";
+import { supernaturalLexicon } from "./supernatural/supernatural.lexicon";
 import { attributesLexicon } from "./attributes.lexicon";
 import { characterLexicon } from "./character.lexicon";
 import { equipmentLexicon } from "./equipment.lexicon";
 import { skillsLexicon } from "./skills.lexicon";
 import { templateLexicon } from "./templates.lexicon";
-import { vampireLexicon } from "./vampire.lexicon";
-import { werewolfLexicon } from "./werewolf.lexicon";
-import { generalMeritsLexicon } from "./merits_general.lexicon";
+import { vampireLexicon } from "./supernatural/vampire/vampire.lexicon";
+import { werewolfLexicon } from "./supernatural/werewolf/werewolf.lexicon";
+import { generalMeritsLexicon } from "./merits/merits_general.lexicon";
+import { moonGifts_lexicon } from "./supernatural/werewolf/werewolf.moon_gifts.lexicon";
 
 const mergeLexicons = (...lexicons: Record<string, { 'en-US': string; 'pt-BR': string }>[]): Record<"en-US" | "pt-BR", Record<string, string>> => {
   const merged = {
@@ -36,6 +37,7 @@ const translations = mergeLexicons(
   templateLexicon,
   vampireLexicon,
   werewolfLexicon,
+  moonGifts_lexicon,
 );
 
 export default translations;

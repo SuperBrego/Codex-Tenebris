@@ -55,5 +55,9 @@ export const commonLexicon: Record<string, { 'en-US': string; 'pt-BR': string }>
   // merit groups
   "fighting_merits": { "en-US": "Fighting", "pt-BR": "Luta" },
   "werewolf_merits": { "en-US": "Werewolf Merits", "pt-BR": "Vantagens de Lobisomem" },
-  "werewolf_fighting": { "en-US": "Werewolf Fighting", "pt-BR": "Lobisomem Marcial" }
+  "werewolf_fighting": { "en-US": "Werewolf Fighting", "pt-BR": "Lobisomem Marcial" },
+
+  // Poderes
+  "select": { "en-US": "Select", "pt-BR": "Selecione" },
+  "custom": { "en-US": "Custom", "pt-BR": "Personalizado" },
 };

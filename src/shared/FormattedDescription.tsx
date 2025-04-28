@@ -1,99 +1,101 @@
-import React from "react";
+// FormattedDescriptionRenderer.tsx
+import { parseFormattedDescription } from "../Utils/FormattedDescriptionParser";
 
 interface Props {
   description: string;
 }
 
-export default function FormattedDescription({ description }: Props) {
-  const lines = description.split("\n").map(line => line.trim()).filter(Boolean);
+export default function FormattedDescriptionRenderer({ description }: Props) {
+  const blocks = parseFormattedDescription(description);
 
-  const output: React.ReactNode[] = [];
-  let inLevelBlock = false;
-  const levelRows: React.ReactNode[] = [];
+  return (
+    <div className="formatted-description">
+      {blocks.map((block, index) => {
+        switch (block.type) {
+          case "powerTitle":
+            return (
+              <div key={index}>
+                {index !== 0 && <hr className="my-4" />}
+                <h2 className="mt-4 mb-3">{block.text}</h2>
+              </div>
+            );
+          case "sectionTitle":
+            return (
+              <h3 key={index} className="mt-4 mb-3">
+                {block.text}
+              </h3>
+            );
+          case "paragraph":
+            return (
+              <p key={index} className="mb-2">
+                {highlightParagraph(block.text)}
+              </p>
+            );
+          case "table":
+            return (
+              <table key={index} className="table table-sm table-bordered align-middle mt-3 mb-3">
+                <thead className="table-light">
+                  <tr>
+                    <th style={{ width: "10rem" }}>Resultado</th>
+                    <th>Descrição</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {block.rows.map((row, idx) => (
+                    <RowSimple key={idx} row={row} />
+                  ))}
+                </tbody>
+              </table>
+            );
+          default:
+            return null;
+        }
+      })}
+    </div>
+  );
+}
 
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
+function highlightParagraph(text: string) {
+  const recognizedTitles = [
+    "Cost", "Dice Pool", "Action", "Duration",
+    "Custo", "Reservatório de Dados", "Ação", "Duração",
+    "Pré-Requisitos", "Pré-Requisito", "Efeitos", "Efeito",
+    "Desvantagem", "Desvantagens",
+    "Prerequisite", "Prerequisites", "Effect", "Effects",
+    "Drawback", "Drawbacks"
+  ];
 
-    // Detecta início de bloco de tabela de níveis
-    if (/^Nível\s+Descrição$/i.test(line)) {
-      inLevelBlock = true;
-      levelRows.length = 0; // limpa qualquer anterior
-      continue;
-    }
-
-    // Linhas com nível e descrição
-    if (inLevelBlock && /^•{1,5}\s+/.test(line)) {
-      const match = line.match(/^(•{1,5})\s+(.*)/);
-      if (match) {
-        levelRows.push(
-          <tr key={`row-${i}`}>
-            <td style={{ paddingRight: "1rem", whiteSpace: "nowrap" }}>
-              <strong>{match[1]}</strong>
-            </td>
-            <td>
-              {match[2].includes(":") ? (
-                <>
-                  <strong>{match[2].split(":")[0]}:</strong>{" "}
-                  {match[2].split(":").slice(1).join(":").trim()}
-                </>
-              ) 
-              : (match[2])}
-            </td>
-          </tr>
-        );
-      }
-      continue;
-    }
-
-    // Sai do bloco de níveis quando encontra linha "normal"
-    if (inLevelBlock && !/^•{1,5}\s+/.test(line)) {
-      inLevelBlock = false;
-      output.push(
-        <table key={`table-${i}`} className="table table-sm align-middle">
-          <thead>
-            <tr>
-              <th style={{ width: "5rem" }}>Nível</th>
-              <th>Descrição</th>
-            </tr>
-          </thead>
-          <tbody>{levelRows}</tbody>
-        </table>
-      );
-      levelRows.length = 0;
-    }
-
-    // Linhas de título com "Efeitos:", "Pré-Requisitos:" etc.
-    if (  
-          /^(Pré-Requisitos|Pré-Requisito|Efeitos|Efeito|Desvantagem|Desvantagens|Nível.*Descrição):?/i.test(line)
-      ||  /^(Prerequisite|Prerequisites|Effect|Effects|Drawback|Drawbacks|Level.*Description):?/i.test(line)
-    ) {
-      const [title, ...rest] = line.split(":");
-      output.push(
-        <p key={`title-${i}`}>
-          <strong>{title}:</strong> {rest.join(":").trim()}
-        </p>
-      );
-      continue;
-    }
-
-    // Linhas normais
-    output.push(<p key={`line-${i}`}>{line}</p>);
-  }
-
-  // Caso tenha uma tabela pendente no fim
-  if (levelRows.length > 0) {
-    output.push(
-      <table key={`table-end`} className="table table-sm align-middle">
-        <thead>
-          <tr>
-            <th style={{ width: "5rem" }}>Nível</th>
-            <th>Descrição</th>
-          </tr>
-        </thead>
-        <tbody>{levelRows}</tbody>
-      </table>
+  const match = recognizedTitles.find(title =>
+    text.toLowerCase().startsWith(title.toLowerCase() + ":")
+  );
+  if (match) {
+    const [title, ...rest] = text.split(":");
+    return (
+      <>
+        <strong>{title.trim()}:</strong> {rest.join(":").trim()}
+      </>
     );
   }
 
-  return <div className="formatted-description">{output}</div>;
+  return text;
+}
+
+function RowSimple({ row }: { row: { result: string; content: string; subitems?: string[] } }) {
+  return (
+    <tr>
+      <td style={{ paddingRight: "1rem", whiteSpace: "nowrap" }}>
+        <strong>{row.result}</strong>
+      </td>
+      <td>
+        <div>{row.content}</div>
+        {row.subitems && (
+          <ul className="mt-2 mb-0 ps-4">
+            {row.subitems.map((sub, idx) => (
+              <li key={idx} className="mb-1">{sub}</li>
+            ))}
+          </ul>
+        )}
+      </td>
+    </tr>
+  );
 }

@@ -1,4 +1,4 @@
-export const mental_merits = {
+export const merits_mental = {
   // Assistente Investigativo - Investigative Aide
   "merit.investigativeAide": {
     "en-US": "Investigative Aide",

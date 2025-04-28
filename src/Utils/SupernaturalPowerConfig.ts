@@ -1,29 +1,25 @@
-import { SupernaturalTemplatesIDs } from "../enum/SupernaturalTemplates";
+// utils/buildSupernaturalPowerPaths.ts
+import { allWerewolfGifts } from "../database/supernatural";
 import { SpecialTrait } from "../interfaces/SpecialTrait";
 import { VampireTraits } from "../interfaces/templates/VampireTraits";
 import { WerewolfTraits } from "../interfaces/templates/WerewolfTraits";
 import { SupernaturalTemplatesType } from "../types/SupernaturalTemplatesType";
 
-export interface SupernaturalPowerConfig {
-  label: string;
-  path: (traits: SupernaturalTemplatesType) => SpecialTrait[];
-  updatePath: (traits: SupernaturalTemplatesType, updated: SpecialTrait[]) => SupernaturalTemplatesType;
-}
-
-export const supernaturalPowerPaths: Record<SupernaturalTemplatesIDs, SupernaturalPowerConfig | null> = {
-  [SupernaturalTemplatesIDs.Mortal]: null,
-
-  [SupernaturalTemplatesIDs.Vampire]: {
-    label: 'disciplines',
-    path: (traits) => (traits as VampireTraits).disciplines ?? [],
-    updatePath: (traits, updated) => ({ ...traits, disciplines: updated }),
-  },
-
-  [SupernaturalTemplatesIDs.Werewolf]: {
-    label: 'gifts',
-    path: (traits) => (traits as WerewolfTraits).gifts ?? [],
-    updatePath: (traits, updated) => ({ ...traits, gifts: updated }),
-  },
-
-  [SupernaturalTemplatesIDs.Deviant]: null,
+// Aqui você define quais labels mapeiam para quais "caminhos" dentro dos templates
+const pathBuilders: Record<string, (traits: SupernaturalTemplatesType) => SpecialTrait[]> = {
+  disciplines: (traits) => (traits as VampireTraits).disciplines ?? [],
+  gifts: (traits) => (traits as WerewolfTraits).gifts ?? [],
+  rites: (traits) => (traits as WerewolfTraits).rites ?? [],
+  // embeds: (traits) => traits.embeds ?? [],
+  // exploits: (traits) => traits.exploits ?? [],
+  // rotes: (traits) => traits.rotes ?? [],
+  // arcana: (traits) => traits.arcana ?? [],
+  // Adicione aqui os outros caminhos especiais
 };
+
+
+export const supernaturalPowerPaths = pathBuilders;
+
+export const supernaturalPredefinedPowers: Record<string, SpecialTrait[]> = {
+  gifts: allWerewolfGifts
+}

@@ -17,6 +17,7 @@ import GallerySection from "../pages/GallerySection";
 import WerewolfForms from "../modules/werewolf/WerewolfFormsCards";
 import Renown from "../modules/werewolf/Renown";
 import Essence from "../modules/werewolf/Essence";
+import Gifts from "../modules/werewolf/Gifts";
 
 export default function CondensedLayout() {
   return (
@@ -44,6 +45,7 @@ export default function CondensedLayout() {
           {/* Para Lobisomem */}
           <Renown />
           <Essence />
+          <Gifts />
 
           {/* Condições */}
           <ConditionsSection />

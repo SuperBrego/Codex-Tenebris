@@ -2,7 +2,7 @@ import { Button, Col, Form } from "react-bootstrap";
 import { SpecialTrait } from "../interfaces/SpecialTrait";
 import DotRatingField from "./DotRatingField";
 import { useTranslation } from "react-i18next";
-import MeritTooltip from "./MeritTooltip";
+import InfoTooltip from "./InfoTooltip";
 
 interface Props {
   specialTrait: SpecialTrait;
@@ -26,7 +26,7 @@ return <>
       />
     </Col>
     <Col md={2} className="text-end">
-      <MeritTooltip description={t(`${trait.labelKey}.description`)} />
+      <InfoTooltip description={t(`${trait.labelKey}.description`)} />
       <Button size="sm" variant="outline-danger" className="ms-1" onClick={() => remove(trait.id)}>X</Button>
     </Col>
     {hasTrait && <Col md={8}>
